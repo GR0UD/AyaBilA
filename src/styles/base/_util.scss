@@ -1,0 +1,13 @@
+@use "variables" as *;
+
+@mixin maxWidth($size: 0) {
+	margin: 0 auto;
+
+	padding-inline: $sidePadding;
+
+	@if $size == 0 {
+		max-width: $maxWidth + ($sidePadding * 2);
+	} @else {
+		max-width: $size + ($sidePadding * 2);
+	}
+}

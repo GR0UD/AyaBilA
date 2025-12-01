@@ -1,0 +1,10 @@
+@use "@/styles/base/util";
+
+.nav {
+	@include util.maxWidth;
+
+	position: sticky;
+
+	.logo {
+	}
+}
