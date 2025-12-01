@@ -1,0 +1,175 @@
+@use "@/styles/base/util";
+
+.footer {
+	background-color: #f8f8f8;
+	padding: 4rem 0 2rem;
+	margin-top: 6rem;
+	border-top: 1px solid #e0e0e0;
+}
+
+.container {
+	@include util.maxWidth;
+}
+
+.info {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 3rem;
+	margin-bottom: 3rem;
+}
+
+.brand {
+	h3 {
+		font-size: 2.4rem;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+		color: #333;
+	}
+}
+
+.contact,
+.address {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.8rem;
+	margin-bottom: 1rem;
+	color: #555;
+	font-size: 1.5rem;
+	line-height: 1.6;
+
+	svg {
+		flex-shrink: 0;
+		margin-top: 0.2rem;
+	}
+
+	a {
+		color: #555;
+		text-decoration: none;
+		transition: color 0.2s;
+
+		&:hover {
+			color: #000;
+		}
+	}
+}
+
+.hours {
+	h4 {
+		font-size: 1.8rem;
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+		color: #333;
+	}
+}
+
+.schedule {
+	display: flex;
+	flex-direction: column;
+	gap: 0.6rem;
+
+	p {
+		display: flex;
+		justify-content: space-between;
+		font-size: 1.4rem;
+		color: #555;
+		padding: 0.5rem 0.8rem;
+		border-radius: 6px;
+		transition: all 0.3s;
+
+		span:first-child {
+			font-weight: 500;
+			color: #333;
+		}
+
+		&.highlight {
+			background-color: #eee0b3;
+			color: #000;
+			font-weight: 600;
+
+			span {
+				color: #000;
+			}
+		}
+	}
+}
+
+.mapContainer {
+	min-height: 250px;
+}
+
+.map {
+	border-radius: 12px;
+	width: 100%;
+	height: 100%;
+	min-height: 250px;
+}
+
+.bottom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 2rem;
+	border-top: 1px solid #e0e0e0;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+}
+
+.social {
+	display: flex;
+	gap: 1.5rem;
+
+	a {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background-color: #fff;
+		color: #333;
+		border: 1px solid #e0e0e0;
+		transition: all 0.3s;
+
+		&:hover {
+			color: #fff;
+			border-color: transparent;
+		}
+
+		&:nth-child(1):hover {
+			background-color: #1877f2;
+		}
+
+		&:nth-child(2):hover {
+			background: linear-gradient(
+				to top right,
+				#833ab4,
+				#fd1d1d,
+				#fcb045
+			);
+		}
+
+		&:nth-child(3):hover {
+			background-color: #000;
+		}
+
+		svg {
+			flex-shrink: 0;
+		}
+	}
+}
+
+.copyright {
+	color: #666;
+	font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+	.info {
+		grid-template-columns: 1fr;
+	}
+
+	.bottom {
+		flex-direction: column;
+		text-align: center;
+	}
+}

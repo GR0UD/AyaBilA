@@ -1,4 +1,4 @@
-@use "variables" as *;
+@use "../../styles/base/variables" as *;
 
 @mixin maxWidth($size: 0) {
 	margin: 0 auto;
