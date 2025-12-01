@@ -1,18 +1,19 @@
 @use "@/styles/base/variables" as *;
+@use "@/styles/base/util";
 
 .button {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	gap: 0.6rem;
-	padding: 0.8rem 2rem;
+	padding: 0.6rem 1.5rem;
 	text-decoration: none;
 	border-radius: $border-radius;
 	font-weight: 600;
 	transition: all 0.3s;
 	border: 2px solid transparent;
 	cursor: pointer;
-	font-size: $font-size-14;
+	@include util.fontSize($font-size-13);
 }
 
 .primary {
