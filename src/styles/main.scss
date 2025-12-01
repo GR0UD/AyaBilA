@@ -1,1 +1,6 @@
 @use "base/reset";
+@use "base/util";
+
+main {
+	@include util.maxWidth;
+}

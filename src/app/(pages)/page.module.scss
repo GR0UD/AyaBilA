@@ -1,20 +1,15 @@
-.page {
-	display: flex;
-	min-height: 100vh;
-	align-items: center;
-	justify-content: center;
-	font-family: var(--font-geist-sans);
-	background-color: var(--background);
-}
+.header {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
+	grid-auto-rows: 1fr;
+	align-items: strech;
 
-.main {
-	display: flex;
-	min-height: 100vh;
-	width: 100%;
-	max-width: 800px;
-	flex-direction: column;
-	align-items: flex-start;
-	justify-content: space-between;
-	background-color: var(--foreground);
-	padding: 120px 60px;
+	& img {
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+	}
 }
