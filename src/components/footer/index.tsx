@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import {
 	FaFacebookF,
 	FaInstagram,
@@ -92,30 +93,30 @@ export const Footer = () => {
 
 				<div className={styles.bottom}>
 					<div className={styles.social}>
-						<a
+						<Link
 							href="https://www.facebook.com/profile.php?id=100064157105267"
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label="Facebook"
 						>
 							<FaFacebookF size={24} />
-						</a>
-						<a
+						</Link>
+						<Link
 							href="https://www.instagram.com/ayabila2019"
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label="Instagram"
 						>
 							<FaInstagram size={24} />
-						</a>
-						<a
+						</Link>
+						<Link
 							href="https://www.tiktok.com/@0ayabila0"
 							target="_blank"
 							rel="noopener noreferrer"
 							aria-label="TikTok"
 						>
 							<FaTiktok size={24} />
-						</a>
+						</Link>
 					</div>
 					<p className={styles.copyright}>© 2024 ayabila.dk</p>
 				</div>

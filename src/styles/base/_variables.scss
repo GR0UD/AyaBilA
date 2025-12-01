@@ -1,8 +1,38 @@
+// Layout
 $maxWidth: 1200px;
 $sidePadding: 20px;
 
+// Typography
 $font-family: "Inter", Arial, Helvetica, sans-serif;
 $font-size-14: 1.4rem;
 $font-size-16: 1.6rem;
 $font-size-18: 1.8rem;
+$font-size-24: 2.4rem;
 $font-size-44: 4.4rem;
+
+// Colors
+$color-white: #fff;
+$color-black: #000;
+$color-dark: #333;
+$color-gray: #555;
+$color-light-gray: #f8f8f8;
+$color-border: #e0e0e0;
+$color-highlight: #eee0b3;
+$color-highlight-hover: #d4c89a;
+
+// Social Media Colors
+$color-facebook: #1877f2;
+$color-tiktok: #000;
+
+// Instagram Gradient
+$color-instagram-start: #fdf497;
+$color-instagram-mid: #fd5949;
+$color-instagram-accent: #d6249f;
+$color-instagram-end: #285aeb;
+
+// Accent (for existing button)
+$color-accent: $color-dark;
+
+// Border Radius
+$border-radius: 6px;
+$border-radius-large: 12px;

@@ -1,16 +1,36 @@
 @use "@/styles/base/variables" as *;
-@use "sass:color";
 
 .button {
-	color: white;
-	background-color: $color-accent;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.6rem;
+	padding: 0.8rem 2rem;
+	text-decoration: none;
+	border-radius: $border-radius;
+	font-weight: 600;
+	transition: all 0.3s;
+	border: 2px solid transparent;
+	cursor: pointer;
+	font-size: $font-size-14;
+}
 
-	padding: 14px 26px;
-	border-radius: 8px;
-
-	transition: background-color 0.2s ease;
+.primary {
+	background-color: $color-dark;
+	color: $color-white;
 
 	&:hover {
-		background-color: color.adjust($color-accent, $lightness: 15%);
+		background-color: $color-black;
+	}
+}
+
+.secondary {
+	background-color: $color-white;
+	color: $color-dark;
+	border-color: $color-dark;
+
+	&:hover {
+		background-color: $color-dark;
+		color: $color-white;
 	}
 }

@@ -5,6 +5,7 @@
 	padding: 4rem 0 2rem;
 	margin-top: 6rem;
 	border-top: 1px solid #e0e0e0;
+	box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
 }
 
 .container {
@@ -140,11 +141,12 @@
 		}
 
 		&:nth-child(2):hover {
-			background: linear-gradient(
-				to top right,
-				#833ab4,
-				#fd1d1d,
-				#fcb045
+			background: radial-gradient(
+				circle at 30% 107%,
+				#fdf497 0%,
+				#fd5949 45%,
+				#d6249f 60%,
+				#285aeb 90%
 			);
 		}
 
