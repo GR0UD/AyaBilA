@@ -48,13 +48,16 @@ export const Footer = () => {
 						</p>
 						<p className={styles.address}>
 							<FaMapMarkerAlt size={18} />
-							<span>
+							<Link
+								href="https://www.google.com/maps/place/Kongebrogade+29,+6000+Kolding/@55.4859393,9.4751387,426m/data=!3m2!1e3!4b1!4m6!3m5!1s0x464c9f7b595a53cd:0x3e700d5ea050b5f7!8m2!3d55.4859393!4d9.4777136!16s%2Fg%2F11cpl6gzjj?entry=ttu&g_ep=EgoyMDI1MTEyMy4xIKXMDSoASAFQAw%3D%3D"
+								target="_blank"
+							>
 								Kongebrogade 29,
 								<br />
 								Kolding, 6000
 								<br />
 								Denmark
-							</span>
+							</Link>
 						</p>
 					</div>
 
