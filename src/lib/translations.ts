@@ -188,7 +188,8 @@ export const translations = {
 			phone: "+45 12 34 56 78",
 			email: "kontakt@ayabila.dk",
 			hours: "Åbningstider",
-			housText: "Man-Fre: 10:00 - 19:00\nLør: 10:00 - 17:00\nSøn: Lukket",
+			housText:
+				"Man-Ons: 10:00 - 17:00\nTors-Fre: 10:00 - 18:00\nLør: 10:00 - 15:30\nSøn: Lukket",
 			followUs: "Følg os",
 			copyright: "© 2026 AyabilA. Alle rettigheder forbeholdes.",
 		},
@@ -381,7 +382,8 @@ export const translations = {
 			phone: "+45 12 34 56 78",
 			email: "contact@ayabila.dk",
 			hours: "Opening hours",
-			housText: "Mon-Fri: 10:00 - 19:00\nSat: 10:00 - 17:00\nSun: Closed",
+			housText:
+				"Mon-Wed: 10:00 - 17:00\nThu-Fri: 10:00 - 18:00\nSat: 10:00 - 15:30\nSun: Closed",
 			followUs: "Follow us",
 			copyright: "© 2026 AyabilA. All rights reserved.",
 		},
@@ -574,7 +576,7 @@ export const translations = {
 			email: "contact@ayabila.dk",
 			hours: "ساعات العمل",
 			housText:
-				"الإثنين-الجمعة: 10:00 - 19:00\nالسبت: 10:00 - 17:00\nالأحد: مغلق",
+				"الإثنين-الأربعاء: 10:00 - 17:00\nالخميس-الجمعة: 10:00 - 18:00\nالسبت: 10:00 - 15:30\nالأحد: مغلق",
 			followUs: "تابعنا",
 			copyright: "© 2026 AyabilA. جميع الحقوق محفوظة.",
 		},
