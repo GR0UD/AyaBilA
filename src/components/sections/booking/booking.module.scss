@@ -1,0 +1,145 @@
+@use "@/styles/base/util";
+@use "@/styles/base/variables" as *;
+
+.booking {
+	padding: 6rem 0;
+	background: $color-light-gray;
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: -50%;
+		left: -25%;
+		width: 50%;
+		height: 200%;
+		background: radial-gradient(
+			ellipse at center,
+			rgba($color-gold, 0.05) 0%,
+			transparent 50%
+		);
+		pointer-events: none;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: -50%;
+		right: -25%;
+		width: 50%;
+		height: 200%;
+		background: radial-gradient(
+			ellipse at center,
+			rgba($color-pink, 0.05) 0%,
+			transparent 50%
+		);
+		pointer-events: none;
+	}
+}
+
+.container {
+	@include util.maxWidth;
+	position: relative;
+	z-index: 1;
+}
+
+.content {
+	max-width: 700px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.title {
+	color: $color-navy;
+	@include util.fontSize($font-size-44);
+	font-weight: 700;
+	margin-bottom: 1rem;
+	line-height: 1.2;
+
+	@media (max-width: 768px) {
+		@include util.fontSize($font-size-32);
+	}
+}
+
+.subtitle {
+	color: $color-gray;
+	@include util.fontSize($font-size-16);
+	line-height: 1.7;
+	margin-bottom: 2.5rem;
+}
+
+.actions {
+	margin-bottom: 3rem;
+}
+
+.contactInfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+.contactItem {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	background-color: $color-white;
+	padding: 1rem 2rem;
+	border-radius: $border-radius-large;
+	box-shadow: $shadow-sm;
+	text-decoration: none;
+	transition: all $transition-normal;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: $shadow-md;
+	}
+}
+
+.contactIcon {
+	font-size: 1.5rem;
+}
+
+.contactText {
+	color: $color-navy;
+	font-weight: 600;
+	@include util.fontSize($font-size-16);
+}
+
+.socialLinks {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+}
+
+.socialLabel {
+	color: $color-gray;
+	@include util.fontSize($font-size-14);
+}
+
+.socials {
+	display: flex;
+	gap: 1rem;
+}
+
+.socialLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	background-color: $color-white;
+	border: 2px solid $color-border;
+	border-radius: 50%;
+	color: $color-navy;
+	transition: all $transition-fast;
+
+	&:hover {
+		background-color: $color-navy;
+		border-color: $color-navy;
+		color: $color-white;
+		transform: scale(1.1);
+	}
+}

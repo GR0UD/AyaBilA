@@ -1,0 +1,273 @@
+@use "@/styles/base/util";
+@use "@/styles/base/variables" as *;
+
+.about {
+	padding: 6rem 0;
+	background-color: $color-light-gray;
+}
+
+.container {
+	@include util.maxWidth;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 4rem;
+	align-items: center;
+
+	@media (max-width: 900px) {
+		grid-template-columns: 1fr;
+		gap: 3rem;
+	}
+}
+
+.content {
+	max-width: 560px;
+}
+
+.badge {
+	display: inline-block;
+	background: linear-gradient(135deg, $color-gold 0%, #fcd34d 100%);
+	color: $color-navy-dark;
+	@include util.fontSize($font-size-12);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 0.5rem 1rem;
+	border-radius: $border-radius;
+	margin-bottom: 1rem;
+}
+
+.title {
+	color: $color-navy;
+	@include util.fontSize($font-size-44);
+	font-weight: 700;
+	margin-bottom: 1.5rem;
+	line-height: 1.2;
+
+	@media (max-width: 768px) {
+		@include util.fontSize($font-size-32);
+	}
+}
+
+.text {
+	color: $color-gray;
+	@include util.fontSize($font-size-16);
+	line-height: 1.8;
+	margin-bottom: 2rem;
+}
+
+.features {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1.5rem;
+}
+
+.feature {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	background-color: $color-white;
+	padding: 1rem 1.25rem;
+	border-radius: $border-radius-large;
+	box-shadow: $shadow-sm;
+	transition: all $transition-normal;
+
+	&:hover {
+		transform: translateY(-2px);
+		box-shadow: $shadow-md;
+	}
+}
+
+.featureIcon {
+	font-size: 1.5rem;
+}
+
+.featureText {
+	color: $color-navy;
+	font-weight: 600;
+	@include util.fontSize($font-size-14);
+}
+
+.visual {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2rem;
+
+	@media (max-width: 900px) {
+		order: -1;
+	}
+}
+
+.cardsContainer {
+	display: flex;
+	position: relative;
+	height: 420px;
+	width: 480px;
+	margin: 0 auto;
+
+	@media (max-width: 768px) {
+		height: 350px;
+		width: 400px;
+	}
+}
+
+.personCard {
+	position: absolute;
+	width: 320px;
+	height: 380px;
+	border: none;
+	cursor: pointer;
+	background: none;
+	padding: 0;
+	border-radius: $border-radius-xl;
+	overflow: hidden;
+	transition: all $transition-normal;
+	opacity: 1;
+	z-index: 1;
+	flex-shrink: 0;
+	box-shadow: $shadow-md;
+
+	@media (max-width: 768px) {
+		width: 280px;
+		height: 340px;
+	}
+
+	&:first-child {
+		left: 0;
+		z-index: 10;
+		box-shadow: $shadow-lg;
+
+		&.active {
+			left: 0;
+			z-index: 10;
+		}
+
+		&:not(.active) {
+			left: 100px;
+			z-index: 1;
+			opacity: 1;
+			transform: rotate(8deg);
+		}
+	}
+
+	&:last-child {
+		left: 100px;
+		z-index: 1;
+		opacity: 1;
+		box-shadow: $shadow-md;
+		transform: rotate(8deg);
+
+		&.active {
+			left: 0;
+			z-index: 10;
+			box-shadow: $shadow-lg;
+			transform: rotate(0deg);
+			opacity: 1;
+		}
+
+		&:not(.active) {
+			left: 100px;
+			z-index: 1;
+			opacity: 1;
+			transform: rotate(8deg);
+		}
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&:focus {
+		outline: 3px solid $color-gold;
+		outline-offset: 2px;
+	}
+}
+
+.cardContent {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: $border-radius-xl;
+	box-shadow: $shadow-lg;
+}
+
+.cardImage {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform $transition-normal;
+	display: block;
+}
+
+.cardOverlay {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+	padding: 2rem 1.5rem;
+	display: none;
+	flex-direction: column;
+	justify-content: flex-end;
+	height: 100%;
+	transition: opacity $transition-normal;
+}
+
+.cardName {
+	color: $color-gold;
+	@include util.fontSize($font-size-24);
+	font-weight: 700;
+	margin: 0;
+	margin-bottom: 0.25rem;
+}
+
+.cardRole {
+	color: $color-white;
+	@include util.fontSize($font-size-14);
+	margin: 0;
+	opacity: 0.9;
+}
+
+.storyContainer {
+	width: 100%;
+	max-width: 480px;
+	background-color: $color-white;
+	padding: 2rem;
+	border-radius: $border-radius-large;
+	box-shadow: $shadow-md;
+	min-height: 200px;
+	display: flex;
+	align-items: center;
+}
+
+.story {
+	width: 100%;
+	animation: fadeIn 0.3s ease-in-out;
+}
+
+.storyTitle {
+	color: $color-navy;
+	@include util.fontSize($font-size-20);
+	font-weight: 700;
+	margin: 0 0 1rem 0;
+}
+
+.storyText {
+	color: $color-gray;
+	@include util.fontSize($font-size-14);
+	line-height: 1.8;
+	margin: 0;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

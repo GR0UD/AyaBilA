@@ -1,6 +1,18 @@
 @use "base/reset";
 @use "base/util";
+@use "base/variables" as *;
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: $font-family;
+	background-color: $color-white;
+	color: $color-dark;
+	line-height: 1.6;
+}
 
 main {
-	@include util.maxWidth;
+	// Remove maxWidth constraint for full-width sections
 }

@@ -1,18 +1,24 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Poppins } from "next/font/google"
+import { LanguageProvider } from "@/context/LanguageContext"
 import { Header } from "@/components/header"
-
-import "@/styles/main.scss"
 import { Footer } from "@/components/footer"
 
-const inter = Inter({
+import "@/styles/main.scss"
+
+const poppins = Poppins({
 	subsets: ["latin"],
+	weight: ["300", "400", "500", "600", "700"],
 	display: "swap",
 })
 
 export const metadata: Metadata = {
-	title: "AyabilA – Frisør & Kosmetolog",
-	description: "",
+	title: "AyabilA – Herre- & Damefrisør og Kosmetolog",
+	description:
+		"Eksklusiv herre- og damefrisør i hjertet af København. Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger.",
+	icons: {
+		icon: "/logo.png",
+	},
 }
 
 export default function RootLayout({
@@ -21,11 +27,13 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="en" className={inter.className}>
+		<html lang="da" className={poppins.className}>
 			<body>
-				<Header />
-				<main>{children}</main>
-				<Footer />
+				<LanguageProvider>
+					<Header />
+					<main>{children}</main>
+					<Footer />
+				</LanguageProvider>
 			</body>
 		</html>
 	)

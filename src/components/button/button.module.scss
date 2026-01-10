@@ -6,32 +6,45 @@
 	align-items: center;
 	justify-content: center;
 	gap: 0.6rem;
-	padding: 0.6rem 1.5rem;
+	padding: 0.85rem 2rem;
 	text-decoration: none;
 	border-radius: $border-radius;
 	font-weight: 600;
-	transition: all 0.3s;
+	transition: all $transition-normal;
 	border: 2px solid transparent;
 	cursor: pointer;
-	@include util.fontSize($font-size-13);
+	@include util.fontSize($font-size-14);
+	letter-spacing: 0.02em;
 }
 
 .primary {
-	background-color: $color-dark;
-	color: $color-white;
+	background: linear-gradient(135deg, $color-gold 0%, #fcd34d 100%);
+	color: $color-navy-dark;
+	box-shadow: 0 4px 20px rgba(252, 211, 77, 0.35);
 
 	&:hover {
-		background-color: $color-black;
+		box-shadow: 0 6px 24px rgba(252, 211, 77, 0.4);
 	}
 }
 
 .secondary {
-	background-color: $color-white;
-	color: $color-dark;
-	border-color: $color-dark;
+	background-color: transparent;
+	color: $color-white;
+	border-color: $color-gold;
 
 	&:hover {
-		background-color: $color-dark;
-		color: $color-white;
+		background-color: $color-gold;
+		color: $color-navy-dark;
+	}
+}
+
+.ghost {
+	background-color: transparent;
+	color: $color-gold;
+	border-color: transparent;
+	padding: 0.5rem 1rem;
+
+	&:hover {
+		background-color: rgba($color-gold, 0.1);
 	}
 }

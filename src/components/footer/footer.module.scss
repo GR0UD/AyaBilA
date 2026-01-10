@@ -2,177 +2,264 @@
 @use "@/styles/base/variables" as *;
 
 .footer {
-	background-color: #f8f8f8;
-	padding: 4rem 0 2rem;
-	margin-top: 6rem;
-	border-top: 1px solid #e0e0e0;
-	box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.05);
+	background-color: $color-navy-dark;
+	padding: 5rem 0 2.5rem;
+	margin-top: 0;
+	border-top: none;
+	box-shadow: none;
 }
 
 .container {
 	@include util.maxWidth;
 }
 
-.info {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	gap: 3rem;
-	margin-bottom: 3rem;
+.grid {
+	display: flex;
+	justify-content: space-between;
+	gap: 4rem;
+	margin-bottom: 4rem;
+	align-items: start;
+
+	@media (max-width: 1100px) {
+		flex-wrap: wrap;
+		gap: 3rem;
+
+		.mapSection {
+			flex-basis: 100%;
+		}
+	}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		gap: 3rem;
+	}
 }
 
 .brand {
-	h3 {
-		@include util.fontSize($font-size-20);
-		font-weight: 600;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	text-align: left;
+	flex: 0 0 auto;
+	min-width: 220px;
+
+	.logoImage {
+		border-radius: $border-radius;
 		margin-bottom: 1.5rem;
-		color: #333;
+	}
+
+	@media (max-width: 768px) {
+		align-items: center;
+		text-align: center;
+		width: 100%;
 	}
 }
 
-.contact,
-.address {
+.businessInfo {
+	margin-top: 1rem;
+	margin-bottom: 0.5rem;
 	display: flex;
-	align-items: flex-start;
-	gap: 0.8rem;
-	margin-bottom: 1rem;
-	color: #555;
-	@include util.fontSize($font-size-14);
-	line-height: 1.6;
+	flex-direction: column;
+	gap: 0.25rem;
 
-	svg {
-		flex-shrink: 0;
-		margin-top: 0.2rem;
+	.businessName {
+		color: rgba($color-white, 0.9);
+		@include util.fontSize($font-size-14);
+		font-weight: 500;
+		margin: 0;
 	}
 
-	a {
-		color: #555;
-		text-decoration: none;
-		transition: color 0.2s;
+	.cvr {
+		color: rgba($color-white, 0.6);
+		@include util.fontSize($font-size-13);
+		margin: 0;
+	}
+}
 
-		&:hover {
-			color: #000;
+.contactInfo {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	margin-top: 1rem;
+}
+
+.contactItem {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	color: rgba($color-white, 0.8);
+	text-decoration: none;
+	@include util.fontSize($font-size-14);
+	transition: color $transition-fast;
+
+	&:hover {
+		color: $color-gold;
+
+		.icon {
+			color: $color-gold;
 		}
 	}
 }
 
+.icon {
+	flex-shrink: 0;
+	color: rgba($color-white, 0.6);
+	transition: color $transition-fast;
+}
+
 .hours {
-	h4 {
-		@include util.fontSize($font-size-16);
+	text-align: left;
+	flex: 0 0 auto;
+	min-width: 300px;
+
+	.sectionTitle {
+		color: $color-white;
+		@include util.fontSize($font-size-18);
 		font-weight: 600;
 		margin-bottom: 1.5rem;
-		color: #333;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+		text-align: center;
+		min-width: none;
+
+		.sectionTitle {
+			text-align: center;
+		}
 	}
 }
 
 .schedule {
 	display: flex;
 	flex-direction: column;
-	gap: 0.6rem;
+	gap: 0;
 
 	p {
 		display: flex;
 		justify-content: space-between;
-		@include util.fontSize($font-size-13);
-		color: #555;
-		padding: 0.5rem 0.8rem;
-		border-radius: 6px;
-		transition: all 0.3s;
+		@include util.fontSize($font-size-15);
+		color: rgba($color-white, 0.7);
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid rgba($color-white, 0.1);
+		border-radius: 0;
+		transition: all $transition-fast;
+		min-width: 280px;
 
-		span:first-child {
-			font-weight: 500;
-			color: #333;
+		&:last-child {
+			border-bottom: none;
 		}
 
 		&.highlight {
-			background-color: $color-highlight;
-			color: #000;
-			font-weight: 600;
+			background-color: rgba($color-gold, 0.15);
+			color: $color-gold;
+			border-bottom-color: rgba($color-gold, 0.2);
 
-			span {
-				color: #000;
+			.dayName,
+			.dayHours {
+				color: $color-gold;
 			}
 		}
 	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+
+		p {
+			min-width: none;
+		}
+	}
 }
 
-.mapContainer {
-	min-height: 250px;
+.dayName {
+	font-weight: 500;
+	color: rgba($color-white, 0.9);
 }
 
-.map {
-	border-radius: 12px;
-	width: 100%;
-	height: 100%;
-	min-height: 250px;
-}
-
-.bottom {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-top: 2rem;
-	border-top: 1px solid #e0e0e0;
-	flex-wrap: wrap;
-	gap: 1.5rem;
+.dayHours {
+	color: rgba($color-white, 0.7);
 }
 
 .social {
-	display: flex;
-	gap: 1.5rem;
-
-	a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 40px;
-		height: 40px;
-		border-radius: 50%;
-		background-color: #fff;
-		color: #333;
-		border: 1px solid #e0e0e0;
-		transition: all 0.3s;
-
-		&:hover {
-			color: #fff;
-			border-color: transparent;
-		}
-
-		&:nth-child(1):hover {
-			background-color: #1877f2;
-		}
-
-		&:nth-child(2):hover {
-			background: radial-gradient(
-				circle at 30% 107%,
-				#fdf497 0%,
-				#fd5949 45%,
-				#d6249f 60%,
-				#285aeb 90%
-			);
-		}
-
-		&:nth-child(3):hover {
-			background-color: #000;
-		}
-
-		svg {
-			flex-shrink: 0;
-		}
+	.sectionTitle {
+		color: $color-white;
+		@include util.fontSize($font-size-16);
+		font-weight: 600;
+		margin-bottom: 1.25rem;
 	}
+}
+
+.socialLinks {
+	display: flex;
+	flex-direction: row;
+	gap: 0.75rem;
+	justify-content: flex-start;
+
+	@media (max-width: 768px) {
+		justify-content: center;
+		width: 100%;
+	}
+}
+
+.socialLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: rgba($color-white, 0.8);
+	text-decoration: none;
+	@include util.fontSize($font-size-14);
+	padding: 0.75rem;
+	background-color: rgba($color-white, 0.05);
+	border-radius: $border-radius;
+	transition: all $transition-fast;
+	width: 44px;
+	height: 44px;
+
+	svg {
+		flex-shrink: 0;
+	}
+
+	&:hover {
+		background-color: rgba($color-gold, 0.15);
+		color: $color-gold;
+		transform: scale(1.1);
+	}
+}
+
+.mapSection {
+	width: 80%;
+	max-width: 500px;
+	height: 400px;
+	border-radius: $border-radius-large;
+	overflow: hidden;
+	box-shadow: $shadow-lg;
+	flex: 1 1 auto;
+
+	@media (max-width: 1100px) {
+		max-width: 100%;
+		height: 300px;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+		height: 400px;
+	}
+
+	iframe {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.bottom {
+	padding-top: 2.5rem;
+	border-top: 1px solid rgba($color-white, 0.1);
+	text-align: center;
+	width: 100%;
 }
 
 .copyright {
-	color: #666;
+	color: rgba($color-white, 0.5);
 	@include util.fontSize($font-size-13);
-}
-
-@media (max-width: 768px) {
-	.info {
-		grid-template-columns: 1fr;
-	}
-
-	.bottom {
-		flex-direction: column;
-		text-align: center;
-	}
 }

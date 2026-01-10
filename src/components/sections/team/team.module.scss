@@ -1,0 +1,184 @@
+@use "@/styles/base/util";
+@use "@/styles/base/variables" as *;
+
+.team {
+	padding: 6rem 0;
+	background: linear-gradient(180deg, $color-navy-dark 0%, $color-navy 100%);
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: radial-gradient(
+				ellipse at 10% 90%,
+				rgba($color-pink, 0.1) 0%,
+				transparent 50%
+			),
+			radial-gradient(
+				ellipse at 90% 10%,
+				rgba($color-gold, 0.1) 0%,
+				transparent 50%
+			);
+		pointer-events: none;
+	}
+}
+
+.container {
+	@include util.maxWidth;
+	position: relative;
+	z-index: 1;
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 4rem;
+}
+
+.title {
+	color: $color-white;
+	@include util.fontSize($font-size-44);
+	font-weight: 700;
+	margin-bottom: 1rem;
+	line-height: 1.2;
+
+	@media (max-width: 768px) {
+		@include util.fontSize($font-size-32);
+	}
+}
+
+.subtitle {
+	color: rgba($color-white, 0.7);
+	@include util.fontSize($font-size-16);
+	max-width: 500px;
+	margin: 0 auto;
+	line-height: 1.7;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 3rem;
+	max-width: 900px;
+	margin: 0 auto;
+
+	@media (max-width: 768px) {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
+}
+
+.card {
+	background-color: rgba($color-white, 0.05);
+	border: 1px solid rgba($color-white, 0.1);
+	border-radius: $border-radius-xl;
+	overflow: hidden;
+	transition: all $transition-normal;
+
+	&:hover {
+		transform: translateY(-8px);
+		border-color: rgba($color-gold, 0.3);
+		box-shadow: 0 20px 40px rgba($color-black, 0.3);
+
+		.imageOverlay {
+			opacity: 0;
+		}
+
+		.image {
+			transform: scale(1.05);
+		}
+	}
+}
+
+.imageWrapper {
+	position: relative;
+	width: 100%;
+	height: 350px;
+	overflow: hidden;
+
+	@media (max-width: 480px) {
+		height: 300px;
+	}
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: top center;
+	transition: transform $transition-slow;
+}
+
+.imageOverlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(
+		180deg,
+		transparent 0%,
+		rgba($color-navy-dark, 0.3) 100%
+	);
+	transition: opacity $transition-normal;
+}
+
+.content {
+	padding: 1.75rem;
+	text-align: center;
+}
+
+.name {
+	color: $color-white;
+	@include util.fontSize($font-size-24);
+	font-weight: 700;
+	margin-bottom: 0.5rem;
+}
+
+.role {
+	display: inline-block;
+	background: linear-gradient(135deg, $color-gold 0%, #fcd34d 100%);
+	color: $color-navy-dark;
+	@include util.fontSize($font-size-12);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 0.4rem 1rem;
+	border-radius: $border-radius;
+	margin-bottom: 1rem;
+}
+
+.description {
+	color: rgba($color-white, 0.75);
+	@include util.fontSize($font-size-14);
+	line-height: 1.7;
+	margin-bottom: 1.25rem;
+}
+
+.socials {
+	display: flex;
+	justify-content: center;
+	gap: 0.75rem;
+}
+
+.socialLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	background-color: rgba($color-white, 0.1);
+	border-radius: 50%;
+	color: $color-white;
+	transition: all $transition-fast;
+
+	&:hover {
+		background-color: $color-gold;
+		color: $color-navy-dark;
+		transform: scale(1.1);
+	}
+}

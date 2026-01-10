@@ -1,0 +1,174 @@
+@use "@/styles/base/util";
+@use "@/styles/base/variables" as *;
+
+.services {
+	padding: 6rem 0;
+	background-color: $color-white;
+}
+
+.container {
+	@include util.maxWidth;
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 3rem;
+}
+
+.title {
+	color: $color-navy;
+	@include util.fontSize($font-size-44);
+	font-weight: 700;
+	margin-bottom: 1rem;
+	line-height: 1.2;
+
+	@media (max-width: 768px) {
+		@include util.fontSize($font-size-32);
+	}
+}
+
+.subtitle {
+	color: $color-gray;
+	@include util.fontSize($font-size-16);
+	max-width: 600px;
+	margin: 0 auto;
+	line-height: 1.7;
+}
+
+.categories {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	margin-bottom: 3rem;
+}
+
+.categoryBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	background-color: $color-light-gray;
+	border: 2px solid transparent;
+	padding: 0.75rem 1.5rem;
+	border-radius: $border-radius-large;
+	cursor: pointer;
+	transition: all $transition-normal;
+	@include util.fontSize($font-size-14);
+	font-weight: 600;
+	color: $color-gray;
+
+	&:hover {
+		background-color: rgba($color-gold, 0.1);
+		border-color: rgba($color-gold, 0.3);
+		color: $color-navy;
+	}
+
+	&.active {
+		background-color: $color-navy;
+		border-color: $color-navy;
+		color: $color-white;
+
+		.categoryIcon {
+			transform: scale(1.1);
+		}
+	}
+}
+
+.categoryIcon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform $transition-fast;
+
+	svg {
+		display: block;
+	}
+}
+
+.categoryLabel {
+	@media (max-width: 480px) {
+		display: none;
+	}
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem;
+
+	@media (max-width: 1024px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 640px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.card {
+	background-color: $color-white;
+	border: 1px solid $color-border;
+	border-radius: $border-radius-large;
+	padding: 1.75rem;
+	transition: all $transition-normal;
+	display: flex;
+	flex-direction: column;
+	cursor: pointer;
+
+	&:hover {
+		transform: translateY(-4px);
+		box-shadow: $shadow-lg;
+		border-color: rgba($color-gold, 0.3);
+	}
+}
+
+.cardHeader {
+	margin-bottom: 1rem;
+}
+
+.serviceName {
+	color: $color-navy;
+	@include util.fontSize($font-size-18);
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.servicePrice {
+	background: linear-gradient(135deg, $color-gold 0%, $color-gold-dark 100%);
+	color: $color-white;
+	@include util.fontSize($font-size-14);
+	font-weight: 700;
+	padding: 0.4rem 0.8rem;
+	border-radius: $border-radius;
+	white-space: nowrap;
+}
+
+.serviceDescription {
+	color: $color-gray;
+	@include util.fontSize($font-size-14);
+	line-height: 1.7;
+	flex: 1;
+	margin-bottom: 1rem;
+}
+
+.cardFooter {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 1rem;
+	border-top: 1px solid $color-border;
+	gap: 1rem;
+}
+
+.serviceDuration {
+	color: $color-gray;
+	@include util.fontSize($font-size-13);
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+
+	svg {
+		flex-shrink: 0;
+	}
+}

@@ -4,7 +4,7 @@ import styles from "./button.module.scss"
 interface ButtonProps {
 	href?: string
 	children: React.ReactNode
-	variant?: "primary" | "secondary"
+	variant?: "primary" | "secondary" | "ghost"
 	target?: string
 	rel?: string
 	className?: string
