@@ -23,7 +23,7 @@ export const AboutSection = () => {
 		>
 			<div className={styles.container}>
 				<div className={styles.content}>
-					<span className={styles.badge}>Salon Rami & Bilal</span>
+					<span className={styles.badge}>AyabilA</span>
 					<h2 className={styles.title}>{t.about.title}</h2>
 					<p className={styles.text}>{t.about.text}</p>
 					<div className={styles.features}>
