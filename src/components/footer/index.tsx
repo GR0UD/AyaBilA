@@ -2,77 +2,11 @@
 
 import Image from "next/image"
 import { useLanguage } from "@/context/LanguageContext"
+import { DaySchedule } from "./daySchedule"
 import styles from "./footer.module.scss"
 
 export const Footer = () => {
 	const { t, isRTL, language } = useLanguage()
-
-	// Get current day (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
-	const currentDay = new Date().getDay()
-
-	// Map day numbers to day names in current language
-	const dayMaps = {
-		da: [
-			"Søndag",
-			"Mandag",
-			"Tirsdag",
-			"Onsdag",
-			"Torsdag",
-			"Fredag",
-			"Lørdag",
-		],
-		en: [
-			"Sunday",
-			"Monday",
-			"Tuesday",
-			"Wednesday",
-			"Thursday",
-			"Friday",
-			"Saturday",
-		],
-		ar: [
-			"الأحد",
-			"الإثنين",
-			"الثلاثاء",
-			"الأربعاء",
-			"الخميس",
-			"الجمعة",
-			"السبت",
-		],
-	}
-	const currentDayName = dayMaps[language][currentDay]
-
-	const schedules = {
-		da: [
-			{ day: "Mandag", hours: "10:00 - 17:00" },
-			{ day: "Tirsdag", hours: "10:00 - 17:00" },
-			{ day: "Onsdag", hours: "10:00 - 17:00" },
-			{ day: "Torsdag", hours: "10:00 - 18:00" },
-			{ day: "Fredag", hours: "10:00 - 18:00" },
-			{ day: "Lørdag", hours: "10:00 - 15:30" },
-			{ day: "Søndag", hours: "Lukket" },
-		],
-		en: [
-			{ day: "Monday", hours: "10:00 - 17:00" },
-			{ day: "Tuesday", hours: "10:00 - 17:00" },
-			{ day: "Wednesday", hours: "10:00 - 17:00" },
-			{ day: "Thursday", hours: "10:00 - 18:00" },
-			{ day: "Friday", hours: "10:00 - 18:00" },
-			{ day: "Saturday", hours: "10:00 - 15:30" },
-			{ day: "Sunday", hours: "Closed" },
-		],
-		ar: [
-			{ day: "الإثنين", hours: "10:00 - 17:00" },
-			{ day: "الثلاثاء", hours: "10:00 - 17:00" },
-			{ day: "الأربعاء", hours: "10:00 - 17:00" },
-			{ day: "الخميس", hours: "10:00 - 18:00" },
-			{ day: "الجمعة", hours: "10:00 - 18:00" },
-			{ day: "السبت", hours: "10:00 - 15:30" },
-			{ day: "الأحد", hours: "مغلق" },
-		],
-	}
-
-	const schedule = schedules[language]
 
 	return (
 		<footer className={styles.footer} dir={isRTL ? "rtl" : "ltr"}>
@@ -196,30 +130,10 @@ export const Footer = () => {
 						</div>
 					</div>
 
-					<div className={styles.hours}>
-						<h4 className={styles.sectionTitle}>
-							{t.footer.hours}
-						</h4>
-						<div className={styles.schedule}>
-							{schedule.map((item) => (
-								<p
-									key={item.day}
-									className={
-										item.day === currentDayName
-											? styles.highlight
-											: ""
-									}
-								>
-									<span className={styles.dayName}>
-										{item.day}
-									</span>
-									<span className={styles.dayHours}>
-										{item.hours}
-									</span>
-								</p>
-							))}
-						</div>
-					</div>
+					<DaySchedule
+						language={language}
+						sectionTitle={t.footer.hours}
+					/>
 
 					<div className={styles.mapSection}>
 						<iframe

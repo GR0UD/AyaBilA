@@ -1,0 +1,75 @@
+@use "@/styles/base/util";
+@use "@/styles/base/variables" as *;
+
+.hours {
+	text-align: left;
+	flex: 0 0 auto;
+	min-width: 300px;
+
+	.sectionTitle {
+		color: $color-white;
+		@include util.fontSize($font-size-18);
+		font-weight: 600;
+		margin-bottom: 1.5rem;
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+		text-align: center;
+		min-width: none;
+
+		.sectionTitle {
+			text-align: center;
+		}
+	}
+}
+
+.schedule {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+
+	p {
+		display: flex;
+		justify-content: space-between;
+		@include util.fontSize($font-size-15);
+		color: rgba($color-white, 0.7);
+		padding: 0.75rem 1rem;
+		border-bottom: 1px solid rgba($color-white, 0.1);
+		border-radius: 0;
+		transition: all $transition-fast;
+		min-width: 280px;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		&.highlight {
+			background-color: rgba($color-gold, 0.15);
+			color: $color-gold;
+			border-bottom-color: rgba($color-gold, 0.2);
+
+			.dayName,
+			.dayHours {
+				color: $color-gold;
+			}
+		}
+	}
+
+	@media (max-width: 768px) {
+		width: 100%;
+
+		p {
+			min-width: none;
+		}
+	}
+}
+
+.dayName {
+	font-weight: 500;
+	color: rgba($color-white, 0.9);
+}
+
+.dayHours {
+	color: rgba($color-white, 0.7);
+}

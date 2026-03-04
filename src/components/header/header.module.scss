@@ -69,7 +69,7 @@
 .logoText {
 	color: $color-white;
 	font-weight: 700;
-	@include util.fontSize($font-size-18);
+	@include util.fontSize($font-size-15);
 	letter-spacing: 0.02em;
 
 	@media (max-width: 480px) {
@@ -89,12 +89,14 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		transform: translateX(-100%);
-		transition: transform $transition-normal;
+		opacity: 0;
+		visibility: hidden;
+		transition: opacity $transition-normal, visibility $transition-normal;
 		z-index: 998;
 
 		&.open {
-			transform: translateX(0);
+			opacity: 1;
+			visibility: visible;
 		}
 	}
 }
@@ -112,11 +114,11 @@
 		border: none;
 		color: $color-white;
 		font-weight: 500;
-		@include util.fontSize($font-size-15);
+		@include util.fontSize($font-size-13);
 		cursor: pointer;
-		transition: color $transition-fast;
 		padding: 0.5rem;
 		position: relative;
+		transition: color $transition-fast;
 
 		&::after {
 			content: "";

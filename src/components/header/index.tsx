@@ -9,7 +9,7 @@ import { Button } from "@/components/button"
 import styles from "./header.module.scss"
 
 export const Header = () => {
-	const { language, setLanguage, t, isRTL } = useLanguage()
+	const { language, setLanguage, t } = useLanguage()
 	const [isScrolled, setIsScrolled] = useState(false)
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false)
@@ -132,8 +132,8 @@ export const Header = () => {
 					<Image
 						src="/logo.png"
 						alt="AyabilA"
-						width={110}
-						height={95}
+						width={90}
+						height={75}
 						className={styles.logoImage}
 					/>
 				</div>

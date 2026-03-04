@@ -1,4 +1,5 @@
-@import "@/styles/base/variables";
+@use "sass:color";
+@use "@/styles/base/variables" as *;
 
 .reviews {
 	padding: 5rem 2rem;
@@ -39,90 +40,53 @@
 }
 
 .ratingBadge {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	gap: 2.5rem;
-	margin: 2rem auto;
-	padding: 2rem 2.5rem;
-	background: rgba($color-white, 0.05);
-	border: 2px solid rgba(#fcbf02, 0.4);
-	border-radius: 16px;
-	max-width: 700px;
-	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-
-	@media (max-width: 768px) {
-		flex-direction: column;
-		gap: 1.5rem;
-		padding: 1.5rem;
-	}
+	display: none;
 }
 
 .ratingScore {
-	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.4rem;
 }
 
 .score {
 	display: block;
-	font-size: 3.5rem;
+	font-size: 2.25rem;
 	font-weight: 700;
-	color: #fff;
+	color: $color-white;
 	line-height: 1;
-	margin-bottom: 0.5rem;
-
-	@media (max-width: 768px) {
-		font-size: 3rem;
-	}
 }
 
 .starsLarge {
 	display: flex;
 	justify-content: center;
-	gap: 6px;
-	margin-bottom: 0.75rem;
+	gap: 1px;
 
 	svg {
-		width: 28px;
-		height: 28px;
-		color: #fcbf02;
-
-		@media (max-width: 768px) {
-			width: 24px;
-			height: 24px;
-		}
+		width: 22px;
+		height: 22px;
 	}
 }
 
 .reviewCount {
-	font-size: 0.875rem;
-	color: rgba($color-white, 0.7);
+	font-size: 0.75rem;
+	color: #6b7280;
 	margin: 0;
+	font-weight: 400;
+	display: none;
 }
 
 .googleBadge {
 	display: flex;
-	flex-direction: column;
 	align-items: center;
-	gap: 0.5rem;
-	padding: 0.75rem 1rem;
-	background: rgba(#fcbf02, 0.08);
-	border: 1px solid rgba(#fcbf02, 0.25);
-	border-radius: 8px;
+	justify-content: center;
 
-	svg {
-		width: 48px;
-		height: 48px;
-
-		@media (max-width: 768px) {
-			width: 40px;
-			height: 40px;
-		}
-	}
-
-	span {
-		font-size: 0.8rem;
-		font-weight: 600;
-		color: #fcbf02;
+	img {
+		height: auto;
+		width: auto;
+		max-height: 36px;
+		object-fit: contain;
 	}
 }
 
@@ -138,12 +102,12 @@
 }
 
 .reviewCard {
-	background: rgba($color-white, 0.08);
-	backdrop-filter: blur(10px);
-	border: 1px solid rgba($color-white, 0.1);
+	background: rgba($color-white, 0.04);
+	border: 1px solid rgba($color-white, 0.08);
 	border-radius: 12px;
 	padding: 1.25rem;
 	transition: all 0.3s ease;
+	text-align: left;
 
 	&:hover {
 		transform: translateY(-4px);
@@ -163,7 +127,7 @@
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
-	background: linear-gradient(135deg, #00b67a 0%, darken(#00b67a, 10%) 100%);
+	background: linear-gradient(135deg, #00b67a 0%, #{color.adjust(#00b67a, $lightness: -10%)} 100%);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -220,22 +184,53 @@
 	line-height: 1.6;
 	color: rgba($color-white, 0.9);
 	margin: 0;
+	text-align: left;
 }
 
 .ctaSection {
-	background: linear-gradient(
-		135deg,
-		rgba(#00b67a, 0.15) 0%,
-		rgba(#00b67a, 0.05) 100%
-	);
-	border: 2px solid rgba(#00b67a, 0.3);
+	background: rgba($color-white, 0.04);
+	border: 1px solid rgba($color-white, 0.08);
 	border-radius: 16px;
-	padding: 2.5rem;
-	margin-bottom: 2rem;
-	text-align: center;
+	padding: 2.5rem 3rem;
+	display: flex;
+	align-items: center;
+	gap: 3rem;
 
 	@media (max-width: 768px) {
+		flex-direction: column;
 		padding: 2rem 1.5rem;
+		gap: 1.5rem;
+		text-align: center;
+	}
+}
+
+.ctaLeft {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	flex-shrink: 0;
+}
+
+.ctaDivider {
+	width: 1px;
+	height: 100px;
+	background: rgba($color-white, 0.1);
+	flex-shrink: 0;
+
+	@media (max-width: 768px) {
+		width: 60px;
+		height: 1px;
+	}
+}
+
+.ctaRight {
+	flex: 1;
+
+	@media (max-width: 768px) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 }
 
@@ -245,78 +240,48 @@
 }
 
 .ctaTitle {
-	font-size: 1.75rem;
+	font-size: 1.5rem;
 	font-weight: 700;
 	color: $color-white;
-	margin: 0 0 0.75rem 0;
+	margin: 0 0 0.5rem 0;
+	line-height: 1.3;
 
 	@media (max-width: 768px) {
-		font-size: 1.5rem;
+		font-size: 1.25rem;
 	}
 }
 
 .ctaText {
-	font-size: 1.0625rem;
-	color: rgba($color-white, 0.9);
-	margin: 0 0 1.5rem 0;
+	font-size: 0.9375rem;
+	color: rgba($color-white, 0.6);
+	margin: 0 0 1.25rem 0;
 	line-height: 1.6;
 }
 
 .reviewButton {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.75rem;
-	padding: 1rem 2rem;
+	gap: 0.5rem;
+	padding: 0.75rem 1.5rem;
 	background: #00b67a;
 	border: none;
 	border-radius: 8px;
 	color: $color-white;
 	text-decoration: none;
 	font-weight: 600;
-	font-size: 1rem;
-	transition: all 0.3s ease;
-	box-shadow: 0 4px 16px rgba(#00b67a, 0.4);
+	font-size: 0.875rem;
+	transition: all 0.2s ease;
 
 	svg {
-		width: 20px;
-		height: 20px;
+		width: 16px;
+		height: 16px;
 	}
 
 	&:hover {
-		background: darken(#00b67a, 5%);
-		box-shadow: 0 6px 20px rgba(#00b67a, 0.5);
-	}
-
-	&:active {
-		transform: translateY(0);
+		background: #{color.adjust(#00b67a, $lightness: -5%)};
+		transform: translateY(-1px);
+		box-shadow: 0 4px 12px rgba(#00b67a, 0.4);
 	}
 }
 
-.googleLink {
-	display: inline-flex;
-	align-items: center;
-	gap: 0.5rem;
-	padding: 0.875rem 1.75rem;
-	background: rgba($color-white, 0.1);
-	border: 1px solid rgba($color-white, 0.2);
-	border-radius: 8px;
-	color: $color-white;
-	text-decoration: none;
-	font-weight: 500;
-	transition: all 0.3s ease;
-	margin: 0 auto;
-	display: flex;
-	justify-content: center;
-	max-width: fit-content;
 
-	svg {
-		width: 20px;
-		height: 20px;
-	}
-
-	&:hover {
-		background: rgba($color-white, 0.15);
-		border-color: rgba($color-white, 0.3);
-		transform: translateY(-2px);
-	}
-}
