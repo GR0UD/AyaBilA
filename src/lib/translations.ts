@@ -1,20 +1,26 @@
-export type Language = "da" | "en" | "ar"
+export type Language = "da" | "en" | "ar" | "de"
 
 export const translations = {
 	da: {
 		nav: {
 			home: "Hjem",
 			about: "Om os",
-			services: "Service",
-			team: "Teamet",
+			behandlinger: "Behandlinger",
+			kontakt: "Kontakt",
 			booking: "Book tid",
 		},
 		hero: {
-			title: "Eksklusiv herre & damefrisør i hjertet af Kolding",
+			title: "Frisør & Kosmetolog i ét – i hjertet af Kolding",
+			titleParts: [
+				{ text: "Kosmetolog", color: "pink" },
+				{ text: " & ", color: "default" },
+				{ text: "Herrefrisør", color: "blue" },
+				{ text: " i hjertet af Kolding", color: "default" },
+			] as { text: string; color: "default" | "blue" | "pink" }[],
 			subtitle:
 				"Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger til både herrer og damer.",
 			cta: "Book tid",
-			ctaSecondary: "Se vores behandlinger",
+			ctaSecondary: "Se vores services",
 		},
 		about: {
 			title: "Om os",
@@ -24,11 +30,25 @@ export const translations = {
 			experience: "10+ års erfaring",
 			quality: "Premium produkter",
 			service: "Personlig service",
+			certified: "Erhvervsuddannet",
+			certificatedPractitioner: "Certificeret behandler",
+			centralLocation: "Central beliggenhed",
+			diplomaBadge: "Certificeret uddannelse",
+			diplomaText:
+				"Aya har gennemført Mounir Education Masterclass – en anerkendt international uddannelse inden for avanceret hårbehandling og styling.",
 		},
 		services: {
 			title: "Vores services",
 			subtitle:
 				"Fra klassiske klipninger til eksklusive behandlinger – vi tilbyder et bredt udvalg af services til både herrer, damer og børn.",
+			barberTitle: "Herre Barber",
+			barberDescription:
+				"Herreklip, barbering, VIP-behandlinger og mere – af erfarne barbers med øje for detaljen.",
+			barberCta: "Se herre-behandlinger",
+			kosmetologTitle: "Kosmetolog",
+			kosmetologDescription:
+				"Dameklip, hårbehandlinger, voks, bryn og kosmetologiske ydelser – skræddersyet til dig.",
+			kosmetologCta: "Se dame-behandlinger",
 			categories: {
 				men: "Herreklip & Barbering",
 				women: "Dameklip & Hår",
@@ -185,7 +205,7 @@ export const translations = {
 			salon: "AyabilA",
 			tagline: "Herre- & Damefrisør og Kosmetolog",
 			address: "Kongebrogade 29, 6000 Kolding",
-			phone: "+45 12 34 56 78",
+			phone: "+45 60 60 99 27",
 			email: "kontakt@ayabila.dk",
 			hours: "Åbningstider",
 			housText:
@@ -198,13 +218,20 @@ export const translations = {
 		nav: {
 			home: "Home",
 			about: "About",
-			services: "Services",
-			team: "Team",
+			behandlinger: "Treatments",
+			kontakt: "Contact",
 			booking: "Book now",
-			contact: "Contact",
 		},
 		hero: {
-			title: "Exclusive hair salon in the heart of Kolding",
+			title: "Hairdresser & Cosmetologist in one – in the heart of Kolding",
+			titleParts: [
+				{ text: "Barber", color: "blue" },
+				{ text: " & ", color: "default" },
+				{ text: "Cosmetologist", color: "pink" },
+				{ text: " in one – in the heart of Kolding", color: "default" },
+			] as { text: string; color: "default" | "blue" | "pink" }[],
+			tagline:
+				"Certified barber & cosmetologist – passion for both men's and women's care",
 			subtitle:
 				"Professional hairdresser and cosmetologist – we create stylish looks and pampering treatments for both men and women.",
 			cta: "Book appointment",
@@ -218,11 +245,23 @@ export const translations = {
 			experience: "10+ years experience",
 			quality: "Premium products",
 			service: "Personal service",
+			certified: "Professionally trained",
+			diplomaBadge: "Certified education",
+			diplomaText:
+				"Aya has completed the Mounir Education Masterclass – a recognized international training in advanced hair treatment and styling.",
 		},
 		services: {
 			title: "Our services",
 			subtitle:
 				"From classic cuts to exclusive treatments – we offer a wide range of services for men, women, and children.",
+			barberTitle: "Men's Barber",
+			barberDescription:
+				"Men's cuts, shaving, VIP treatments and more – by experienced barbers with an eye for detail.",
+			barberCta: "View men's treatments",
+			kosmetologTitle: "Kosmetolog",
+			kosmetologDescription:
+				"Women's cuts, hair treatments, waxing, brows and cosmetic services – tailored to you.",
+			kosmetologCta: "View women's treatments",
 			categories: {
 				men: "Men's Cut & Shaving",
 				women: "Women's Cut & Hair",
@@ -379,7 +418,7 @@ export const translations = {
 			salon: "AyabilA",
 			tagline: "Men's & Women's Hairdresser and Cosmetologist",
 			address: "Kongebrogade 29, 6000 Kolding",
-			phone: "+45 12 34 56 78",
+			phone: "+45 60 60 99 27",
 			email: "contact@ayabila.dk",
 			hours: "Opening hours",
 			housText:
@@ -392,13 +431,20 @@ export const translations = {
 		nav: {
 			home: "الرئيسية",
 			about: "من نحن",
-			services: "خدماتنا",
-			team: "فريقنا",
+			behandlinger: "العلاجات",
+			kontakt: "اتصل بنا",
 			booking: "احجز موعد",
-			contact: "اتصل بنا",
 		},
 		hero: {
-			title: "صالون حلاقة راقٍ في قلب كولدنغ",
+			title: "صالون حلاقة وتجميل في قلب كولدنغ",
+			titleParts: [
+				{ text: "صالون ", color: "default" },
+				{ text: "حلاقة", color: "blue" },
+				{ text: " و", color: "default" },
+				{ text: "تجميل", color: "pink" },
+				{ text: " في قلب كولدنغ", color: "default" },
+			] as { text: string; color: "default" | "blue" | "pink" }[],
+			tagline: "حلاق وأخصائي تجميل محترف – شغف بالعناية بالرجال والنساء",
 			subtitle:
 				"حلاق وأخصائي تجميل محترف – نصنع إطلالات أنيقة وعلاجات مميزة للرجال والنساء.",
 			cta: "احجز موعد",
@@ -412,11 +458,23 @@ export const translations = {
 			experience: "+10 سنوات خبرة",
 			quality: "منتجات فاخرة",
 			service: "خدمة شخصية",
+			certified: "مؤهل مهنياً",
+			diplomaBadge: "تعليم معتمد",
+			diplomaText:
+				"أكملت آية دورة Mounir Education Masterclass – تدريب دولي معترف به في مجال علاج الشعر المتقدم والتصفيف.",
 		},
 		services: {
 			title: "خدماتنا",
 			subtitle:
 				"من القصات الكلاسيكية إلى العلاجات الحصرية – نقدم مجموعة واسعة من الخدمات للرجال والنساء والأطفال.",
+			barberTitle: "حلاق رجالي",
+			barberDescription:
+				"قصات رجالية، حلاقة، علاجات VIP والمزيد – من حلاقين محترفين مع اهتمام بالتفاصيل.",
+			barberCta: "عرض علاجات الرجال",
+			kosmetologTitle: "تصفيف شعر نسائي وتجميل",
+			kosmetologDescription:
+				"قصات نسائية، علاجات الشعر، إزالة الشعر بالشمع، الحواجب وخدمات التجميل – مصممة خصيصاً لك.",
+			kosmetologCta: "عرض علاجات النساء",
 			categories: {
 				men: "قص وحلاقة الرجال",
 				women: "قص وعناية شعر النساء",
@@ -572,13 +630,226 @@ export const translations = {
 			salon: "AyabilA",
 			tagline: "حلاق رجالي ونسائي وأخصائي تجميل",
 			address: "Kongebrogade 29, 6000 Kolding",
-			phone: "+45 12 34 56 78",
+			phone: "+45 60 60 99 27",
 			email: "contact@ayabila.dk",
 			hours: "ساعات العمل",
 			housText:
 				"الإثنين-الأربعاء: 10:00 - 17:00\nالخميس-الجمعة: 10:00 - 18:00\nالسبت: 10:00 - 15:30\nالأحد: مغلق",
 			followUs: "تابعنا",
 			copyright: "© 2026 AyabilA. جميع الحقوق محفوظة.",
+		},
+	},
+	de: {
+		nav: {
+			home: "Startseite",
+			about: "Über uns",
+			behandlinger: "Behandlungen",
+			kontakt: "Kontakt",
+			booking: "Termin buchen",
+		},
+		hero: {
+			title: "Friseur & Kosmetikerin in einem – im Herzen von Kolding",
+			titleParts: [
+				{ text: "Kosmetikerin", color: "pink" },
+				{ text: " & ", color: "default" },
+				{ text: "Herrenfriseur", color: "blue" },
+				{ text: " im Herzen von Kolding", color: "default" },
+			] as { text: string; color: "default" | "blue" | "pink" }[],
+			tagline:
+				"Zertifizierter Friseur & Kosmetikerin – Leidenschaft für Herren- und Damenpflege",
+			subtitle:
+				"Professioneller Friseur und Kosmetikerin – wir kreieren stilvolle Looks und verwöhnende Behandlungen für Herren und Damen.",
+			cta: "Termin buchen",
+			ctaSecondary: "Unsere Behandlungen ansehen",
+		},
+		about: {
+			title: "Über uns",
+			text: "Bei AyabilA verbinden wir jahrzehntelange Erfahrung mit modernen Techniken. Bilal ist Experte für Herrenhaarschnitte, Rasur und VIP-Behandlungen, während Aya Damenhaarschnitte, Waxing, Augenbrauen und Haarkuren meistert. Gemeinsam liefern wir Qualität, Liebe zum Detail und persönlichen Service in einer luxuriösen Atmosphäre.",
+			aya: "Aya ist ausgebildete Kosmetikerin mit Spezialisierung auf professionelle Haarkuren und Hautbehandlungen. Sie hat ihr Handwerk über die Jahre verfeinert und ist leidenschaftlich daran interessiert, jedem Kunden das bestmögliche Erlebnis zu bieten. Mit fundiertem Wissen über Haartypen, Hautzustände und moderne Techniken schafft sie Lösungen, die perfekt auf Ihre Bedürfnisse zugeschnitten sind.",
+			bilal: "Bilal hat 10 Jahre in über 4-6 verschiedenen Barbershops in der Region gearbeitet und dabei umfangreiche Erfahrung gesammelt und sein Handwerk in Herrenhaarschnitten und Rasur perfektioniert. Mit dieser breiten Erfahrung aus verschiedenen Salons entschied er sich, sein eigenes Geschäft mit Aya zu eröffnen, wo er die höchste Qualität an Service und Handwerkskunst in einem luxuriösen Umfeld anbieten kann.",
+			experience: "10+ Jahre Erfahrung",
+			quality: "Premium-Produkte",
+			service: "Persönlicher Service",
+			certified: "Berufsausgebildet",
+			diplomaBadge: "Zertifizierte Ausbildung",
+			diplomaText:
+				"Aya hat die Mounir Education Masterclass abgeschlossen – eine anerkannte internationale Ausbildung in fortgeschrittener Haarbehandlung und Styling.",
+		},
+		services: {
+			title: "Unsere Leistungen",
+			subtitle:
+				"Von klassischen Haarschnitten bis zu exklusiven Behandlungen – wir bieten ein breites Spektrum an Leistungen für Herren, Damen und Kinder.",
+			barberTitle: "Herren Barber",
+			barberDescription:
+				"Herrenhaarschnitte, Rasur, VIP-Behandlungen und mehr – von erfahrenen Barbern mit Liebe zum Detail.",
+			barberCta: "Herrenbehandlungen ansehen",
+			kosmetologTitle: "Kosmetikerin",
+			kosmetologDescription:
+				"Damenhaarschnitte, Haarbehandlungen, Waxing, Augenbrauen und kosmetische Leistungen – auf Sie zugeschnitten.",
+			kosmetologCta: "Damenbehandlungen ansehen",
+			categories: {
+				men: "Herrenschnitt & Rasur",
+				women: "Damenschnitt & Haar",
+				wax: "Waxing & Augenbrauen",
+				kids: "Kinder",
+			},
+			duration: "Min.",
+			currency: "DKK",
+			menServices: [
+				{
+					name: "Herrenhaarschnitt",
+					duration: 30,
+					price: 249,
+					description:
+						"Erhalten Sie eine zeitlose und gepflegte Frisur mit unserem modernen Qualitätsschnitt.",
+				},
+				{
+					name: "Herrenhaarschnitt (Studentenrabatt)",
+					duration: 30,
+					price: 199,
+					description:
+						"Moderner Haarschnitt für Studenten – sparen Sie 20% bei Vorlage Ihres Studentenausweises.",
+				},
+				{
+					name: "Rasur",
+					duration: 20,
+					price: 149,
+					description:
+						"Professionelle Rasur und Pflege von erfahrenen Barbern.",
+				},
+				{
+					name: "Herrenhaarschnitt & Rasur",
+					duration: 45,
+					price: 349,
+					description:
+						"Erleben Sie unsere Expertise in Schnitt und Rasur – die komplette Behandlung.",
+				},
+				{
+					name: "VIP All Inclusive",
+					duration: 65,
+					price: 499,
+					description:
+						"Verwöhnen Sie sich mit Gesichtsbehandlung, Nasenhaarentfernung, Haarschnitt und Rasur. Das ultimative Verwöhnprogramm.",
+				},
+			],
+			womenServices: [
+				{
+					name: "Damenhaarschnitt",
+					duration: 45,
+					price: 349,
+					description:
+						"Professioneller Schnitt ohne Haarwäsche und Föhnen. Wir passen die Frisur an Ihre Wünsche und Ihren Stil an.",
+				},
+				{
+					name: "Damenhaarschnitt kurzes Haar (Maschine)",
+					duration: 30,
+					price: 249,
+					description:
+						"Maschinenschnitt für eine kurze und stilvolle Frisur. Schnell und effektiv.",
+				},
+				{
+					name: "Olaplex Haarkur",
+					duration: 45,
+					price: 350,
+					description:
+						"Olaplex repariert und baut die Haarstruktur von innen auf. Ideal für geschädigtes Haar nach Färben oder Aufhellen. Gibt stärkeres, weicheres und gesünderes Haar.",
+				},
+				{
+					name: "Tönung (langes Haar)",
+					duration: 45,
+					price: 350,
+					description:
+						"Frischen Sie Ihr blondes Haar mit einer professionellen Tönung auf. Inklusive Tönung, Wäsche und Föhnen.",
+				},
+			],
+			waxServices: [
+				{
+					name: "Gesichtswaxing",
+					duration: 30,
+					price: 249,
+					description:
+						"Professionelles Waxing mit Depiléve-Produkten. Inklusive Hautanalyse, Sterilisierung und beruhigender Nachbehandlung. Das Haar sollte mindestens 0,5 cm lang sein.",
+				},
+				{
+					name: "Waxing Oberlippe und Kinn",
+					duration: 20,
+					price: 110,
+					description:
+						"Sanftes Waxing von Oberlippe und Kinn mit Premium Depiléve-Produkten und professioneller Nachpflege.",
+				},
+				{
+					name: "Brow Lift Lamination (inkl. Färbung)",
+					duration: 60,
+					price: 400,
+					description:
+						"Heben Sie Ihre Augenbrauen an und öffnen Sie den Blick. Inklusive Färbung passend zu Ihrer Haarfarbe und Formung mit Wachs/Pinzette. Hält ca. 6 Wochen.",
+				},
+				{
+					name: "Brow Lift Lamination",
+					duration: 45,
+					price: 350,
+					description:
+						"Verleihen Sie Ihren Augenbrauen einen Lift und ein jüngeres Aussehen. Inklusive Formung mit Wachs/Pinzette. Hält ca. 6 Wochen.",
+				},
+			],
+			kidsServices: [
+				{
+					name: "Kinderhaarschnitt – Mädchen (ab 5 Jahren)",
+					duration: 30,
+					price: 250,
+					description:
+						"Ein süßes und sicheres Erlebnis mit Fokus auf Stil, Komfort und Lächeln für kleine Mädchen.",
+				},
+				{
+					name: "Kinderhaarschnitt – Junge (ab 5 Jahren)",
+					duration: 30,
+					price: 199,
+					description:
+						"Ein angenehmes Erlebnis mit Fokus auf Stil und Spaß für Jungen ab 5 Jahren.",
+				},
+			],
+		},
+		team: {
+			title: "Unser Team",
+			subtitle:
+				"Unser engagiertes Team aus professionellen Friseuren und Kosmetikerinnen steht bereit, Sie zu verwöhnen.",
+			bilal: {
+				name: "Bilal",
+				role: "Herrenfriseur",
+				description:
+					"Professioneller Herrenfriseur seit über 10 Jahren. Experte für klassische Schnitte, Rasur und Liebe zum Detail.",
+			},
+			aya: {
+				name: "Aya",
+				role: "Damenfriseurin & Kosmetikerin",
+				description:
+					"Engagierte Damenfriseurin mit Auge fürs Detail und maßgeschneiderte Looks. Spezialistin für Haarbehandlungen und kosmetische Leistungen.",
+			},
+		},
+		reviews: {
+			title: "Was unsere Kunden sagen",
+			subtitle:
+				"Wir sind stolz darauf, erstklassigen Service zu bieten. Lesen Sie, was unsere Kunden bei AyabilA erlebt haben.",
+		},
+		booking: {
+			title: "Buchen Sie Ihren Termin heute",
+			subtitle:
+				"Bereit, sich verwöhnen zu lassen? Buchen Sie Ihre nächste Behandlung per Telefon, Social Media oder Online-Buchung.",
+			cta: "Jetzt buchen",
+			phone: "Rufen Sie uns an",
+			social: "Folgen Sie uns in den sozialen Medien",
+		},
+		footer: {
+			salon: "AyabilA",
+			tagline: "Herren- & Damenfriseur und Kosmetikerin",
+			address: "Kongebrogade 29, 6000 Kolding",
+			phone: "+45 60 60 99 27",
+			email: "kontakt@ayabila.dk",
+			hours: "Öffnungszeiten",
+			housText:
+				"Mo-Mi: 10:00 - 17:00\nDo-Fr: 10:00 - 18:00\nSa: 10:00 - 15:30\nSo: Geschlossen",
+			followUs: "Folgen Sie uns",
+			copyright: "© 2026 AyabilA. Alle Rechte vorbehalten.",
 		},
 	},
 }

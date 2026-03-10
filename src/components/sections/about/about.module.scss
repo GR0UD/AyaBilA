@@ -4,6 +4,7 @@
 .about {
 	padding: 6rem 0;
 	background-color: $color-light-gray;
+	overflow-x: hidden;
 }
 
 .container {
@@ -11,7 +12,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	gap: 4rem;
-	align-items: center;
+	align-items: start;
 
 	@media (max-width: 900px) {
 		grid-template-columns: 1fr;
@@ -21,12 +22,13 @@
 
 .content {
 	max-width: 560px;
+	padding-top: 2rem;
 }
 
 .badge {
 	display: inline-block;
-	background: linear-gradient(135deg, $color-gold 0%, #fcd34d 100%);
-	color: $color-navy-dark;
+	background: linear-gradient(135deg, $color-pink 0%, $color-blue 100%);
+	color: $color-white;
 	@include util.fontSize($font-size-12);
 	font-weight: 700;
 	text-transform: uppercase;
@@ -56,9 +58,13 @@
 }
 
 .features {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 1.5rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+
+	@media (max-width: 480px) {
+		grid-template-columns: 1fr;
+	}
 }
 
 .feature {
@@ -66,19 +72,21 @@
 	align-items: center;
 	gap: 0.75rem;
 	background-color: $color-white;
-	padding: 1rem 1.25rem;
+	padding: 0.875rem 1.25rem;
 	border-radius: $border-radius-large;
 	box-shadow: $shadow-sm;
 	transition: all $transition-normal;
+	border: 1px solid $color-border;
 
 	&:hover {
-		transform: translateY(-2px);
 		box-shadow: $shadow-md;
+		border-color: rgba($color-gold, 0.3);
 	}
 }
 
 .featureIcon {
-	font-size: 1.5rem;
+	font-size: 1.25rem;
+	line-height: 1;
 }
 
 .featureText {
@@ -87,12 +95,22 @@
 	@include util.fontSize($font-size-14);
 }
 
+.certificateImage {
+	width: 100%;
+	max-width: 170px;
+	height: auto;
+	rotate: -5deg;
+	margin-top: 2rem;
+	border-radius: 100%;
+}
+
 .visual {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	gap: 2rem;
+	width: 100%;
 
 	@media (max-width: 900px) {
 		order: -1;
@@ -103,18 +121,27 @@
 	display: flex;
 	position: relative;
 	height: 420px;
-	width: 480px;
+	width: 100%;
+	max-width: 480px;
 	margin: 0 auto;
+	padding: 2rem;
 
 	@media (max-width: 768px) {
-		height: 350px;
-		width: 400px;
+		height: 325px;
+		max-width: 480px;
+	}
+
+	@media (max-width: 480px) {
+		height: 300px;
+		max-width: 100%;
+		margin-left: 1rem;
 	}
 }
 
 .personCard {
 	position: absolute;
-	width: 320px;
+	width: 68%;
+	max-width: 320px;
 	height: 380px;
 	border: none;
 	cursor: pointer;
@@ -129,8 +156,29 @@
 	box-shadow: $shadow-md;
 
 	@media (max-width: 768px) {
-		width: 280px;
+		width: 70%;
+		max-width: 280px;
 		height: 340px;
+	}
+
+	@media (max-width: 480px) {
+		width: 70%;
+		max-width: 240px;
+		height: 280px;
+	}
+
+	&.ayaCard {
+		&:focus {
+			outline: 3px solid $color-pink;
+			outline-offset: 2px;
+		}
+	}
+
+	&.bilalCard {
+		&:focus {
+			outline: 3px solid $color-blue;
+			outline-offset: 2px;
+		}
 	}
 
 	&:first-child {
@@ -144,7 +192,7 @@
 		}
 
 		&:not(.active) {
-			left: 100px;
+			left: 25%;
 			z-index: 1;
 			opacity: 1;
 			transform: rotate(8deg);
@@ -152,7 +200,7 @@
 	}
 
 	&:last-child {
-		left: 100px;
+		left: 25%;
 		z-index: 1;
 		opacity: 1;
 		box-shadow: $shadow-md;
@@ -167,7 +215,7 @@
 		}
 
 		&:not(.active) {
-			left: 100px;
+			left: 25%;
 			z-index: 1;
 			opacity: 1;
 			transform: rotate(8deg);
@@ -176,11 +224,6 @@
 
 	&:hover {
 		opacity: 1;
-	}
-
-	&:focus {
-		outline: 3px solid $color-gold;
-		outline-offset: 2px;
 	}
 }
 
@@ -216,7 +259,7 @@
 }
 
 .cardName {
-	color: $color-gold;
+	color: $color-white;
 	@include util.fontSize($font-size-24);
 	font-weight: 700;
 	margin: 0;
@@ -224,7 +267,7 @@
 }
 
 .cardRole {
-	color: $color-white;
+	color: rgba($color-white, 0.9);
 	@include util.fontSize($font-size-14);
 	margin: 0;
 	opacity: 0.9;
@@ -240,6 +283,12 @@
 	min-height: 200px;
 	display: flex;
 	align-items: center;
+	box-sizing: border-box;
+
+	@media (max-width: 480px) {
+		padding: 1.25rem;
+		max-width: 100%;
+	}
 }
 
 .story {
@@ -252,13 +301,56 @@
 	@include util.fontSize($font-size-20);
 	font-weight: 700;
 	margin: 0 0 1rem 0;
+
+	&.ayaTitle {
+		color: $color-pink;
+	}
+
+	&.bilalTitle {
+		color: $color-blue;
+	}
 }
 
 .storyText {
 	color: $color-gray;
 	@include util.fontSize($font-size-14);
 	line-height: 1.8;
-	margin: 0;
+	margin: 0 0 1rem 0;
+}
+
+.socials {
+	display: flex;
+	gap: 0.75rem;
+	margin-top: 0.5rem;
+}
+
+.socialLink {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	color: $color-white;
+	transition: all $transition-fast;
+
+	&.ayaSocial {
+		background-color: $color-pink;
+
+		&:hover {
+			background-color: $color-pink-dark;
+			transform: scale(1.1);
+		}
+	}
+
+	&.bilalSocial {
+		background-color: $color-blue;
+
+		&:hover {
+			background-color: $color-blue-dark;
+			transform: scale(1.1);
+		}
+	}
 }
 
 @keyframes fadeIn {

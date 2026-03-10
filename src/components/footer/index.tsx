@@ -9,7 +9,11 @@ export const Footer = () => {
 	const { t, isRTL, language } = useLanguage()
 
 	return (
-		<footer className={styles.footer} dir={isRTL ? "rtl" : "ltr"}>
+		<footer
+			id="footer"
+			className={styles.footer}
+			dir={isRTL ? "rtl" : "ltr"}
+		>
 			<div className={styles.container}>
 				<div className={styles.grid}>
 					<div className={styles.brand}>
@@ -95,7 +99,7 @@ export const Footer = () => {
 							<a
 								href={`tel:${t.footer.phone.replace(
 									/\s/g,
-									""
+									"",
 								)}`}
 								className={styles.contactItem}
 							>

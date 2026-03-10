@@ -2,10 +2,9 @@
 @use "@/styles/base/variables" as *;
 
 .footer {
-	background-color: $color-navy-dark;
-	padding: 5rem 0 2.5rem;
-	margin-top: 0;
-	border-top: none;
+	background-color: $color-light-gray;
+	padding: 5rem 0 0rem;
+	border-top: 1px solid $color-border;
 	box-shadow: none;
 }
 
@@ -63,14 +62,14 @@
 	gap: 0.25rem;
 
 	.businessName {
-		color: rgba($color-white, 0.9);
+		color: $color-dark;
 		@include util.fontSize($font-size-14);
 		font-weight: 500;
 		margin: 0;
 	}
 
 	.cvr {
-		color: rgba($color-white, 0.6);
+		color: $color-gray;
 		@include util.fontSize($font-size-13);
 		margin: 0;
 	}
@@ -87,7 +86,7 @@
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
-	color: rgba($color-white, 0.8);
+	color: $color-gray;
 	text-decoration: none;
 	@include util.fontSize($font-size-14);
 	transition: color $transition-fast;
@@ -103,7 +102,7 @@
 
 .icon {
 	flex-shrink: 0;
-	color: rgba($color-white, 0.6);
+	color: $color-gray;
 	transition: color $transition-fast;
 }
 
@@ -113,7 +112,7 @@
 	min-width: 300px;
 
 	.sectionTitle {
-		color: $color-white;
+		color: $color-dark;
 		@include util.fontSize($font-size-18);
 		font-weight: 600;
 		margin-bottom: 1.5rem;
@@ -139,9 +138,9 @@
 		display: flex;
 		justify-content: space-between;
 		@include util.fontSize($font-size-15);
-		color: rgba($color-white, 0.7);
+		color: $color-gray;
 		padding: 0.75rem 1rem;
-		border-bottom: 1px solid rgba($color-white, 0.1);
+		border-bottom: 1px solid $color-border;
 		border-radius: 0;
 		transition: all $transition-fast;
 		min-width: 280px;
@@ -151,13 +150,13 @@
 		}
 
 		&.highlight {
-			background-color: rgba($color-gold, 0.15);
-			color: $color-gold;
-			border-bottom-color: rgba($color-gold, 0.2);
+			background-color: rgba($color-gold, 0.1);
+			color: $color-gold-dark;
+			border-bottom-color: rgba($color-gold, 0.15);
 
 			.dayName,
 			.dayHours {
-				color: $color-gold;
+				color: $color-gold-dark;
 			}
 		}
 	}
@@ -173,16 +172,16 @@
 
 .dayName {
 	font-weight: 500;
-	color: rgba($color-white, 0.9);
+	color: $color-dark;
 }
 
 .dayHours {
-	color: rgba($color-white, 0.7);
+	color: $color-gray;
 }
 
 .social {
 	.sectionTitle {
-		color: $color-white;
+		color: $color-dark;
 		@include util.fontSize($font-size-16);
 		font-weight: 600;
 		margin-bottom: 1.25rem;
@@ -205,23 +204,24 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: rgba($color-white, 0.8);
+	color: $color-gray;
 	text-decoration: none;
 	@include util.fontSize($font-size-14);
 	padding: 0.75rem;
-	background-color: rgba($color-white, 0.05);
+	background-color: $color-white;
 	border-radius: $border-radius;
 	transition: all $transition-fast;
 	width: 44px;
 	height: 44px;
+	box-shadow: $shadow-sm;
 
 	svg {
 		flex-shrink: 0;
 	}
 
 	&:hover {
-		background-color: rgba($color-gold, 0.15);
-		color: $color-gold;
+		background-color: $color-gold;
+		color: $color-white;
 		transform: scale(1.1);
 	}
 }
@@ -253,13 +253,13 @@
 }
 
 .bottom {
-	padding-top: 2.5rem;
-	border-top: 1px solid rgba($color-white, 0.1);
+	padding: 1.5rem;
+	border-top: 1px solid $color-border;
 	text-align: center;
 	width: 100%;
 }
 
 .copyright {
-	color: rgba($color-white, 0.5);
+	color: $color-gray;
 	@include util.fontSize($font-size-13);
 }

@@ -18,23 +18,23 @@
 }
 
 .primary {
-	background: linear-gradient(135deg, $color-gold 0%, #fcd34d 100%);
-	color: $color-navy-dark;
-	box-shadow: 0 4px 20px rgba(252, 211, 77, 0.35);
+	background: linear-gradient(135deg, $color-gold 0%, $color-gold-light 100%);
+	color: $color-white;
+	box-shadow: 0 4px 20px rgba($color-gold, 0.35);
 
 	&:hover {
-		box-shadow: 0 6px 24px rgba(252, 211, 77, 0.4);
+		box-shadow: 0 6px 24px rgba($color-gold, 0.4);
 	}
 }
 
 .secondary {
 	background-color: transparent;
-	color: $color-white;
+	color: $color-dark;
 	border-color: $color-gold;
 
 	&:hover {
 		background-color: $color-gold;
-		color: $color-navy-dark;
+		color: $color-white;
 	}
 }
 

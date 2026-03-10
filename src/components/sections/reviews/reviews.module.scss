@@ -3,8 +3,8 @@
 
 .reviews {
 	padding: 5rem 2rem;
-	background: linear-gradient(135deg, $color-navy-dark 0%, $color-navy 100%);
-	color: $color-white;
+	background: $color-white;
+	color: $color-dark;
 }
 
 .container {
@@ -21,7 +21,7 @@
 	font-size: 2.5rem;
 	font-weight: 700;
 	margin-bottom: 1rem;
-	color: $color-gold;
+	color: $color-dark;
 
 	@media (max-width: 768px) {
 		font-size: 2rem;
@@ -30,7 +30,7 @@
 
 .subtitle {
 	font-size: 1.125rem;
-	color: rgba($color-white, 0.9);
+	color: $color-gray;
 	max-width: 600px;
 	margin: 0 auto 2rem;
 
@@ -54,7 +54,7 @@
 	display: block;
 	font-size: 2.25rem;
 	font-weight: 700;
-	color: $color-white;
+	color: $color-dark;
 	line-height: 1;
 }
 
@@ -102,8 +102,8 @@
 }
 
 .reviewCard {
-	background: rgba($color-white, 0.04);
-	border: 1px solid rgba($color-white, 0.08);
+	background: $color-light-gray;
+	border: 1px solid $color-border;
 	border-radius: 12px;
 	padding: 1.25rem;
 	transition: all 0.3s ease;
@@ -111,7 +111,7 @@
 
 	&:hover {
 		transform: translateY(-4px);
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 		border-color: rgba(#00b67a, 0.3);
 	}
 }
@@ -127,7 +127,7 @@
 	width: 44px;
 	height: 44px;
 	border-radius: 50%;
-	background: linear-gradient(135deg, #00b67a 0%, #{color.adjust(#00b67a, $lightness: -10%)} 100%);
+	background: linear-gradient(135deg, $color-blue 0%, $color-blue-dark 100%);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -135,7 +135,7 @@
 	font-size: 1rem;
 	color: $color-white;
 	flex-shrink: 0;
-	box-shadow: 0 4px 12px rgba(#00b67a, 0.3);
+	box-shadow: 0 4px 12px rgba($color-blue, 0.3);
 }
 
 .reviewInfo {
@@ -146,14 +146,14 @@
 .reviewerName {
 	font-size: 0.95rem;
 	font-weight: 600;
-	color: $color-white;
+	color: $color-dark;
 	margin: 0 0 0.15rem 0;
 	line-height: 1.2;
 }
 
 .date {
 	font-size: 0.8rem;
-	color: rgba($color-white, 0.6);
+	color: $color-gray;
 	display: block;
 	margin-bottom: 0.5rem;
 }
@@ -182,14 +182,14 @@
 .reviewText {
 	font-size: 0.9375rem;
 	line-height: 1.6;
-	color: rgba($color-white, 0.9);
+	color: $color-gray;
 	margin: 0;
 	text-align: left;
 }
 
 .ctaSection {
-	background: rgba($color-white, 0.04);
-	border: 1px solid rgba($color-white, 0.08);
+	background: $color-light-gray;
+	border: 1px solid $color-border;
 	border-radius: 16px;
 	padding: 2.5rem 3rem;
 	display: flex;
@@ -215,7 +215,7 @@
 .ctaDivider {
 	width: 1px;
 	height: 100px;
-	background: rgba($color-white, 0.1);
+	background: $color-border;
 	flex-shrink: 0;
 
 	@media (max-width: 768px) {
@@ -242,7 +242,7 @@
 .ctaTitle {
 	font-size: 1.5rem;
 	font-weight: 700;
-	color: $color-white;
+	color: $color-dark;
 	margin: 0 0 0.5rem 0;
 	line-height: 1.3;
 
@@ -253,7 +253,7 @@
 
 .ctaText {
 	font-size: 0.9375rem;
-	color: rgba($color-white, 0.6);
+	color: $color-gray;
 	margin: 0 0 1.25rem 0;
 	line-height: 1.6;
 }
@@ -263,7 +263,7 @@
 	align-items: center;
 	gap: 0.5rem;
 	padding: 0.75rem 1.5rem;
-	background: #00b67a;
+	background: #4285f4;
 	border: none;
 	border-radius: 8px;
 	color: $color-white;
@@ -278,10 +278,8 @@
 	}
 
 	&:hover {
-		background: #{color.adjust(#00b67a, $lightness: -5%)};
+		background: #357ae8;
 		transform: translateY(-1px);
-		box-shadow: 0 4px 12px rgba(#00b67a, 0.4);
+		box-shadow: 0 4px 12px rgba(#4285f4, 0.4);
 	}
 }
-
-

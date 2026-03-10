@@ -7,7 +7,7 @@
 	min-width: 300px;
 
 	.sectionTitle {
-		color: $color-white;
+		color: $color-dark;
 		@include util.fontSize($font-size-18);
 		font-weight: 600;
 		margin-bottom: 1.5rem;
@@ -33,9 +33,9 @@
 		display: flex;
 		justify-content: space-between;
 		@include util.fontSize($font-size-15);
-		color: rgba($color-white, 0.7);
+		color: $color-gray;
 		padding: 0.75rem 1rem;
-		border-bottom: 1px solid rgba($color-white, 0.1);
+		border-bottom: 1px solid $color-border;
 		border-radius: 0;
 		transition: all $transition-fast;
 		min-width: 280px;
@@ -45,13 +45,13 @@
 		}
 
 		&.highlight {
-			background-color: rgba($color-gold, 0.15);
-			color: $color-gold;
-			border-bottom-color: rgba($color-gold, 0.2);
+			background-color: rgba($color-gold, 0.1);
+			color: $color-gold-dark;
+			border-bottom-color: rgba($color-gold, 0.15);
 
 			.dayName,
 			.dayHours {
-				color: $color-gold;
+				color: $color-gold-dark;
 			}
 		}
 	}
@@ -67,9 +67,9 @@
 
 .dayName {
 	font-weight: 500;
-	color: rgba($color-white, 0.9);
+	color: $color-dark;
 }
 
 .dayHours {
-	color: rgba($color-white, 0.7);
+	color: $color-gray;
 }

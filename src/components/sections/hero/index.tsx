@@ -18,7 +18,23 @@ export const HeroSection = () => {
 		<section id="hero" className={styles.hero} dir={isRTL ? "rtl" : "ltr"}>
 			<div className={styles.overlay}></div>
 			<div className={styles.content}>
-				<h1 className={styles.title}>{t.hero.title}</h1>
+				<h1 className={styles.title}>
+					{t.hero.titleParts.map((part, i) => {
+						if (part.color === "blue")
+							return (
+								<span key={i} className={styles.titleBlue}>
+									{part.text}
+								</span>
+							)
+						if (part.color === "pink")
+							return (
+								<span key={i} className={styles.titlePink}>
+									{part.text}
+								</span>
+							)
+						return <span key={i}>{part.text}</span>
+					})}
+				</h1>
 				<p className={styles.subtitle}>{t.hero.subtitle}</p>
 				<div className={styles.actions}>
 					<Button

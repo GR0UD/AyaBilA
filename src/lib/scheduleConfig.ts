@@ -7,6 +7,7 @@ const LOCALE_MAP: Record<Language, string> = {
 	en: "en-US",
 	da: "da-DK",
 	ar: "ar-SA",
+	de: "de-DE",
 }
 
 /**
@@ -27,6 +28,7 @@ export const SCHEDULE_CONFIG = {
 		da: "Lukket",
 		en: "Closed",
 		ar: "مغلق",
+		de: "Geschlossen",
 	},
 } as const
 
