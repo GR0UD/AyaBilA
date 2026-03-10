@@ -246,6 +246,8 @@ export const translations = {
 			quality: "Premium products",
 			service: "Personal service",
 			certified: "Professionally trained",
+			certificatedPractitioner: "Certified practitioner",
+			centralLocation: "Central location",
 			diplomaBadge: "Certified education",
 			diplomaText:
 				"Aya has completed the Mounir Education Masterclass – a recognized international training in advanced hair treatment and styling.",
@@ -459,6 +461,8 @@ export const translations = {
 			quality: "منتجات فاخرة",
 			service: "خدمة شخصية",
 			certified: "مؤهل مهنياً",
+			certificatedPractitioner: "ممارس معتمد",
+			centralLocation: "موقع مركزي",
 			diplomaBadge: "تعليم معتمد",
 			diplomaText:
 				"أكملت آية دورة Mounir Education Masterclass – تدريب دولي معترف به في مجال علاج الشعر المتقدم والتصفيف.",
@@ -671,6 +675,8 @@ export const translations = {
 			quality: "Premium-Produkte",
 			service: "Persönlicher Service",
 			certified: "Berufsausgebildet",
+			certificatedPractitioner: "Zertifizierter Praktiker",
+			centralLocation: "Zentrale Lage",
 			diplomaBadge: "Zertifizierte Ausbildung",
 			diplomaText:
 				"Aya hat die Mounir Education Masterclass abgeschlossen – eine anerkannte internationale Ausbildung in fortgeschrittener Haarbehandlung und Styling.",
