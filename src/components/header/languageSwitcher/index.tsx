@@ -37,9 +37,13 @@ const FLAG_ICONS: Record<Language, React.ReactNode> = {
 	),
 	ar: (
 		<svg viewBox="0 0 900 600">
-			<rect width="900" height="600" fill="#CE1126" />
+			<rect width="900" height="200" fill="#CE1126" />
 			<rect y="200" width="900" height="200" fill="#FFF" />
-			<rect y="400" width="900" height="200" fill="#007A5E" />
+			<rect y="400" width="900" height="200" fill="#000" />
+			<g fill="#00A651">
+				<circle cx="300" cy="300" r="35" />
+				<circle cx="600" cy="300" r="35" />
+			</g>
 		</svg>
 	),
 	de: (
