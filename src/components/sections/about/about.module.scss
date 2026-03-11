@@ -95,15 +95,6 @@
 	@include util.fontSize($font-size-14);
 }
 
-.certificateImage {
-	width: 100%;
-	max-width: 170px;
-	height: auto;
-	rotate: -5deg;
-	margin-top: 2rem;
-	border-radius: 100%;
-}
-
 .visual {
 	display: flex;
 	flex-direction: column;
@@ -123,7 +114,7 @@
 	height: 420px;
 	width: 100%;
 	max-width: 480px;
-	margin: 0 auto;
+	margin-left: 3.25rem;
 	padding: 2rem;
 
 	@media (max-width: 768px) {
@@ -134,7 +125,7 @@
 	@media (max-width: 480px) {
 		height: 300px;
 		max-width: 100%;
-		margin-left: 1rem;
+		margin-left: 2.5rem;
 	}
 }
 
@@ -189,6 +180,7 @@
 		&.active {
 			left: 0;
 			z-index: 10;
+			transform: rotate(-4deg);
 		}
 
 		&:not(.active) {
@@ -210,7 +202,7 @@
 			left: 0;
 			z-index: 10;
 			box-shadow: $shadow-lg;
-			transform: rotate(0deg);
+			transform: rotate(-4deg);
 			opacity: 1;
 		}
 
@@ -294,6 +286,7 @@
 .story {
 	width: 100%;
 	animation: fadeIn 0.3s ease-in-out;
+	position: relative;
 }
 
 .storyTitle {
@@ -351,6 +344,17 @@
 			transform: scale(1.1);
 		}
 	}
+}
+
+.ayaCertificate {
+	width: 80px;
+	height: auto;
+	position: absolute;
+	right: -0.5rem;
+	bottom: -0.5rem;
+	rotate: 8deg;
+
+	animation: fadeIn 0.4s ease-in-out;
 }
 
 @keyframes fadeIn {

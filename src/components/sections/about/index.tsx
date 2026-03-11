@@ -82,14 +82,6 @@ export const AboutSection = () => {
 							</div>
 						))}
 					</div>
-
-					<Image
-						src="/certificat1.png"
-						alt="Certificate"
-						width={400}
-						height={300}
-						className={styles.certificateImage}
-					/>
 				</div>
 
 				<div className={styles.visual}>
@@ -174,6 +166,13 @@ export const AboutSection = () => {
 										</a>
 									))}
 								</div>
+								<Image
+									src="/certificat1.png"
+									alt="Aya's Certificate"
+									width={120}
+									height={90}
+									className={styles.ayaCertificate}
+								/>
 							</div>
 						)}
 						{selectedPerson === "bilal" && (
