@@ -93,7 +93,7 @@ export const Header: FC = () => {
 						variant="primary"
 						className={styles.bookBtn}
 					>
-						Book tid
+						Book nu
 					</Button>
 
 					<button

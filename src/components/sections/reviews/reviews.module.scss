@@ -1,15 +1,15 @@
 @use "sass:color";
+@use "@/styles/base/util";
 @use "@/styles/base/variables" as *;
 
 .reviews {
-	padding: 5rem 2rem;
+	padding: 5rem 0;
 	background: $color-white;
 	color: $color-dark;
 }
 
 .container {
-	max-width: 1200px;
-	margin: 0 auto;
+	@include util.maxWidth;
 }
 
 .content {

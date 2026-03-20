@@ -19,13 +19,13 @@ declare global {
     ) => void;
     translate: (
       languageCode: string,
-      successCallback?: (res: any) => void,
-      errorCallback?: (err: any) => void
+      successCallback?: (res: unknown) => void,
+      errorCallback?: (err: unknown) => void
     ) => void;
     resetTranslation: (
       languageCode: string,
-      successCallback?: (res: any) => void,
-      errorCallback?: (err: any) => void
+      successCallback?: (res: unknown) => void,
+      errorCallback?: (err: unknown) => void
     ) => void;
   }
 }
