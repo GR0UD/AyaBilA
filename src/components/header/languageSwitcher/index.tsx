@@ -57,7 +57,7 @@ const CheckIcon: FC = () => (
 export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 	variant = "desktop",
 }) => {
-	const { language, setLanguage } = useLanguage()
+	const { language, setLanguage, isRTL } = useLanguage()
 	const [isOpen, setIsOpen] = useState(false)
 	const [isTranslating, setIsTranslating] = useState(false)
 	const containerRef = useRef<HTMLDivElement>(null)
@@ -112,7 +112,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
 	if (variant === "mobile") {
 		return (
-			<div className={styles.mobileSwitcher} data-notranslate>
+			<div className={styles.mobileSwitcher} data-notranslate dir={isRTL ? "rtl" : "ltr"}>
 				{LANGUAGE_CONFIG.map((lang) => (
 					<button
 						key={lang.code}
@@ -120,9 +120,11 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 						onClick={() => handleLanguageChange(lang.code)}
 						disabled={isTranslating}
 						data-notranslate
+						aria-label={`Switch to ${lang.name}`}
+						title={lang.name}
 					>
-						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.mobileFlag}`} />
-						<span>{lang.name}</span>
+						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.mobileFlag}`} aria-hidden="true" data-notranslate />
+						<span data-notranslate className="notranslate">{lang.name}</span>
 					</button>
 				))}
 			</div>
@@ -130,24 +132,26 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 	}
 
 	return (
-		<div className={styles.switcher} ref={containerRef}>
+		<div className={styles.switcher} ref={containerRef} dir={isRTL ? "rtl" : "ltr"}>
 			<button
 				className={styles.trigger}
 				onClick={() => setIsOpen((prev) => !prev)}
 				aria-expanded={isOpen}
 				aria-haspopup="listbox"
+				aria-label="Language selector"
 				data-notranslate
 			>
-				<MdLanguage className={styles.globeIcon} />
+				<MdLanguage className={styles.globeIcon} aria-hidden="true" />
 				<span className={styles.languageText} data-notranslate>
-					{LANGUAGE_LABELS[language]}/EN
+					DK/EN
 				</span>
 				<ChevronIcon isOpen={isOpen} />
 			</button>
 
 			<div
-				className={`${styles.dropdown} ${isOpen ? styles.open : ""}`}
+				className={`${styles.dropdown} ${isOpen ? styles.open : ""} notranslate`}
 				role="listbox"
+				aria-label="Available languages"
 				data-notranslate
 			>
 				{LANGUAGE_CONFIG.map((lang) => (
@@ -159,13 +163,14 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 						onClick={() => handleLanguageChange(lang.code)}
 						disabled={isTranslating}
 						data-notranslate
+						aria-label={`${lang.name}${language === lang.code ? " (current)" : ""}`}
+						title={lang.name}
 					>
-						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.dropdownFlag}`} />
-						<span className={styles.optionLabel}>{lang.name}</span>
+						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.dropdownFlag}`} aria-hidden="true" data-notranslate />
+						<span className={`${styles.optionLabel} notranslate`} data-notranslate>{lang.name}</span>
 						{language === lang.code && <CheckIcon />}
 					</button>
 				))}
 			</div>
 		</div>
-	)
-}
+	)}

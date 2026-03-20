@@ -6,6 +6,21 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		--tw-animate: none !important;
+		animation: none !important;
+		transition: none !important;
+	}
+}
+
 body {
 	font-family: $font-family;
 	background-color: $color-white;

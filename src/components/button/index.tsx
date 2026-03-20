@@ -10,6 +10,9 @@ interface ButtonProps {
 	className?: string
 	padding?: string
 	onClick?: () => void
+	ariaLabel?: string
+	"aria-label"?: string
+	"aria-labelledby"?: string
 }
 
 export const Button = ({
@@ -21,9 +24,15 @@ export const Button = ({
 	className,
 	padding,
 	onClick,
+	"aria-label": ariaLabel,
+	"aria-labelledby": ariaLabelledBy,
 }: ButtonProps) => {
 	const classNames = `${styles.button} ${styles[variant]} ${className || ""}`
 	const style = padding ? { padding } : undefined
+	const ariaProps = {
+		...(ariaLabel && { "aria-label": ariaLabel }),
+		...(ariaLabelledBy && { "aria-labelledby": ariaLabelledBy }),
+	}
 
 	if (href) {
 		// External link
@@ -35,6 +44,7 @@ export const Button = ({
 					rel={rel}
 					className={classNames}
 					style={style}
+					{...ariaProps}
 				>
 					{children}
 				</a>
@@ -42,7 +52,7 @@ export const Button = ({
 		}
 		// Internal link
 		return (
-			<Link href={href} className={classNames} style={style}>
+			<Link href={href} className={classNames} style={style} {...ariaProps}>
 				{children}
 			</Link>
 		)
@@ -50,7 +60,7 @@ export const Button = ({
 
 	// Regular button
 	return (
-		<button className={classNames} style={style} onClick={onClick}>
+		<button className={classNames} style={style} onClick={onClick} {...ariaProps}>
 			{children}
 		</button>
 	)

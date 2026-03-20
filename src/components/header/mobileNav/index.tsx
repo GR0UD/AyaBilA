@@ -40,7 +40,6 @@ export const MobileNav: FC<MobileNavProps> = ({
 				<LanguageSwitcher variant="mobile" />
 				<Button
 					href="https://ayabila.onlinebooq.dk/"
-					target="_blank"
 					rel="noopener noreferrer"
 					variant="primary"
 				>

@@ -39,8 +39,15 @@ export default function TranslationWidgetComponent() {
       return;
     }
 
+    // Preload the script for faster loading
+    const preloadLink = document.createElement("link");
+    preloadLink.rel = "preload";
+    preloadLink.as = "script";
+    preloadLink.href = "https://unpkg.com/translation-widget@1.1.4/dist/index.min.js";
+    document.head.appendChild(preloadLink);
+
     const script = document.createElement("script");
-    script.src = "https://unpkg.com/translation-widget@latest/dist/index.min.js";
+    script.src = "https://unpkg.com/translation-widget@1.1.4/dist/index.min.js";
     script.defer = true;
 
     const initWidget = () => {
@@ -55,6 +62,12 @@ export default function TranslationWidgetComponent() {
             textColor: "#1a1a1a",
           },
         });
+        // Add aria-label to translation widget iframe
+        const iframe = document.querySelector('iframe[src*="translation-widget"]') as HTMLIFrameElement;
+        if (iframe) {
+          iframe.setAttribute("aria-label", "Translation widget");
+          iframe.setAttribute("title", "Translation widget");
+        }
       }
     };
 
@@ -72,6 +85,9 @@ export default function TranslationWidgetComponent() {
       window.removeEventListener("load", initWidget);
       if (document.body.contains(script)) {
         document.body.removeChild(script);
+      }
+      if (document.head.contains(preloadLink)) {
+        document.head.removeChild(preloadLink);
       }
     };
   }, []);

@@ -7,7 +7,7 @@ export const LANGUAGE_CONFIG: {
 }[] = [
 	{
 		code: "da",
-		name: "Dansk",
+		name: "Danish",
 		abbreviation: "DK",
 	},
 	{
@@ -17,7 +17,7 @@ export const LANGUAGE_CONFIG: {
 	},
 	{
 		code: "ar",
-		name: "العربية",
+		name: "Arabic",
 		abbreviation: "AR",
 	},
 	{

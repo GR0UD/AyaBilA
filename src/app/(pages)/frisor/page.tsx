@@ -1,5 +1,5 @@
 import { frisorServices } from "@/lib/servicesData"
-import { ServicesLayout } from "@/components/services/servicesLayout"
+import { ServicesLayout } from "@/components/sections/services/servicesLayout"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {

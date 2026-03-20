@@ -24,7 +24,6 @@ export const HeroSection = () => {
 					<div className={styles.actions}>
 						<Button
 							href="https://ayabila.onlinebooq.dk/"
-							target="_blank"
 							rel="noopener noreferrer"
 							variant="primary"
 						>

@@ -18,6 +18,14 @@
 	animation: gradientShift 8s ease infinite;
 	overflow: hidden;
 
+	@media (prefers-reduced-motion: reduce) {
+		animation: none;
+
+		&::before {
+			animation: none;
+		}
+	}
+
 	&::before {
 		content: "";
 		position: absolute;
@@ -75,7 +83,7 @@
 
 .wrapper {
 	width: 100%;
-	max-width: 1200px;
+	@include util.maxWidth;
 	margin: 0 auto;
 }
 
@@ -84,8 +92,6 @@
 	z-index: 1;
 	text-align: left;
 	max-width: 750px;
-	padding: 0 $sidePadding;
-	padding-top: 30px;
 }
 
 .title {
