@@ -44,7 +44,7 @@ export const MobileNav: FC<MobileNavProps> = ({
 					rel="noopener noreferrer"
 					variant="primary"
 				>
-					Book Now
+					Book tid
 				</Button>
 			</div>
 		</nav>
