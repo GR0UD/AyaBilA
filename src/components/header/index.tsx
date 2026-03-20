@@ -28,10 +28,16 @@ export const Header: FC = () => {
 	const isServicesPage = pathname.includes("/frisor") || pathname.includes("/kosmetolog")
 
 	useEffect(() => {
-		const handleScroll = () => setIsScrolled(window.scrollY > 50)
+		const handleScroll = () => {
+			setIsScrolled(window.scrollY > 50)
+			// Close mobile menu when scrolling
+			if (isMobileMenuOpen) {
+				setIsMobileMenuOpen(false)
+			}
+		}
 		window.addEventListener("scroll", handleScroll)
 		return () => window.removeEventListener("scroll", handleScroll)
-	}, [])
+	}, [isMobileMenuOpen])
 
 	const scrollToSection = useCallback((sectionId: string) => {
 		document
@@ -50,7 +56,7 @@ export const Header: FC = () => {
 
 	return (
 		<header
-			className={`${styles.header} ${isScrolled || isServicesPage ? styles.scrolled : ""}`}
+			className={`${styles.header} ${isScrolled || isServicesPage || isMobileMenuOpen ? styles.scrolled : ""}`}
 		>
 			<div className={styles.container}>
 				<div
