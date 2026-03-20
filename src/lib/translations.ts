@@ -9,7 +9,7 @@ export const translations = {
 			kosmetolog: "Kosmetolog",
 			frisor: "Frisør",
 			kontakt: "Kontakt",
-			booking: "Book tid",
+			booking: "Book nu",
 		},
 		hero: {
 			title: "Frisør & Kosmetolog i ét – i hjertet af Kolding",
@@ -21,7 +21,7 @@ export const translations = {
 			] as { text: string; color: "default" | "blue" | "pink" }[],
 			subtitle:
 				"Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger til både herrer og damer.",
-			cta: "Book tid",
+			cta: "Book nu",
 			ctaSecondary: "Se vores services",
 		},
 		about: {
@@ -199,7 +199,7 @@ export const translations = {
 			title: "Book din tid i dag",
 			subtitle:
 				"Klar til at forkæle dig selv? Book din næste behandling via telefon, sociale medier eller online booking.",
-			cta: "Book tid nu",
+			cta: "Book nu",
 			phone: "Ring til os",
 			social: "Følg os på sociale medier",
 		},

@@ -28,7 +28,7 @@ export const HeroSection = () => {
 							rel="noopener noreferrer"
 							variant="primary"
 						>
-							Book tid
+							Book nu
 						</Button>
 						<Button
 							variant="secondary"
