@@ -1,6 +1,7 @@
 "use client"
 
 import { type FC, useState, useEffect, useCallback } from "react"
+import { usePathname, useRouter } from "next/navigation"
 import Image from "next/image"
 import { useLanguage } from "@/context/LanguageContext"
 import { Button } from "@/components/button"
@@ -18,8 +19,13 @@ export type NavLink = (typeof NAV_LINKS)[number]
 
 export const Header: FC = () => {
 	const { t } = useLanguage()
+	const pathname = usePathname()
+	const router = useRouter()
 	const [isScrolled, setIsScrolled] = useState(false)
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
+	// Check if we're on frisor or kosmetolog pages
+	const isServicesPage = pathname.includes("/frisor") || pathname.includes("/kosmetolog")
 
 	useEffect(() => {
 		const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -34,14 +40,22 @@ export const Header: FC = () => {
 		setIsMobileMenuOpen(false)
 	}, [])
 
+	const handleLogoClick = useCallback(() => {
+		if (pathname === "/") {
+			scrollToSection("hero")
+		} else {
+			router.push("/")
+		}
+	}, [pathname, router, scrollToSection])
+
 	return (
 		<header
-			className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}
+			className={`${styles.header} ${isScrolled || isServicesPage ? styles.scrolled : ""}`}
 		>
 			<div className={styles.container}>
 				<div
 					className={styles.logo}
-					onClick={() => scrollToSection("hero")}
+					onClick={handleLogoClick}
 				>
 					<Image
 						src="/logo.png"
@@ -52,7 +66,7 @@ export const Header: FC = () => {
 					/>
 				</div>
 
-				<nav className={styles.nav}>
+				<nav className={`${styles.nav} ${isServicesPage ? styles.hidden : ""}`}>
 					<ul className={styles.navList}>
 						{NAV_LINKS.map((link) => (
 							<li key={link.id}>
@@ -67,6 +81,7 @@ export const Header: FC = () => {
 				</nav>
 
 				<div className={styles.actions}>
+					<LanguageSwitcher variant="desktop" />
 					<Button
 						href="https://ayabila.onlinebooq.dk/"
 						target="_blank"
@@ -76,7 +91,6 @@ export const Header: FC = () => {
 					>
 						{t.nav.booking}
 					</Button>
-					<LanguageSwitcher variant="desktop" />
 
 					<button
 						className={styles.mobileMenuBtn}

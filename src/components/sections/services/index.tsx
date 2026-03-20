@@ -23,9 +23,7 @@ export const ServicesSection = () => {
 
 				<div className={styles.grid}>
 					<a
-						href="https://ayabila.onlinebooq.dk/"
-						target="_blank"
-						rel="noopener noreferrer"
+						href="/frisor"
 						className={`${styles.card} ${styles.cardBlue}`}
 					>
 						<div className={styles.cardImageWrapper}>
@@ -52,9 +50,7 @@ export const ServicesSection = () => {
 					</a>
 
 					<a
-						href="https://ayabila.onlinebooq.dk/"
-						target="_blank"
-						rel="noopener noreferrer"
+						href="/kosmetolog"
 						className={`${styles.card} ${styles.cardPink}`}
 					>
 						<div className={styles.cardImageWrapper}>

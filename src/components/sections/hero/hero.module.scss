@@ -6,7 +6,7 @@
 	min-height: 110vh;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	background: linear-gradient(
 		135deg,
 		$color-white 0%,
@@ -73,13 +73,19 @@
 	);
 }
 
+.wrapper {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
 .content {
 	position: relative;
 	z-index: 1;
-	text-align: center;
+	text-align: left;
 	max-width: 750px;
 	padding: 0 $sidePadding;
-	padding-top: 60px;
+	padding-top: 30px;
 }
 
 .title {
@@ -93,6 +99,15 @@
 	@media (max-width: 768px) {
 		@include util.fontSize($font-size-32);
 	}
+}
+
+.tag {
+	color: $color-pink;
+	@include util.fontSize($font-size-14);
+	font-weight: 600;
+	margin-bottom: 1.5rem;
+	display: inline-block;
+	letter-spacing: 0.05em;
 }
 
 .titleBlue {
@@ -109,8 +124,6 @@
 	line-height: 1.7;
 	margin-bottom: 2.5rem;
 	max-width: 700px;
-	margin-left: auto;
-	margin-right: auto;
 
 	@media (max-width: 768px) {
 		@include util.fontSize($font-size-16);
@@ -120,7 +133,7 @@
 .actions {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-start;
 	gap: 1rem;
 	flex-wrap: wrap;
 }

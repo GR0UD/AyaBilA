@@ -1,0 +1,74 @@
+@use "@/styles/base/util";
+@use "@/styles/base/variables" as *;
+
+.servicesLayout {
+	padding-top: 125px;
+	padding-bottom: 120px;
+	background: $color-white;
+
+	&.theme-blue {
+		background: linear-gradient(135deg, rgba($color-blue, 0.08) 0%, rgba($color-blue-light, 0.04) 100%);
+	}
+
+	&.theme-pink {
+		background: linear-gradient(135deg, rgba($color-pink, 0.08) 0%, rgba($color-pink-light, 0.04) 100%);
+	}
+}
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 $sidePadding;
+}
+
+.header {
+	margin-bottom: 4rem;
+	text-align: center;
+
+	h1 {
+		@include util.fontSize($font-size-56);
+		font-weight: 700;
+		color: $color-dark;
+		margin-bottom: 1rem;
+		letter-spacing: -0.02em;
+
+		@media (max-width: 768px) {
+			@include util.fontSize($font-size-32);
+		}
+	}
+
+	p {
+		@include util.fontSize($font-size-18);
+		color: $color-gray;
+		line-height: 1.7;
+		max-width: 600px;
+		margin: 0 auto;
+
+		@media (max-width: 768px) {
+			@include util.fontSize($font-size-16);
+		}
+	}
+}
+
+.categoriesWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.title-blue {
+	color: $color-blue !important;
+}
+
+.title-pink {
+	color: $color-pink !important;
+}
+
+.price-blue {
+	color: $color-blue !important;
+}
+
+.price-pink {
+	color: $color-pink !important;
+}

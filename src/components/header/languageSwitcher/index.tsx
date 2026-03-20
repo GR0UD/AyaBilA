@@ -1,58 +1,29 @@
 "use client"
 
 import { type FC, useState, useRef, useCallback, useEffect } from "react"
+import { MdLanguage } from "react-icons/md"
 import { useLanguage } from "@/context/LanguageContext"
 import type { Language } from "@/lib/translations"
 import { LANGUAGE_CONFIG } from "@/lib/languages"
 import styles from "./languageSwitcher.module.scss"
+import "flag-icons/css/flag-icons.min.css"
 
 interface LanguageSwitcherProps {
 	variant?: "desktop" | "mobile"
 }
 
-const FLAG_ICONS: Record<Language, React.ReactNode> = {
-	da: (
-		<svg viewBox="0 0 512 386">
-			<rect width="512" height="386" fill="#C60C30" />
-			<rect x="153" y="0" width="51" height="386" fill="#FFF" />
-			<rect x="0" y="167.5" width="512" height="51" fill="#FFF" />
-		</svg>
-	),
-	en: (
-		<svg viewBox="0 0 60 30">
-			<clipPath id="flag-t">
-				<path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" />
-			</clipPath>
-			<path d="M0,0 v30 h60 v-30 z" fill="#00247d" />
-			<path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
-			<path
-				d="M0,0 L60,30 M60,0 L0,30"
-				stroke="#CF142B"
-				strokeWidth="4"
-				clipPath="url(#flag-t)"
-			/>
-			<path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
-			<path d="M30,0 v30 M0,15 h60" stroke="#CF142B" strokeWidth="6" />
-		</svg>
-	),
-	ar: (
-		<svg viewBox="0 0 900 600">
-			<rect width="900" height="200" fill="#CE1126" />
-			<rect y="200" width="900" height="200" fill="#FFF" />
-			<rect y="400" width="900" height="200" fill="#000" />
-			<g fill="#00A651">
-				<circle cx="300" cy="300" r="35" />
-				<circle cx="600" cy="300" r="35" />
-			</g>
-		</svg>
-	),
-	de: (
-		<svg viewBox="0 0 5 3">
-			<rect width="5" height="1" fill="#000" />
-			<rect y="1" width="5" height="1" fill="#D00" />
-			<rect y="2" width="5" height="1" fill="#FFCE00" />
-		</svg>
-	),
+const FLAG_CODES: Record<Language, string> = {
+	da: "dk",
+	en: "gb",
+	ar: "sa",
+	de: "de",
+}
+
+const LANGUAGE_LABELS: Record<Language, string> = {
+	da: "DK",
+	en: "EN",
+	ar: "AR",
+	de: "DE",
 }
 
 const ChevronIcon: FC<{ isOpen: boolean }> = ({ isOpen }) => (
@@ -127,10 +98,8 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 						className={`${styles.mobileBtn} ${language === lang.code ? styles.active : ""}`}
 						onClick={() => handleLanguageChange(lang.code)}
 					>
-						<span className={styles.flag}>
-							{FLAG_ICONS[lang.code]}
-						</span>
-						{lang.abbreviation}
+						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.mobileFlag}`} />
+						<span>{lang.name}</span>
 					</button>
 				))}
 			</div>
@@ -145,7 +114,10 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 				aria-expanded={isOpen}
 				aria-haspopup="listbox"
 			>
-				<span className={styles.flag}>{FLAG_ICONS[language]}</span>
+				<MdLanguage className={styles.globeIcon} />
+				<span className={styles.languageText}>
+					{LANGUAGE_LABELS[language]}/EN
+				</span>
 				<ChevronIcon isOpen={isOpen} />
 			</button>
 
@@ -161,9 +133,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 						className={`${styles.option} ${language === lang.code ? styles.active : ""}`}
 						onClick={() => handleLanguageChange(lang.code)}
 					>
-						<span className={styles.flag}>
-							{FLAG_ICONS[lang.code]}
-						</span>
+						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.dropdownFlag}`} />
 						<span className={styles.optionLabel}>{lang.name}</span>
 						{language === lang.code && <CheckIcon />}
 					</button>

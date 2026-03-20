@@ -17,7 +17,9 @@ export const HeroSection = () => {
 	return (
 		<section id="hero" className={styles.hero} dir={isRTL ? "rtl" : "ltr"}>
 			<div className={styles.overlay}></div>
-			<div className={styles.content}>
+			<div className={styles.wrapper}>
+				<div className={styles.content}>
+				<div className={styles.tag}>Established in Kolding</div>
 				<h1 className={styles.title}>
 					{t.hero.titleParts.map((part, i) => {
 						if (part.color === "blue")
@@ -51,6 +53,7 @@ export const HeroSection = () => {
 					>
 						{t.hero.ctaSecondary}
 					</Button>
+				</div>
 				</div>
 			</div>
 			<div className={styles.scrollIndicator}>

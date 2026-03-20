@@ -11,6 +11,8 @@
 	transition: all $transition-normal;
 	background-color: transparent;
 
+
+	
 	&.scrolled {
 		background-color: rgba($color-white, 0.95);
 		backdrop-filter: blur(12px);
@@ -92,6 +94,10 @@
 	align-items: center;
 
 	@media (max-width: 900px) {
+		display: none;
+	}
+
+	&.hidden {
 		display: none;
 	}
 }

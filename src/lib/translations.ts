@@ -6,6 +6,8 @@ export const translations = {
 			home: "Hjem",
 			about: "Om os",
 			behandlinger: "Behandlinger",
+			kosmetolog: "Kosmetolog",
+			frisor: "Frisør",
 			kontakt: "Kontakt",
 			booking: "Book tid",
 		},
@@ -14,7 +16,7 @@ export const translations = {
 			titleParts: [
 				{ text: "Kosmetolog", color: "pink" },
 				{ text: " & ", color: "default" },
-				{ text: "Herrefrisør", color: "blue" },
+				{ text: "frisør", color: "blue" },
 				{ text: " i hjertet af Kolding", color: "default" },
 			] as { text: string; color: "default" | "blue" | "pink" }[],
 			subtitle:
@@ -179,7 +181,7 @@ export const translations = {
 				name: "Bilal",
 				role: "Herrefrisør",
 				description:
-					"Professionel herrefrisør i 10+ år. Ekspert i klassiske klipninger, barbering og detaljer.",
+					"Professionel frisør i 10+ år. Ekspert i klassiske klipninger, barbering og detaljer.",
 			},
 			aya: {
 				name: "Aya",
@@ -219,6 +221,8 @@ export const translations = {
 			home: "Home",
 			about: "About",
 			behandlinger: "Treatments",
+			kosmetolog: "Cosmetology",
+			frisor: "Hairdresser",
 			kontakt: "Contact",
 			booking: "Book now",
 		},
