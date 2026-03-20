@@ -3,22 +3,20 @@
 import { type FC, useState, useEffect, useCallback } from "react"
 import { usePathname, useRouter } from "next/navigation"
 import Image from "next/image"
-import { useLanguage } from "@/context/LanguageContext"
 import { Button } from "@/components/button"
 import { LanguageSwitcher } from "./languageSwitcher"
 import { MobileNav } from "./mobileNav"
 import styles from "./header.module.scss"
 
 const NAV_LINKS = [
-	{ id: "about", translationKey: "about" },
-	{ id: "services", translationKey: "behandlinger" },
-	{ id: "footer", translationKey: "kontakt" },
+	{ id: "about", label: "Om os" },
+	{ id: "services", label: "Behandlinger" },
+	{ id: "footer", label: "Kontakt" },
 ] as const
 
 export type NavLink = (typeof NAV_LINKS)[number]
 
 export const Header: FC = () => {
-	const { t } = useLanguage()
 	const pathname = usePathname()
 	const router = useRouter()
 	const [isScrolled, setIsScrolled] = useState(false)
@@ -79,7 +77,7 @@ export const Header: FC = () => {
 								<button
 									onClick={() => scrollToSection(link.id)}
 								>
-									{t.nav[link.translationKey]}
+									{link.label}
 								</button>
 							</li>
 						))}
@@ -95,7 +93,7 @@ export const Header: FC = () => {
 						variant="primary"
 						className={styles.bookBtn}
 					>
-						{t.nav.booking}
+						Book Now
 					</Button>
 
 					<button

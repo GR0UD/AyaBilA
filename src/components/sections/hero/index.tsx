@@ -1,12 +1,9 @@
 "use client"
 
-import { useLanguage } from "@/context/LanguageContext"
 import { Button } from "@/components/button"
 import styles from "./hero.module.scss"
 
 export const HeroSection = () => {
-	const { t, isRTL } = useLanguage()
-
 	const scrollToSection = (sectionId: string) => {
 		const element = document.getElementById(sectionId)
 		if (element) {
@@ -15,45 +12,31 @@ export const HeroSection = () => {
 	}
 
 	return (
-		<section id="hero" className={styles.hero} dir={isRTL ? "rtl" : "ltr"}>
+		<section id="hero" className={styles.hero}>
 			<div className={styles.overlay}></div>
 			<div className={styles.wrapper}>
 				<div className={styles.content}>
-				<div className={styles.tag}>Established in Kolding</div>
-				<h1 className={styles.title}>
-					{t.hero.titleParts.map((part, i) => {
-						if (part.color === "blue")
-							return (
-								<span key={i} className={styles.titleBlue}>
-									{part.text}
-								</span>
-							)
-						if (part.color === "pink")
-							return (
-								<span key={i} className={styles.titlePink}>
-									{part.text}
-								</span>
-							)
-						return <span key={i}>{part.text}</span>
-					})}
-				</h1>
-				<p className={styles.subtitle}>{t.hero.subtitle}</p>
-				<div className={styles.actions}>
-					<Button
-						href="https://ayabila.onlinebooq.dk/"
-						target="_blank"
-						rel="noopener noreferrer"
-						variant="primary"
-					>
-						{t.hero.cta}
-					</Button>
-					<Button
-						variant="secondary"
-						onClick={() => scrollToSection("services")}
-					>
-						{t.hero.ctaSecondary}
-					</Button>
-				</div>
+					<div className={styles.tag}>I hjertet af Kolding</div>
+					<h1 className={styles.title}>
+						<span className={styles.titleBlue}>Frisør</span> & <span className={styles.titlePink}>Kosmetolog</span> i ét
+					</h1>
+					<p className={styles.subtitle}>Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger til både herrer og damer</p>
+					<div className={styles.actions}>
+						<Button
+							href="https://ayabila.onlinebooq.dk/"
+							target="_blank"
+							rel="noopener noreferrer"
+							variant="primary"
+						>
+							Book tid
+						</Button>
+						<Button
+							variant="secondary"
+							onClick={() => scrollToSection("services")}
+						>
+							Se vores services
+						</Button>
+					</div>
 				</div>
 			</div>
 			<div className={styles.scrollIndicator}>

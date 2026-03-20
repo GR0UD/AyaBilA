@@ -1,7 +1,6 @@
 "use client"
 
 import type { FC } from "react"
-import { useLanguage } from "@/context/LanguageContext"
 import { Button } from "@/components/button"
 import { LanguageSwitcher } from "../languageSwitcher"
 import type { NavLink } from "../index"
@@ -20,8 +19,6 @@ export const MobileNav: FC<MobileNavProps> = ({
 	navLinks,
 	onScrollToSection,
 }) => {
-	const { t } = useLanguage()
-
 	const handleNavClick = (sectionId: string) => {
 		onScrollToSection(sectionId)
 		onClose()
@@ -33,7 +30,7 @@ export const MobileNav: FC<MobileNavProps> = ({
 				{navLinks.map((link) => (
 					<li key={link.id}>
 						<button onClick={() => handleNavClick(link.id)}>
-							{t.nav[link.translationKey]}
+							{link.label}
 						</button>
 					</li>
 				))}
@@ -47,7 +44,7 @@ export const MobileNav: FC<MobileNavProps> = ({
 					rel="noopener noreferrer"
 					variant="primary"
 				>
-					{t.nav.booking}
+					Book Now
 				</Button>
 			</div>
 		</nav>

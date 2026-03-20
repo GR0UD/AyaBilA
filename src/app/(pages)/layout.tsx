@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google"
 import { LanguageProvider } from "@/context/LanguageContext"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
+import TranslationWidget from "@/components/TranslationWidget"
 
 import "@/styles/main.scss"
 
@@ -33,6 +34,7 @@ export default function RootLayout({
 					<Header />
 					<main>{children}</main>
 					<Footer />
+					<TranslationWidget />
 				</LanguageProvider>
 			</body>
 		</html>

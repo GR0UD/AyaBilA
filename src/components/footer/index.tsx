@@ -1,19 +1,16 @@
 "use client"
 
 import Image from "next/image"
-import { useLanguage } from "@/context/LanguageContext"
 import { DaySchedule } from "./daySchedule"
 import styles from "./footer.module.scss"
 
 export const Footer = () => {
-	const { t, isRTL, language } = useLanguage()
+	const footerEmail = "kontakt@ayabila.dk"
+	const footerPhone = "+45 60 60 99 27"
+	const footerAddress = "Kongebrogade 29, 6000 Kolding"
 
 	return (
-		<footer
-			id="footer"
-			className={styles.footer}
-			dir={isRTL ? "rtl" : "ltr"}
-		>
+		<footer id="footer" className={styles.footer}>
 			<div className={styles.container}>
 				<div className={styles.grid}>
 					<div className={styles.brand}>
@@ -76,13 +73,13 @@ export const Footer = () => {
 						</div>
 						<div className={styles.businessInfo}>
 							<p className={styles.businessName}>
-								AyabilA Frisør & kosmetolog
+								AyabilA Frisør & Kosmetolog
 							</p>
 							<p className={styles.cvr}>CVR-nr 45102459</p>
 						</div>
 						<div className={styles.contactInfo}>
 							<a
-								href={`mailto:${t.footer.email}`}
+								href={`mailto:${footerEmail}`}
 								className={styles.contactItem}
 							>
 								<svg
@@ -94,13 +91,10 @@ export const Footer = () => {
 								>
 									<path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
 								</svg>
-								<span>{t.footer.email}</span>
+								<span>{footerEmail}</span>
 							</a>
 							<a
-								href={`tel:${t.footer.phone.replace(
-									/\s/g,
-									"",
-								)}`}
+								href={`tel:${footerPhone.replace(/\s/g, "")}`}
 								className={styles.contactItem}
 							>
 								<svg
@@ -112,7 +106,7 @@ export const Footer = () => {
 								>
 									<path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
 								</svg>
-								<span>{t.footer.phone}</span>
+								<span>{footerPhone}</span>
 							</a>
 							<a
 								href="https://www.google.com/maps/place/AyabilA+Fris%C3%B8r+%26+Kosmetolog/@55.4859423,9.4751387,639m/data=!3m1!1e3!4m15!1m8!3m7!1s0x464c9f7b595a53cd:0x3e700d5ea050b5f7!2sKongebrogade+29,+6000+Kolding!3b1!8m2!3d55.4859393!4d9.4777136!16s%2Fg%2F11cpl6gzjj!3m5!1s0x464c9feddd36dbb3:0xc5f61999a2cd3632!8m2!3d55.4859467!4d9.4777344!16s%2Fg%2F11krmty54q!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDEwNy4wIKXMDSoASAFQAw%3D%3D"
@@ -129,15 +123,12 @@ export const Footer = () => {
 								>
 									<path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
 								</svg>
-								<span>{t.footer.address}</span>
+								<span>{footerAddress}</span>
 							</a>
 						</div>
 					</div>
 
-					<DaySchedule
-						language={language}
-						sectionTitle={t.footer.hours}
-					/>
+					<DaySchedule />
 
 					<div className={styles.mapSection}>
 						<iframe
@@ -154,7 +145,7 @@ export const Footer = () => {
 			</div>
 
 			<div className={styles.bottom}>
-				<p className={styles.copyright}>{t.footer.copyright}</p>
+				<p className={styles.copyright}>© 2026 AyabilA. Alle rettigheder forbeholdes.</p>
 			</div>
 		</footer>
 	)

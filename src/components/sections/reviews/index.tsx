@@ -1,7 +1,6 @@
 "use client"
 
 import Image from "next/image"
-import { useLanguage } from "@/context/LanguageContext"
 import styles from "./reviews.module.scss"
 
 const reviews = [
@@ -36,14 +35,12 @@ const reviews = [
 ]
 
 export function ReviewsSection() {
-	const { t } = useLanguage()
-
 	return (
 		<section id="reviews" className={styles.reviews}>
 			<div className={styles.container}>
 				<div className={styles.content}>
-					<h2 className={styles.title}>{t.reviews.title}</h2>
-					<p className={styles.subtitle}>{t.reviews.subtitle}</p>
+					<h2 className={styles.title}>Se hvad vores kunder siger</h2>
+					<p className={styles.subtitle}>Vi er stolte over at levere førsteklasses service. Læs hvad vores kunder har oplevet hos AyabilA.</p>
 
 					<div className={styles.reviewsGrid}>
 					{reviews.map((review, index) => (

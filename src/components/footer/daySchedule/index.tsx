@@ -1,25 +1,21 @@
-import { getDayName, getClosedLabel, SCHEDULE_CONFIG, type Language } from "@/lib/scheduleConfig"
+import { SCHEDULE_CONFIG } from "@/lib/scheduleConfig"
 import { useCurrentDay } from "@/hooks/useCurrentDay"
 import styles from "./daySchedule.module.scss"
 
-interface DayScheduleProps {
-	language: Language
-	sectionTitle: string
-}
+const ENGLISH_DAY_NAMES = ["Mandag", "Tirsdag", "Onsdag", "Torsdag", "Fredag", "Lørdag", "Søndag"]
 
-export const DaySchedule = ({ language, sectionTitle }: DayScheduleProps) => {
+export const DaySchedule = () => {
 	const currentDay = useCurrentDay()
 	const schedule = SCHEDULE_CONFIG.schedule
-	const closedLabel = getClosedLabel(language)
 
 	return (
 		<div className={styles.hours}>
-			<h4 className={styles.sectionTitle}>{sectionTitle}</h4>
+			<h4 className={styles.sectionTitle}>Åbningstider</h4>
 			<div className={styles.schedule}>
 				{schedule.map((item) => {
-					const dayName = getDayName(item.dayIndex, language)
+					const dayName = ENGLISH_DAY_NAMES[item.dayIndex]
 					const isToday = currentDay === item.dayIndex
-					const displayHours = item.time ?? closedLabel
+					const displayHours = item.time ?? "Lukket"
 
 					return (
 						<p

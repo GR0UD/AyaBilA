@@ -59,14 +59,35 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 }) => {
 	const { language, setLanguage } = useLanguage()
 	const [isOpen, setIsOpen] = useState(false)
+	const [isTranslating, setIsTranslating] = useState(false)
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	const handleLanguageChange = useCallback(
 		(lang: Language) => {
+			// Prevent concurrent translations
+			if (isTranslating) return
+
 			setLanguage(lang)
 			setIsOpen(false)
+			setIsTranslating(true)
+
+			// Trigger page translation via translation-widget
+			if (typeof window !== "undefined" && window.translate) {
+				window.translate(lang, 
+					(res) => {
+						console.log(`Page translated to ${lang}:`, res)
+						setIsTranslating(false)
+					},
+					(err) => {
+						console.error(`Translation error for ${lang}:`, err)
+						setIsTranslating(false)
+					}
+				)
+			} else {
+				setIsTranslating(false)
+			}
 		},
-		[setLanguage],
+		[setLanguage, isTranslating],
 	)
 
 	// Close dropdown when clicking outside
@@ -91,12 +112,14 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
 	if (variant === "mobile") {
 		return (
-			<div className={styles.mobileSwitcher}>
+			<div className={styles.mobileSwitcher} data-notranslate>
 				{LANGUAGE_CONFIG.map((lang) => (
 					<button
 						key={lang.code}
 						className={`${styles.mobileBtn} ${language === lang.code ? styles.active : ""}`}
 						onClick={() => handleLanguageChange(lang.code)}
+						disabled={isTranslating}
+						data-notranslate
 					>
 						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.mobileFlag}`} />
 						<span>{lang.name}</span>
@@ -113,9 +136,10 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 				onClick={() => setIsOpen((prev) => !prev)}
 				aria-expanded={isOpen}
 				aria-haspopup="listbox"
+				data-notranslate
 			>
 				<MdLanguage className={styles.globeIcon} />
-				<span className={styles.languageText}>
+				<span className={styles.languageText} data-notranslate>
 					{LANGUAGE_LABELS[language]}/EN
 				</span>
 				<ChevronIcon isOpen={isOpen} />
@@ -124,6 +148,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 			<div
 				className={`${styles.dropdown} ${isOpen ? styles.open : ""}`}
 				role="listbox"
+				data-notranslate
 			>
 				{LANGUAGE_CONFIG.map((lang) => (
 					<button
@@ -132,6 +157,8 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 						aria-selected={language === lang.code}
 						className={`${styles.option} ${language === lang.code ? styles.active : ""}`}
 						onClick={() => handleLanguageChange(lang.code)}
+						disabled={isTranslating}
+						data-notranslate
 					>
 						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.dropdownFlag}`} />
 						<span className={styles.optionLabel}>{lang.name}</span>

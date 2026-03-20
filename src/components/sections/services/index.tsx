@@ -1,24 +1,17 @@
 "use client"
 
-import { useLanguage } from "@/context/LanguageContext"
 import Image from "next/image"
 import { FaScissors } from "react-icons/fa6"
 import { MdSpa } from "react-icons/md"
 import styles from "./services.module.scss"
 
 export const ServicesSection = () => {
-	const { t, isRTL } = useLanguage()
-
 	return (
-		<section
-			id="services"
-			className={styles.services}
-			dir={isRTL ? "rtl" : "ltr"}
-		>
+		<section id="services" className={styles.services}>
 			<div className={styles.container}>
 				<div className={styles.header}>
-					<h2 className={styles.title}>{t.services.title}</h2>
-					<p className={styles.subtitle}>{t.services.subtitle}</p>
+					<h2 className={styles.title}>Vores services</h2>
+					<p className={styles.subtitle}>Fra klassiske klipninger til eksklusive behandlinger – vi tilbyder et bredt udvalg af services til både herrer, damer og børn</p>
 				</div>
 
 				<div className={styles.grid}>
@@ -29,7 +22,7 @@ export const ServicesSection = () => {
 						<div className={styles.cardImageWrapper}>
 							<Image
 								src="/bilal.jpg"
-								alt={t.services.barberTitle}
+								alt="Hair Salon"
 								fill
 								className={styles.cardImage}
 							/>
@@ -38,13 +31,13 @@ export const ServicesSection = () => {
 						<div className={styles.cardContent}>
 							<FaScissors className={styles.cardIcon} />
 							<h3 className={styles.cardTitle}>
-								{t.services.barberTitle}
+								Herre Barber
 							</h3>
 							<p className={styles.cardDescription}>
-								{t.services.barberDescription}
+								Herreklip, barbering, VIP-behandlinger og mere – af erfarne barbers med øje for detaljen
 							</p>
 							<span className={styles.cardCta}>
-								{t.services.barberCta} →
+								Se herre-behandlinger →
 							</span>
 						</div>
 					</a>
@@ -56,7 +49,7 @@ export const ServicesSection = () => {
 						<div className={styles.cardImageWrapper}>
 							<Image
 								src="/aya.jpg"
-								alt={t.services.kosmetologTitle}
+								alt="Beauty Services"
 								fill
 								className={styles.cardImage}
 							/>
@@ -65,13 +58,13 @@ export const ServicesSection = () => {
 						<div className={styles.cardContent}>
 							<MdSpa className={styles.cardIcon} />
 							<h3 className={styles.cardTitle}>
-								{t.services.kosmetologTitle}
+								Kosmetolog
 							</h3>
 							<p className={styles.cardDescription}>
-								{t.services.kosmetologDescription}
+								Dameklip, hårbehandlinger, voks, bryn og kosmetologiske ydelser – skræddersyet til dig
 							</p>
 							<span className={styles.cardCta}>
-								{t.services.kosmetologCta} →
+								Se dame-behandlinger →
 							</span>
 						</div>
 					</a>

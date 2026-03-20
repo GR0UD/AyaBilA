@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import { useLanguage } from "@/context/LanguageContext"
 import Image from "next/image"
 import styles from "./about.module.scss"
 
@@ -45,31 +44,26 @@ const FacebookIcon = () => (
 )
 
 export const AboutSection = () => {
-	const { t, isRTL } = useLanguage()
 	const [selectedPerson, setSelectedPerson] = useState<"aya" | "bilal">("aya")
 
 	const features = [
-		{ text: t.about.certified, icon: "🎓" },
-		{ text: t.about.experience, icon: "⭐" },
-		{ text: t.about.quality, icon: "💎" },
-		{ text: t.about.service, icon: "✨" },
-		{ text: t.about.certificatedPractitioner, icon: "🎖️" },
-		{ text: t.about.centralLocation, icon: "📍" },
+		{ text: "Erhvervsuddannet", icon: "🎓" },
+		{ text: "10+ års erfaring", icon: "⭐" },
+		{ text: "Premium produkter", icon: "💎" },
+		{ text: "Personlig service", icon: "✨" },
+		{ text: "Certificeret behandler", icon: "🎖️" },
+		{ text: "Central beliggenhed", icon: "📍" },
 	]
 
 	const socialLinks = SOCIAL_LINKS[selectedPerson]
 
 	return (
-		<section
-			id="about"
-			className={styles.about}
-			dir={isRTL ? "rtl" : "ltr"}
-		>
+		<section id="about" className={styles.about}>
 			<div className={styles.container}>
 				<div className={styles.content}>
 					<span className={styles.badge}>AyabilA</span>
-					<h2 className={styles.title}>{t.about.title}</h2>
-					<p className={styles.text}>{t.about.text}</p>
+					<h2 className={styles.title}>Om os</h2>
+					<p className={styles.text}>Hos AyabilA kombinerer vi årtiers erfaring med moderne teknikker. Bilal er ekspert i herreklip, barbering og VIP-behandlinger, mens Aya mestrer dameklip, voksbehandlinger, bryn og hårkure. Sammen leverer vi kvalitet, detaljer og personlig service i en luksuriøs atmosfære.</p>
 					<div className={styles.features}>
 						{features.map((feature, index) => (
 							<div key={index} className={styles.feature}>
@@ -146,7 +140,7 @@ export const AboutSection = () => {
 									Aya
 								</h3>
 								<p className={styles.storyText}>
-									{t.about.aya}
+									Aya er uddannet kosmetolog med speciale inden for professionel hårkure og hudbehandlinger. Hun har udviklet sit håndværk over årene og er passioneret om at give hver kunde den bedst mulige oplevelse. Med dybdegående viden om hårtyper, hudtilstande og moderne teknikker skaber hun løsninger, der passer perfekt til dine behov.
 								</p>
 								<div className={styles.socials}>
 									{socialLinks.map((link) => (
@@ -183,7 +177,7 @@ export const AboutSection = () => {
 									Bilal
 								</h3>
 								<p className={styles.storyText}>
-									{t.about.bilal}
+									Bilal har gennem 10 år arbejdet i over 4-6 forskellige barbershops rundt omkring, hvor han indsamlede erfaring og perfektionerede sin kunst inden for herreklip og barbering. Med denne brede erfaring fra forskellige saloner besluttede han at åbne sit eget etablissement sammen med Aya, hvor han kan udbyde den højeste kvalitet af service og håndværk i et luksuriøst miljø.
 								</p>
 								<div className={styles.socials}>
 									{socialLinks.map((link) => (
