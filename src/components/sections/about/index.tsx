@@ -63,7 +63,14 @@ export const AboutSection = () => {
 				<div className={styles.content}>
 					<span className={styles.badge}>AyabilA</span>
 					<h2 className={styles.title}>Om os</h2>
-					<p className={styles.text}>Hos AyabilA kombinerer vi årtiers erfaring med moderne teknikker. Bilal er ekspert i herreklip, barbering og VIP-behandlinger, mens Aya mestrer dameklip, voksbehandlinger, bryn og hårkure. Sammen leverer vi kvalitet, detaljer og personlig service i en luksuriøs atmosfære.</p>
+					<p className={styles.text}>
+						Hos AyabilA kombinerer vi årtiers erfaring med moderne
+						teknikker. Bilal er ekspert i herreklip, barbering og
+						VIP-behandlinger, mens Aya mestrer dameklip,
+						voksbehandlinger, bryn og hårkure. Sammen leverer vi
+						kvalitet, detaljer og personlig service i en luksuriøs
+						atmosfære.
+					</p>
 					<div className={styles.features}>
 						{features.map((feature, index) => (
 							<div key={index} className={styles.feature}>
@@ -134,69 +141,124 @@ export const AboutSection = () => {
 					<div className={styles.storyContainer}>
 						{selectedPerson === "aya" && (
 							<div className={styles.story}>
-								<h3
-									className={`${styles.storyTitle} ${styles.ayaTitle}`}
-								>
-									Aya
-								</h3>
-								<p className={styles.storyText}>
-									Aya er uddannet kosmetolog med speciale inden for professionel hårkure og hudbehandlinger. Hun har udviklet sit håndværk over årene og er passioneret om at give hver kunde den bedst mulige oplevelse. Med dybdegående viden om hårtyper, hudtilstande og moderne teknikker skaber hun løsninger, der passer perfekt til dine behov.
-								</p>
-								<div className={styles.socials}>
-									{socialLinks.map((link) => (
-										<a
-											key={link.platform}
-											href={link.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											className={`${styles.socialLink} ${styles.ayaSocial}`}
-											aria-label={link.label}
-										>
-											{link.platform === "instagram" ? (
-												<InstagramIcon />
-											) : (
-												<FacebookIcon />
-											)}
-										</a>
-									))}
+								<div className={styles.storyHeader}>
+									<h3
+										className={`${styles.storyTitle} ${styles.ayaTitle}`}
+									>
+										Aya
+									</h3>
+									<div className={styles.socials}>
+										{socialLinks.map((link) => (
+											<a
+												key={link.platform}
+												href={link.url}
+												target="_blank"
+												rel="noopener noreferrer"
+												className={`${styles.socialLink} ${styles.ayaSocial}`}
+												aria-label={link.label}
+											>
+												{link.platform === "instagram" ? (
+													<InstagramIcon />
+												) : (
+													<FacebookIcon />
+												)}
+											</a>
+										))}
+									</div>
 								</div>
-								<Image
-									src="/certificat1.png"
-									alt="Aya's Certificate"
-									width={120}
-									height={90}
-									className={styles.ayaCertificate}
-								/>
+								<p className={styles.storyText}>
+									Aya er uddannet kosmetolog med speciale
+									inden for professionel hårkure og
+									hudbehandlinger. Hun har udviklet sit
+									håndværk over årene og er passioneret om at
+									give hver kunde den bedst mulige oplevelse.
+									Med dybdegående viden om hårtyper,
+									hudtilstande og moderne teknikker skaber hun
+									løsninger, der passer perfekt til dine
+									behov.
+								</p>
+								<div className={styles.certificatesContainer}>
+									<Image
+										src="/certificate1.png"
+										alt="Mounir Education Certificate"
+										aria-label="Mounir Education Certificate"
+										width={120}
+										height={90}
+										className={styles.ayaCertificate}
+									/>
+									<Image
+										src="/certificate2.png"
+										alt="Beauty & Style Certificate"
+										aria-label="Beauty & Style Certificate"
+										width={120}
+										height={90}
+										className={styles.ayaCertificate}
+									/>
+									<Image
+										src="/certificate3.png"
+										alt="Decaar Academy Certificate"
+										aria-label="Decaar Academy Certificate"
+										width={120}
+										height={90}
+										className={styles.ayaCertificate}
+									/>
+									<Image
+										src="/certificate4.png"
+										alt="KOSMETIK FACHAKADEMIE Certificate"
+										aria-label="KOSMETIK FACHAKADEMIE Certificate"
+										width={120}
+										height={90}
+										className={styles.ayaCertificate}
+									/>
+									<Image
+										src="/certificate5.png"
+										alt="Zain beauty clinic Certificate"
+										aria-label="Zain beauty clinic Certificate"
+										width={120}
+										height={90}
+										className={styles.ayaCertificate}
+									/>
+								</div>
 							</div>
 						)}
 						{selectedPerson === "bilal" && (
 							<div className={styles.story}>
-								<h3
-									className={`${styles.storyTitle} ${styles.bilalTitle}`}
-								>
-									Bilal
-								</h3>
-								<p className={styles.storyText}>
-									Bilal har gennem 10 år arbejdet i over 4-6 forskellige barbershops rundt omkring, hvor han indsamlede erfaring og perfektionerede sin kunst inden for herreklip og barbering. Med denne brede erfaring fra forskellige saloner besluttede han at åbne sit eget etablissement sammen med Aya, hvor han kan udbyde den højeste kvalitet af service og håndværk i et luksuriøst miljø.
-								</p>
-								<div className={styles.socials}>
-									{socialLinks.map((link) => (
-										<a
-											key={link.platform}
-											href={link.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											className={`${styles.socialLink} ${styles.bilalSocial}`}
-											aria-label={link.label}
-										>
-											{link.platform === "instagram" ? (
-												<InstagramIcon />
-											) : (
-												<FacebookIcon />
-											)}
-										</a>
-									))}
+								<div className={styles.storyHeader}>
+									<h3
+										className={`${styles.storyTitle} ${styles.bilalTitle}`}
+									>
+										Bilal
+									</h3>
+									<div className={styles.socials}>
+										{socialLinks.map((link) => (
+											<a
+												key={link.platform}
+												href={link.url}
+												target="_blank"
+												rel="noopener noreferrer"
+												className={`${styles.socialLink} ${styles.bilalSocial}`}
+												aria-label={link.label}
+											>
+												{link.platform === "instagram" ? (
+													<InstagramIcon />
+												) : (
+													<FacebookIcon />
+												)}
+											</a>
+										))}
+									</div>
 								</div>
+								<p className={styles.storyText}>
+									Bilal har gennem 10 år arbejdet i over 4-6
+									forskellige barbershops rundt omkring, hvor
+									han indsamlede erfaring og perfektionerede
+									sin kunst inden for herreklip og barbering.
+									Med denne brede erfaring fra forskellige
+									saloner besluttede han at åbne sit eget
+									etablissement sammen med Aya, hvor han kan
+									udbyde den højeste kvalitet af service og
+									håndværk i et luksuriøst miljø.
+								</p>
 							</div>
 						)}
 					</div>

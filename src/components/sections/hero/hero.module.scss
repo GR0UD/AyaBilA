@@ -96,20 +96,16 @@
 
 .title {
 	color: $color-dark;
-	@include util.fontSize($font-size-56);
+	@include util.fontXxl;
 	font-weight: 700;
 	line-height: 1.15;
 	margin-bottom: 1rem;
 	letter-spacing: -0.02em;
-
-	@media (max-width: 768px) {
-		@include util.fontSize($font-size-32);
-	}
 }
 
 .tag {
 	color: $color-gold;
-	@include util.fontSize($font-size-14);
+	@include util.fontSm;
 	font-weight: 600;
 	margin-bottom: 1.5rem;
 	display: inline-block;
@@ -129,14 +125,10 @@
 
 .subtitle {
 	color: $color-gray;
-	@include util.fontSize($font-size-18);
+	@include util.fontMd;
 	line-height: 1.7;
 	margin-bottom: 2.5rem;
 	max-width: 700px;
-
-	@media (max-width: 768px) {
-		@include util.fontSize($font-size-16);
-	}
 }
 
 .actions {

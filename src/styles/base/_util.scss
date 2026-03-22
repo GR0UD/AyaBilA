@@ -24,3 +24,56 @@
 	font-size: $size;
 	font-size: calculateRem($size);
 }
+
+// Semantic font size mixins with responsive scaling
+@mixin fontSm {
+	@include fontSize($font-size-14);
+
+	@media (max-width: 640px) {
+		@include fontSize($font-size-12);
+	}
+}
+
+@mixin fontMd {
+	@include fontSize($font-size-16);
+
+	@media (max-width: 640px) {
+		@include fontSize($font-size-14);
+	}
+}
+
+@mixin fontLg {
+	@include fontSize($font-size-20);
+
+	@media (max-width: 768px) {
+		@include fontSize($font-size-18);
+	}
+
+	@media (max-width: 640px) {
+		@include fontSize($font-size-16);
+	}
+}
+
+@mixin fontXl {
+	@include fontSize($font-size-32);
+
+	@media (max-width: 768px) {
+		@include fontSize($font-size-24);
+	}
+
+	@media (max-width: 640px) {
+		@include fontSize($font-size-20);
+	}
+}
+
+@mixin fontXxl {
+	@include fontSize($font-size-56);
+
+	@media (max-width: 768px) {
+		@include fontSize($font-size-44);
+	}
+
+	@media (max-width: 640px) {
+		@include fontSize($font-size-32);
+	}
+}

@@ -11,8 +11,6 @@
 	transition: all $transition-normal;
 	background-color: transparent;
 
-
-	
 	&.scrolled {
 		background-color: rgba($color-white, 0.95);
 		backdrop-filter: blur(12px);
@@ -161,9 +159,9 @@
 		$color-gold-light 100%
 	) !important;
 	color: $color-white !important;
-	padding: 0.65rem 1.4rem !important;
+	padding: 0.85rem 1.8rem !important;
 	font-weight: 700 !important;
-	font-size: 0.9rem !important;
+	font-size: 1rem !important;
 	border-radius: 8px !important;
 	box-shadow:
 		0 4px 20px rgba($color-gold, 0.35),

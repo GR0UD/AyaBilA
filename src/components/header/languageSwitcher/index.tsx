@@ -73,7 +73,8 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
 			// Trigger page translation via translation-widget
 			if (typeof window !== "undefined" && window.translate) {
-				window.translate(lang, 
+				window.translate(
+					lang,
 					(res) => {
 						console.log(`Page translated to ${lang}:`, res)
 						setIsTranslating(false)
@@ -81,7 +82,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 					(err) => {
 						console.error(`Translation error for ${lang}:`, err)
 						setIsTranslating(false)
-					}
+					},
 				)
 			} else {
 				setIsTranslating(false)
@@ -112,7 +113,11 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
 	if (variant === "mobile") {
 		return (
-			<div className={styles.mobileSwitcher} data-notranslate dir={isRTL ? "rtl" : "ltr"}>
+			<div
+				className={styles.mobileSwitcher}
+				data-notranslate
+				dir={isRTL ? "rtl" : "ltr"}
+			>
 				{LANGUAGE_CONFIG.map((lang) => (
 					<button
 						key={lang.code}
@@ -123,8 +128,14 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 						aria-label={`Switch to ${lang.name}`}
 						title={lang.name}
 					>
-						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.mobileFlag}`} aria-hidden="true" data-notranslate />
-						<span data-notranslate className="notranslate">{lang.name}</span>
+						<span
+							className={`fi fi-${FLAG_CODES[lang.code]} ${styles.mobileFlag}`}
+							aria-hidden="true"
+							data-notranslate
+						/>
+						<span data-notranslate className="notranslate">
+							{lang.abbreviation}
+						</span>
 					</button>
 				))}
 			</div>
@@ -132,7 +143,11 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 	}
 
 	return (
-		<div className={styles.switcher} ref={containerRef} dir={isRTL ? "rtl" : "ltr"}>
+		<div
+			className={styles.switcher}
+			ref={containerRef}
+			dir={isRTL ? "rtl" : "ltr"}
+		>
 			<button
 				className={styles.trigger}
 				onClick={() => setIsOpen((prev) => !prev)}
@@ -166,11 +181,21 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 						aria-label={`${lang.name}${language === lang.code ? " (current)" : ""}`}
 						title={lang.name}
 					>
-						<span className={`fi fi-${FLAG_CODES[lang.code]} ${styles.dropdownFlag}`} aria-hidden="true" data-notranslate />
-						<span className={`${styles.optionLabel} notranslate`} data-notranslate>{lang.name}</span>
+						<span
+							className={`fi fi-${FLAG_CODES[lang.code]} ${styles.dropdownFlag}`}
+							aria-hidden="true"
+							data-notranslate
+						/>
+						<span
+							className={`${styles.optionLabel} notranslate`}
+							data-notranslate
+						>
+							{lang.name}
+						</span>
 						{language === lang.code && <CheckIcon />}
 					</button>
 				))}
 			</div>
 		</div>
-	)}
+	)
+}
