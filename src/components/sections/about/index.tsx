@@ -157,7 +157,8 @@ export const AboutSection = () => {
 												className={`${styles.socialLink} ${styles.ayaSocial}`}
 												aria-label={link.label}
 											>
-												{link.platform === "instagram" ? (
+												{link.platform ===
+												"instagram" ? (
 													<InstagramIcon />
 												) : (
 													<FacebookIcon />
@@ -239,7 +240,8 @@ export const AboutSection = () => {
 												className={`${styles.socialLink} ${styles.bilalSocial}`}
 												aria-label={link.label}
 											>
-												{link.platform === "instagram" ? (
+												{link.platform ===
+												"instagram" ? (
 													<InstagramIcon />
 												) : (
 													<FacebookIcon />
