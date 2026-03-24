@@ -1,269 +1,145 @@
-"use client"
-
-import { useState } from "react"
 import Image from "next/image"
 import styles from "./about.module.scss"
-
-const SOCIAL_LINKS = {
-	aya: [
-		{
-			platform: "instagram",
-			url: "https://www.instagram.com/ayabila2019/",
-			label: "Instagram",
-		},
-		{
-			platform: "facebook",
-			url: "https://www.facebook.com/ayosh.kot.7",
-			label: "Facebook",
-		},
-	],
-	bilal: [
-		{
-			platform: "instagram",
-			url: "https://www.instagram.com/bilal_yassin9036/",
-			label: "Instagram",
-		},
-		{
-			platform: "facebook",
-			url: "https://www.facebook.com/blal.yasen.52/",
-			label: "Facebook",
-		},
-	],
-} as const
-
-const InstagramIcon = () => (
-	<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-		<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-	</svg>
-)
-
-const FacebookIcon = () => (
-	<svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-		<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-	</svg>
-)
+import { ABOUT_PEOPLE } from "./data"
+import { FacebookIcon, InstagramIcon } from "./socialIcons"
+import { Flipper } from "./flipper"
 
 export const AboutSection = () => {
-	const [selectedPerson, setSelectedPerson] = useState<"aya" | "bilal">("aya")
-
 	const features = [
 		{ text: "Erhvervsuddannet", icon: "🎓" },
 		{ text: "10+ års erfaring", icon: "⭐" },
 		{ text: "Premium produkter", icon: "💎" },
-		{ text: "Personlig service", icon: "✨" },
+		{ text: "Personlig service", icon: "✂️" },
 		{ text: "Certificeret behandler", icon: "🎖️" },
 		{ text: "Central beliggenhed", icon: "📍" },
 	]
 
-	const socialLinks = SOCIAL_LINKS[selectedPerson]
-
 	return (
 		<section id="about" className={styles.about}>
 			<div className={styles.container}>
-				<div className={styles.content}>
-					<span className={styles.badge}>AyabilA</span>
-					<h2 className={styles.title}>Om os</h2>
-					<p className={styles.text}>
-						Hos AyabilA kombinerer vi årtiers erfaring med moderne
-						teknikker. Bilal er ekspert i herreklip, barbering og
-						VIP-behandlinger, mens Aya mestrer dameklip,
-						voksbehandlinger, bryn og hårkure. Sammen leverer vi
-						kvalitet, detaljer og personlig service i en luksuriøs
-						atmosfære.
-					</p>
-					<div className={styles.features}>
-						{features.map((feature, index) => (
-							<div key={index} className={styles.feature}>
-								<span className={styles.featureIcon}>
-									{feature.icon}
-								</span>
-								<span className={styles.featureText}>
-									{feature.text}
-								</span>
-							</div>
-						))}
+				<div className={styles.topRow}>
+					<div className={styles.content}>
+						<span className={styles.badge}>AyabilA</span>
+						<h2 className={styles.title}>Om os</h2>
+						<p className={styles.text}>
+							Hos AyabilA kombinerer vi årtiers erfaring med
+							moderne teknikker. Bilal er ekspert i herreklip,
+							barbering og VIP-behandlinger, mens Aya mestrer
+							dameklip, voksbehandlinger, bryn og hårkure. Sammen
+							leverer vi kvalitet, detaljer og personlig service i
+							en luksuriøs atmosfære.
+						</p>
+						<div className={styles.features}>
+							{features.map((feature, index) => (
+								<div key={index} className={styles.feature}>
+									<span className={styles.featureIcon}>
+										{feature.icon}
+									</span>
+									<span className={styles.featureText}>
+										{feature.text}
+									</span>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<div className={styles.salonImageWrapper}>
+						<Image
+							src="/images/misc/AyabilA.jpg"
+							alt="AyabilA salon interior"
+							width={640}
+							height={520}
+							className={styles.salonImage}
+						/>
 					</div>
 				</div>
 
-				<div className={styles.visual}>
-					<div className={styles.cardsContainer}>
-						<button
-							className={`${styles.personCard} ${styles.ayaCard} ${
-								selectedPerson === "aya" ? styles.active : ""
+				<div className={styles.desktopProfiles}>
+					{ABOUT_PEOPLE.map((person, index) => (
+						<article
+							key={person.id}
+							className={`${styles.profileRow} ${
+								index % 2 === 1 ? styles.reverse : ""
 							}`}
-							onClick={() => setSelectedPerson("aya")}
-							type="button"
 						>
-							<div className={styles.cardContent}>
+							<div className={styles.profileImageWrap}>
 								<Image
-									src="/aya.jpg"
-									alt="Aya - Kosmetolog"
-									width={320}
-									height={380}
-									className={styles.cardImage}
-									priority
+									src={person.imageSrc}
+									alt={person.imageAlt}
+									width={480}
+									height={480}
+									className={styles.profileImage}
 								/>
-								<div className={styles.cardOverlay}>
-									<h3 className={styles.cardName}>Aya</h3>
-									<p className={styles.cardRole}>
-										Kosmetolog
-									</p>
-								</div>
 							</div>
-						</button>
-
-						<button
-							className={`${styles.personCard} ${styles.bilalCard} ${
-								selectedPerson === "bilal" ? styles.active : ""
-							}`}
-							onClick={() => setSelectedPerson("bilal")}
-							type="button"
-						>
-							<div className={styles.cardContent}>
-								<Image
-									src="/bilal.jpg"
-									alt="Bilal - Herrefrisør"
-									width={320}
-									height={380}
-									className={styles.cardImage}
-									priority
-								/>
-								<div className={styles.cardOverlay}>
-									<h3 className={styles.cardName}>Bilal</h3>
-									<p className={styles.cardRole}>
-										Herrefrisør
-									</p>
-								</div>
-							</div>
-						</button>
-					</div>
-
-					<div className={styles.storyContainer}>
-						{selectedPerson === "aya" && (
-							<div className={styles.story}>
-								<div className={styles.storyHeader}>
-									<h3
-										className={`${styles.storyTitle} ${styles.ayaTitle}`}
-									>
-										Aya
-									</h3>
-									<div className={styles.socials}>
-										{socialLinks.map((link) => (
-											<a
-												key={link.platform}
-												href={link.url}
-												target="_blank"
-												rel="noopener noreferrer"
-												className={`${styles.socialLink} ${styles.ayaSocial}`}
-												aria-label={link.label}
-											>
-												{link.platform ===
-												"instagram" ? (
-													<InstagramIcon />
-												) : (
-													<FacebookIcon />
-												)}
-											</a>
-										))}
-									</div>
-								</div>
-								<p className={styles.storyText}>
-									Aya er uddannet kosmetolog med speciale
-									inden for professionel hårkure og
-									hudbehandlinger. Hun har udviklet sit
-									håndværk over årene og er passioneret om at
-									give hver kunde den bedst mulige oplevelse.
-									Med dybdegående viden om hårtyper,
-									hudtilstande og moderne teknikker skaber hun
-									løsninger, der passer perfekt til dine
-									behov.
+							<div className={styles.profileContent}>
+								<h3
+									className={`${styles.profileName} ${
+										person.id === "aya"
+											? styles.ayaName
+											: styles.bilalName
+									}`}
+								>
+									{person.name}
+								</h3>
+								<p
+									className={`${styles.profileRole} ${
+										person.id === "aya"
+											? styles.ayaRole
+											: styles.bilalRole
+									}`}
+								>
+									{person.role}
 								</p>
-								<div className={styles.certificatesContainer}>
-									<Image
-										src="/certificate1.png"
-										alt="Mounir Education Certificate"
-										aria-label="Mounir Education Certificate"
-										width={120}
-										height={90}
-										className={styles.ayaCertificate}
-									/>
-									<Image
-										src="/certificate2.png"
-										alt="Beauty & Style Certificate"
-										aria-label="Beauty & Style Certificate"
-										width={120}
-										height={90}
-										className={styles.ayaCertificate}
-									/>
-									<Image
-										src="/certificate3.png"
-										alt="Decaar Academy Certificate"
-										aria-label="Decaar Academy Certificate"
-										width={120}
-										height={90}
-										className={styles.ayaCertificate}
-									/>
-									<Image
-										src="/certificate4.png"
-										alt="KOSMETIK FACHAKADEMIE Certificate"
-										aria-label="KOSMETIK FACHAKADEMIE Certificate"
-										width={120}
-										height={90}
-										className={styles.ayaCertificate}
-									/>
-									<Image
-										src="/certificate5.png"
-										alt="Zain beauty clinic Certificate"
-										aria-label="Zain beauty clinic Certificate"
-										width={120}
-										height={90}
-										className={styles.ayaCertificate}
-									/>
-								</div>
-							</div>
-						)}
-						{selectedPerson === "bilal" && (
-							<div className={styles.story}>
-								<div className={styles.storyHeader}>
-									<h3
-										className={`${styles.storyTitle} ${styles.bilalTitle}`}
-									>
-										Bilal
-									</h3>
-									<div className={styles.socials}>
-										{socialLinks.map((link) => (
-											<a
-												key={link.platform}
-												href={link.url}
-												target="_blank"
-												rel="noopener noreferrer"
-												className={`${styles.socialLink} ${styles.bilalSocial}`}
-												aria-label={link.label}
-											>
-												{link.platform ===
-												"instagram" ? (
-													<InstagramIcon />
-												) : (
-													<FacebookIcon />
-												)}
-											</a>
-										))}
-									</div>
-								</div>
-								<p className={styles.storyText}>
-									Bilal har gennem 10 år arbejdet i over 4-6
-									forskellige barbershops rundt omkring, hvor
-									han indsamlede erfaring og perfektionerede
-									sin kunst inden for herreklip og barbering.
-									Med denne brede erfaring fra forskellige
-									saloner besluttede han at åbne sit eget
-									etablissement sammen med Aya, hvor han kan
-									udbyde den højeste kvalitet af service og
-									håndværk i et luksuriøst miljø.
+								<p className={styles.profileStory}>
+									{person.story}
 								</p>
+								<div className={styles.socials}>
+									{person.socialLinks.map((link) => (
+										<a
+											key={link.platform}
+											href={link.url}
+											target="_blank"
+											rel="noopener noreferrer"
+											className={`${styles.socialLink} ${
+												person.id === "aya"
+													? styles.ayaSocial
+													: styles.bilalSocial
+											}`}
+											aria-label={link.label}
+										>
+											{link.platform === "instagram" ? (
+												<InstagramIcon />
+											) : (
+												<FacebookIcon />
+											)}
+										</a>
+									))}
+								</div>
+								{person.certificates.length > 0 && (
+									<div className={styles.certificatesRow}>
+										{person.certificates.map(
+											(certificate) => (
+												<Image
+													key={certificate.src}
+													src={certificate.src}
+													alt={certificate.alt}
+													width={86}
+													height={64}
+													className={
+														styles.certificateImage
+													}
+												/>
+											),
+										)}
+									</div>
+								)}
 							</div>
-						)}
-					</div>
+						</article>
+					))}
+				</div>
+
+				<div className={styles.flipperRow}>
+					<Flipper />
 				</div>
 			</div>
 		</section>

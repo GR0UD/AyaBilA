@@ -9,10 +9,14 @@ export const ServicesSection = () => {
 	return (
 		<section id="services" className={styles.services}>
 			<div className={styles.container}>
-				<div className={styles.header}>
+				<header className={styles.header}>
 					<h2 className={styles.title}>Vores services</h2>
-					<p className={styles.subtitle}>Fra klassiske klipninger til eksklusive behandlinger – vi tilbyder et bredt udvalg af services til både herrer, damer og børn</p>
-				</div>
+					<p className={styles.subtitle}>
+						Fra klassiske klipninger til eksklusive behandlinger –
+						vi tilbyder et bredt udvalg af services til både herrer,
+						damer og børn
+					</p>
+				</header>
 
 				<div className={styles.grid}>
 					<a
@@ -21,7 +25,7 @@ export const ServicesSection = () => {
 					>
 						<div className={styles.cardImageWrapper}>
 							<Image
-								src="/bilal.jpg"
+								src="/images/team/bilal.jpg"
 								alt="Hair Salon"
 								fill
 								className={styles.cardImage}
@@ -30,11 +34,10 @@ export const ServicesSection = () => {
 						</div>
 						<div className={styles.cardContent}>
 							<FaScissors className={styles.cardIcon} />
-							<h3 className={styles.cardTitle}>
-								Herre Barber
-							</h3>
+							<h3 className={styles.cardTitle}>Herre Barber</h3>
 							<p className={styles.cardDescription}>
-								Herreklip, barbering, VIP-behandlinger og mere – af erfarne barbers med øje for detaljen
+								Herreklip, barbering, VIP-behandlinger og mere –
+								af erfarne barbers med øje for detaljen
 							</p>
 							<span className={styles.cardCta}>
 								Se herre-behandlinger →
@@ -48,7 +51,7 @@ export const ServicesSection = () => {
 					>
 						<div className={styles.cardImageWrapper}>
 							<Image
-								src="/aya.jpg"
+								src="/images/team/aya.jpg"
 								alt="Beauty Services"
 								fill
 								className={styles.cardImage}
@@ -57,11 +60,10 @@ export const ServicesSection = () => {
 						</div>
 						<div className={styles.cardContent}>
 							<MdSpa className={styles.cardIcon} />
-							<h3 className={styles.cardTitle}>
-								Kosmetolog
-							</h3>
+							<h3 className={styles.cardTitle}>Kosmetolog</h3>
 							<p className={styles.cardDescription}>
-								Dameklip, hårbehandlinger, voks, bryn og kosmetologiske ydelser – skræddersyet til dig
+								Dameklip, hårbehandlinger, voks, bryn og
+								kosmetologiske ydelser – skræddersyet til dig
 							</p>
 							<span className={styles.cardCta}>
 								Se dame-behandlinger →

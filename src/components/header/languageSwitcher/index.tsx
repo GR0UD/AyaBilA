@@ -64,6 +64,12 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
 	const handleLanguageChange = useCallback(
 		(lang: Language) => {
+			// Don't translate if already in that language
+			if (lang === language) {
+				setIsOpen(false)
+				return
+			}
+
 			// Prevent concurrent translations
 			if (isTranslating) return
 
@@ -88,7 +94,7 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 				setIsTranslating(false)
 			}
 		},
-		[setLanguage, isTranslating],
+		[language, setLanguage, isTranslating],
 	)
 
 	// Close dropdown when clicking outside

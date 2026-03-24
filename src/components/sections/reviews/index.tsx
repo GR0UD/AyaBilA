@@ -25,24 +25,73 @@ const reviews = [
 		text: "Rami is the best hairdresser in Kolding. Highly recommended!",
 		initials: "SO",
 	},
-	{
-		name: "Rune S. N.",
-		rating: 5,
-		date: "en måned siden",
-		text: "Top class quality",
-		initials: "RN",
-	},
 ]
 
 export function ReviewsSection() {
 	return (
 		<section id="reviews" className={styles.reviews}>
 			<div className={styles.container}>
-				<div className={styles.content}>
+				<header className={styles.header}>
 					<h2 className={styles.title}>Se hvad vores kunder siger</h2>
-					<p className={styles.subtitle}>Vi er stolte over at levere førsteklasses service. Læs hvad vores kunder har oplevet hos AyabilA.</p>
+					<p className={styles.subtitle}>
+						Hjælp os med at vokse ved at dele din oplevelse med os!
+						💚
+					</p>
+				</header>
 
-					<div className={styles.reviewsGrid}>
+				<div className={styles.ctaSection}>
+					<div className={styles.ctaLeft}>
+						<div className={styles.googleBadge}>
+							<Image
+								src="/images/misc/google.webp"
+								alt="Google"
+								width={120}
+								height={40}
+								priority
+							/>
+						</div>
+						<div className={styles.ratingScore}>
+							<span className={styles.score}>4.9</span>
+							<div className={styles.starsLarge}>
+								{[...Array(5)].map((_, i) => (
+									<svg
+										key={i}
+										viewBox="0 0 24 24"
+										fill="#FBBC04"
+										width="24"
+										height="24"
+									>
+										<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+									</svg>
+								))}
+							</div>
+						</div>
+					</div>
+					<div className={styles.ctaDivider} />
+					<div className={styles.ctaRight}>
+						<h3 className={styles.ctaTitle}>
+							Er du tilfreds med vores service?
+						</h3>
+						<a
+							href="https://www.google.com/search?sca_esv=73000156de4ea350&rlz=1C1MYPO_enDK1204&sxsrf=ANbL-n5nrPldJ4iF_hS8J1wVyIzYRbNl1A:1772558038808&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUUZA85TgEipzhdmJbQGkPUacuX8xfNZII0VvzJXZ1NjBoCKgSaTAaLZtqKbf9JP9_vvIzq_tz2kueiO35svnI67E0uXvzjzE4AnBSoOtQpjwr0dFQ%3D%3D&q=AyabilA+Fris%C3%B8r+%26+Kosmetolog+Reviews&sa=X&ved=2ahUKEwjvxvyhnYSTAxUEFxAIHcXoF8cQ0bkNegQIJhAH&biw=1536&bih=730&dpr=1.25"
+							target="_blank"
+							rel="noopener noreferrer"
+							className={styles.reviewButton}
+						>
+							<svg
+								viewBox="0 0 24 24"
+								fill="currentColor"
+								width="18"
+								height="18"
+							>
+								<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+							</svg>
+							Skriv en anmeldelse
+						</a>
+					</div>
+				</div>
+
+				<div className={styles.reviewsGrid}>
 					{reviews.map((review, index) => (
 						<div key={index} className={styles.reviewCard}>
 							<div className={styles.reviewHeader}>
@@ -81,63 +130,7 @@ export function ReviewsSection() {
 						</div>
 					))}
 				</div>
-
-				<div className={styles.ctaSection}>
-					<div className={styles.ctaLeft}>
-						<div className={styles.googleBadge}>
-							<Image
-								src="/google.webp"
-								alt="Google"
-								width={120}
-								height={40}
-								priority
-							/>
-						</div>
-						<div className={styles.ratingScore}>
-							<span className={styles.score}>4.9</span>
-							<div className={styles.starsLarge}>
-								{[...Array(5)].map((_, i) => (
-									<svg
-										key={i}
-										viewBox="0 0 24 24"
-										fill="#FBBC04"
-										width="24"
-										height="24"
-									>
-										<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-									</svg>
-								))}
-							</div>
-						</div>
-					</div>
-					<div className={styles.ctaDivider} />
-					<div className={styles.ctaRight}>
-						<h3 className={styles.ctaTitle}>
-							Er du tilfreds med vores service?
-						</h3>
-						<p className={styles.ctaText}>
-							Hjælp os med at vokse ved at dele din oplevelse med os! 💚
-						</p>
-						<a
-							href="https://www.google.com/search?sca_esv=73000156de4ea350&rlz=1C1MYPO_enDK1204&sxsrf=ANbL-n5nrPldJ4iF_hS8J1wVyIzYRbNl1A:1772558038808&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOUUZA85TgEipzhdmJbQGkPUacuX8xfNZII0VvzJXZ1NjBoCKgSaTAaLZtqKbf9JP9_vvIzq_tz2kueiO35svnI67E0uXvzjzE4AnBSoOtQpjwr0dFQ%3D%3D&q=AyabilA+Fris%C3%B8r+%26+Kosmetolog+Reviews&sa=X&ved=2ahUKEwjvxvyhnYSTAxUEFxAIHcXoF8cQ0bkNegQIJhAH&biw=1536&bih=730&dpr=1.25"
-							target="_blank"
-							rel="noopener noreferrer"
-							className={styles.reviewButton}
-						>
-							<svg
-								viewBox="0 0 24 24"
-								fill="currentColor"
-								width="18"
-								height="18"
-							>
-								<path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-							</svg>
-							Skriv en anmeldelse
-						</a>
-					</div>
-				</div>
 			</div>
-		</div>
 		</section>
 	)
 }

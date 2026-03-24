@@ -9,20 +9,32 @@
 
 .container {
 	@include util.maxWidth;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
+	display: flex;
+	flex-direction: column;
 	gap: 4rem;
-	align-items: start;
 
 	@media (max-width: 900px) {
-		grid-template-columns: 1fr;
 		gap: 3rem;
 	}
 }
 
+.topRow {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	gap: 3rem;
+
+	@media (max-width: 900px) {
+		flex-direction: column-reverse;
+		gap: 2rem;
+	}
+}
+
 .content {
-	max-width: 560px;
-	padding-top: 2rem;
+	flex: 1 1 auto;
+	min-width: 0;
+	max-width: 700px;
 }
 
 .badge {
@@ -59,286 +71,168 @@
 
 .features {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1rem;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.6rem 2rem;
 
-	@media (max-width: 480px) {
-		grid-template-columns: 1fr;
+	@media (max-width: 600px) {
+		display: flex;
+		flex-direction: column;
+		gap: 0.9rem;
 	}
 }
 
 .feature {
 	display: flex;
 	align-items: center;
-	gap: 0.75rem;
-	background-color: $color-white;
-	padding: 0.875rem 1.25rem;
-	border-radius: $border-radius-large;
-	box-shadow: $shadow-sm;
-	transition: all $transition-normal;
-	border: 1px solid $color-border;
-
-	&:hover {
-		box-shadow: $shadow-md;
-		border-color: rgba($color-gold, 0.3);
-	}
+	gap: 0.8rem;
 }
 
 .featureIcon {
-	font-size: 1.25rem;
-	line-height: 1;
+	font-size: 1.2rem;
+	line-height: 1.2;
+	width: 34px;
+	height: 34px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba($color-gold, 0.2);
+	border-radius: 50%;
+	flex-shrink: 0;
 }
 
 .featureText {
 	color: $color-navy;
-	font-weight: 600;
+	font-weight: 700;
 	@include util.fontSize($font-size-14);
 }
 
-.visual {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 2rem;
-	width: 100%;
+.salonImageWrapper {
+	flex: 0 0 360px;
+	flex-shrink: 0;
+	width: 360px;
+	height: 360px;
+	max-width: 360px;
+	border-radius: 28px;
+	overflow: hidden;
+	box-shadow: $shadow-md;
 
 	@media (max-width: 900px) {
-		order: -1;
-	}
-}
-
-.cardsContainer {
-	display: flex;
-	position: relative;
-	height: 420px;
-	width: 100%;
-	max-width: 480px;
-	margin-left: 3.25rem;
-	padding: 2rem;
-
-	@media (max-width: 768px) {
-		height: 325px;
-		max-width: 480px;
+		width: 100%;
+		height: auto;
+		max-width: 400px;
+		margin-left: 0;
 	}
 
-	@media (max-width: 480px) {
-		height: 300px;
+	@media (max-width: 600px) {
+		width: 100%;
 		max-width: 100%;
-		margin-left: 2.5rem;
 	}
 }
 
-.personCard {
-	position: absolute;
-	width: 68%;
-	max-width: 320px;
-	height: 380px;
-	border: none;
-	cursor: pointer;
-	background: none;
-	padding: 0;
-	border-radius: $border-radius-xl;
-	overflow: hidden;
-	transition: all $transition-normal;
-	opacity: 1;
-	z-index: 1;
-	flex-shrink: 0;
-	box-shadow: $shadow-md;
-
-	@media (max-width: 768px) {
-		width: 70%;
-		max-width: 280px;
-		height: 340px;
-	}
-
-	@media (max-width: 480px) {
-		width: 70%;
-		max-width: 240px;
-		height: 280px;
-	}
-
-	&.ayaCard {
-		&:focus {
-			outline: 3px solid $color-pink;
-			outline-offset: 2px;
-		}
-	}
-
-	&.bilalCard {
-		&:focus {
-			outline: 3px solid $color-blue;
-			outline-offset: 2px;
-		}
-	}
-
-	&:first-child {
-		left: 0;
-		z-index: 10;
-		box-shadow: $shadow-lg;
-
-		&.active {
-			left: 0;
-			z-index: 10;
-			transform: rotate(-4deg);
-		}
-
-		&:not(.active) {
-			left: 25%;
-			z-index: 1;
-			opacity: 1;
-			transform: rotate(6deg);
-		}
-	}
-
-	&:last-child {
-		left: 25%;
-		z-index: 1;
-		opacity: 1;
-		box-shadow: $shadow-md;
-		transform: rotate(6deg);
-
-		&.active {
-			left: 0;
-			z-index: 10;
-			box-shadow: $shadow-lg;
-			transform: rotate(-4deg);
-			opacity: 1;
-		}
-
-		&:not(.active) {
-			left: 25%;
-			z-index: 1;
-			opacity: 1;
-			transform: rotate(6deg);
-		}
-	}
-
-	&:hover {
-		opacity: 1;
-	}
-}
-
-.cardContent {
-	position: relative;
+.salonImage {
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
-	border-radius: $border-radius-xl;
-	box-shadow: $shadow-lg;
-}
-
-.cardImage {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	transition: transform $transition-normal;
 	display: block;
+	object-fit: cover;
+
+	@media (max-width: 900px) {
+		height: auto;
+	}
 }
 
-.cardOverlay {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-	padding: 2rem 1.5rem;
-	display: none;
+.desktopProfiles {
+	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
-	height: 100%;
-	transition: opacity $transition-normal;
+	gap: 3rem;
+
+	@media (max-width: 900px) {
+		display: none;
+	}
 }
 
-.cardName {
-	color: $color-white;
-	@include util.fontSize($font-size-24);
-	font-weight: 700;
-	margin: 0;
-	margin-bottom: 0.25rem;
+.profileRow {
+	display: flex;
+	align-items: center;
+	gap: 2.5rem;
+
+	&.reverse {
+		flex-direction: row-reverse;
+	}
 }
 
-.cardRole {
-	color: rgba($color-white, 0.9);
-	@include util.fontSize($font-size-14);
-	margin: 0;
-	opacity: 0.9;
-}
-
-.storyContainer {
-	width: 100%;
-	max-width: 480px;
-	background-color: $color-white;
-	padding: 2rem;
-	border-radius: $border-radius-large;
+.profileImageWrap {
+	flex: 0 0 360px;
+	width: 360px;
+	height: 360px;
+	max-width: 360px;
+	border-radius: 16px;
+	overflow: hidden;
 	box-shadow: $shadow-md;
-	min-height: 200px;
-	display: flex;
-	align-items: center;
-	box-sizing: border-box;
-
-	@media (max-width: 480px) {
-		padding: 1.25rem;
-		max-width: 100%;
-	}
+	background-color: $color-white;
 }
 
-.story {
+.profileImage {
 	width: 100%;
-	animation: fadeIn 0.3s ease-in-out;
-	position: relative;
+	height: 100%;
+	display: block;
+	object-fit: cover;
 }
 
-.storyHeader {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 1rem;
+.profileContent {
+	flex: 1 1 0;
+	min-width: 0;
 }
 
-.storyTitle {
+.profileName {
 	color: $color-navy;
-	@include util.fontSize($font-size-20);
+	@include util.fontSize($font-size-32);
 	font-weight: 700;
-	margin: 0;
-
-	&.ayaTitle {
-		color: $color-pink;
-	}
-
-	&.bilalTitle {
-		color: $color-blue;
-	}
+	margin: 0 0 0.4rem 0;
 }
 
-.storyText {
+.ayaName {
+	color: $color-pink;
+}
+
+.bilalName {
+	color: $color-blue;
+}
+
+.profileRole {
 	color: $color-gray;
-	@include util.fontSize($font-size-14);
+	@include util.fontSize($font-size-16);
+	font-weight: 700;
+	margin: 0 0 0.8rem 0;
+}
+
+.ayaRole {
+	color: $color-pink;
+}
+
+.bilalRole {
+	color: $color-blue;
+}
+
+.profileStory {
+	color: $color-gray;
+	@include util.fontSize($font-size-15);
 	line-height: 1.8;
-	margin: 0 0 1rem 0;
+	margin: 0;
 }
 
 .socials {
 	display: flex;
 	gap: 0.75rem;
 	align-items: center;
-}
-
-.certificatesContainer {
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-	justify-content: flex-start;
-	margin-top: 1.5rem;
-	flex-wrap: wrap;
+	margin-top: 1rem;
 }
 
 .socialLink {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 36px;
-	height: 36px;
+	width: 34px;
+	height: 34px;
 	border-radius: 50%;
 	color: $color-white;
 	transition: all $transition-fast;
@@ -348,7 +242,7 @@
 
 		&:hover {
 			background-color: $color-pink-dark;
-			transform: scale(1.1);
+			transform: scale(1.08);
 		}
 	}
 
@@ -357,25 +251,32 @@
 
 		&:hover {
 			background-color: $color-blue-dark;
-			transform: scale(1.1);
+			transform: scale(1.08);
 		}
 	}
 }
 
-.ayaCertificate {
-	width: 60px;
-	height: auto;
-	animation: fadeIn 0.4s ease-in-out;
-	transform: rotate(-15deg);
+.certificatesRow {
+	display: flex;
+	gap: 0.75rem;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-top: 1.25rem;
 }
 
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
+.certificateImage {
+	width: 72px;
+	height: 72px;
+	object-fit: cover;
+	border-radius: 100%;
+	box-shadow: $shadow-sm;
+}
+
+.flipperRow {
+	display: none;
+	width: 100%;
+
+	@media (max-width: 900px) {
+		display: block;
 	}
 }

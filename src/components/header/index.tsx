@@ -9,6 +9,7 @@ import { MobileNav } from "./mobileNav"
 import styles from "./header.module.scss"
 
 const NAV_LINKS = [
+	{ id: "hero", label: "Hjem" },
 	{ id: "about", label: "Om os" },
 	{ id: "services", label: "Behandlinger" },
 	{ id: "footer", label: "Kontakt" },
@@ -23,7 +24,8 @@ export const Header: FC = () => {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
 	// Check if we're on frisor or kosmetolog pages
-	const isServicesPage = pathname.includes("/frisor") || pathname.includes("/kosmetolog")
+	const isServicesPage =
+		pathname.includes("/frisor") || pathname.includes("/kosmetolog")
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -57,12 +59,9 @@ export const Header: FC = () => {
 			className={`${styles.header} ${isScrolled || isServicesPage || isMobileMenuOpen ? styles.scrolled : ""}`}
 		>
 			<div className={styles.container}>
-				<div
-					className={styles.logo}
-					onClick={handleLogoClick}
-				>
+				<div className={styles.logo} onClick={handleLogoClick}>
 					<Image
-						src="/logo.png"
+						src="/images/logos/logo.png"
 						alt="AyabilA"
 						width={110}
 						height={92}
@@ -70,7 +69,9 @@ export const Header: FC = () => {
 					/>
 				</div>
 
-				<nav className={`${styles.nav} ${isServicesPage ? styles.hidden : ""}`}>
+				<nav
+					className={`${styles.nav} ${isServicesPage ? styles.hidden : ""}`}
+				>
 					<ul className={styles.navList}>
 						{NAV_LINKS.map((link) => (
 							<li key={link.id}>
@@ -88,8 +89,8 @@ export const Header: FC = () => {
 					<LanguageSwitcher variant="desktop" />
 					<Button
 						href="https://ayabila.onlinebooq.dk/"
-
-						className={styles.bookBtn}
+						variant="primary"
+						rel="noopener noreferrer"
 					>
 						Book nu
 					</Button>

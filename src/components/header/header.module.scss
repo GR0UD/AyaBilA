@@ -149,59 +149,11 @@
 	@media (max-width: 900px) {
 		gap: 1rem;
 	}
-}
 
-.bookBtn {
-	position: relative;
-	background: linear-gradient(
-		135deg,
-		$color-gold 0%,
-		$color-gold-light 100%
-	) !important;
-	color: $color-white !important;
-	padding: 0.85rem 1.8rem !important;
-	font-weight: 700 !important;
-	font-size: 1rem !important;
-	border-radius: 8px !important;
-	box-shadow:
-		0 4px 20px rgba($color-gold, 0.35),
-		0 0 0 0 rgba($color-gold, 0.2) !important;
-	transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-	overflow: hidden;
-	letter-spacing: 0.5px;
-
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: -100%;
-		width: 100%;
-		height: 100%;
-		background: linear-gradient(
-			90deg,
-			transparent,
-			rgba(255, 255, 255, 0.3),
-			transparent
-		);
-		transition: left 0.5s ease;
-	}
-
-	&:hover {
-		box-shadow:
-			0 8px 28px rgba($color-gold, 0.45),
-			0 0 20px rgba($color-gold, 0.3) !important;
-
-		&::before {
-			left: 100%;
+	> a {
+		@media (max-width: 900px) {
+			display: none;
 		}
-	}
-
-	&:active {
-		box-shadow: 0 4px 16px rgba($color-gold, 0.35) !important;
-	}
-
-	@media (max-width: 900px) {
-		display: none;
 	}
 }
 

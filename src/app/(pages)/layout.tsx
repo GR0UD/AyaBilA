@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 	description:
 		"Eksklusiv herre- og damefrisør i hjertet af København. Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger.",
 	icons: {
-		icon: "/logo.png",
+		icon: "/images/logos/logo.png",
 	},
 }
 

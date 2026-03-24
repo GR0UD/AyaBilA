@@ -193,7 +193,7 @@ export const translations = {
 		reviews: {
 			title: "Se hvad vores kunder siger",
 			subtitle:
-				"Vi er stolte over at levere førsteklasses service. Læs hvad vores kunder har oplevet hos AyabilA.",
+				"Hjælp os med at vokse ved at dele din oplevelse med os! 💚",
 		},
 		booking: {
 			title: "Book din tid i dag",
@@ -205,7 +205,7 @@ export const translations = {
 		},
 		footer: {
 			salon: "AyabilA",
-			tagline: "Herre- & Damefrisør og Kosmetolog",
+			tagline: "Frisør & Kosmetolog",
 			address: "Kongebrogade 29, 6000 Kolding",
 			phone: "+45 60 60 99 27",
 			email: "kontakt@ayabila.dk",
