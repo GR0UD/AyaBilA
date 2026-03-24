@@ -6,6 +6,9 @@
 	padding: 5rem 0 0rem;
 	border-top: 1px solid $color-border;
 	box-shadow: none;
+	@media (max-width: 900px) {
+		scroll-margin-top: 5rem;
+	}
 }
 
 .container {

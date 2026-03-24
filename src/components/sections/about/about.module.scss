@@ -6,6 +6,9 @@
 	scroll-margin-top: 10rem;
 	background-color: $color-light-gray;
 	overflow-x: hidden;
+	@media (max-width: 900px) {
+		scroll-margin-top: 4rem;
+	}
 }
 
 .container {
