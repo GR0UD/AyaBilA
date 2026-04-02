@@ -5,33 +5,13 @@ import styles from "./reviews.module.scss"
 
 const reviews = [
 	{
-		name: "Aman K. S.",
-		rating: 5,
-		date: "en måned siden",
-		text: "Remi did a great job. I was not feeling to get a new hair style but Remi did such a great job that i am loving my new hairs. My go to from now 👍",
-		initials: "AS",
-	},
-	{
 		name: "Sahar S.",
 		rating: 5,
 		date: "4 måneder siden",
 		text: "Aya er super sød og imødekommende, og hun er virkelig dygtig til sit arbejde. Jeg går altid derfra glad og tilfreds og kommer gerne igen 😊",
 		initials: "SS",
 	},
-	{
-		name: "Lasse P.",
-		rating: 5,
-		date: "et år siden",
-		text: "Er blevet klippet hos Bilal de sidste 4 år og er altid tilfreds med resultatet. Altid professionel og omhyggelig, man kan mærke at det er en uddannet frisør, og jeg har tænkt mig at være kunde hos ham mange år endnu.",
-		initials: "LP",
-	},
-	{
-		name: "Daniel T.",
-		rating: 5,
-		date: "et år siden",
-		text: "Byens bedste barber og frisør! Kommer her både selv, og har knejten med. At håret og skægget spiller, er et minimumskrav, men det er den gode service man kommer tilbage for. Altid smilende, når man kommer. Det første de spørger om, er om man vil ha' noget at drikke imens. Det er sgu' god stil. 👍 ",
-		initials: "DT",
-	},
+
 	{
 		name: "Rasmus M.",
 		rating: 5,
