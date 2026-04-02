@@ -6,52 +6,80 @@ import { Flipper } from "./flipper"
 
 export const AboutSection = () => {
 	const features = [
-		{ text: "Erhvervsuddannet", icon: "🎓" },
-		{ text: "10+ års erfaring", icon: "⭐" },
-		{ text: "Premium produkter", icon: "💎" },
-		{ text: "Personlig service", icon: "✂️" },
-		{ text: "Certificeret behandler", icon: "🎖️" },
-		{ text: "Central beliggenhed", icon: "📍" },
+		{
+			text: "Erhvervsuddannet",
+			label: "Professionelt certificeret",
+			icon: "🎓",
+		},
+		{
+			text: "10+ års erfaring",
+			label: "Ekspertise du kan stole på",
+			icon: "⭐",
+		},
+		{ text: "Precisionsarbejde", label: "Øje for detaljerne", icon: "✂️" },
+		{ text: "Personlig pleje", label: "Tilpasset dine behov", icon: "💜" },
 	]
+
+	const cardNumbers = [1, 2, 3, 4]
 
 	return (
 		<section id="about" className={styles.about}>
 			<div className={styles.container}>
 				<div className={styles.topRow}>
 					<div className={styles.content}>
-						<span className={styles.badge}>AyabilA</span>
-						<h2 className={styles.title}>Om os</h2>
+						<span className={styles.badge}>
+							VELKOMMEN TIL AYABILA
+						</span>
+						<h2 className={styles.title}>
+							Passion for skønhed og håndværk
+						</h2>
 						<p className={styles.text}>
-							Hos AyabilA kombinerer vi årtiers erfaring med
-							moderne teknikker. Bilal er ekspert i herreklip,
-							barbering og VIP-behandlinger, mens Aya mestrer
-							dameklip, voksbehandlinger, bryn og hårkure. Sammen
-							leverer vi kvalitet, detaljer og personlig service i
-							en luksuriøs atmosfære.
+							Hos AyaBilA forener vi det bedste fra to verdener.
+							Med over 10 års erfaring inden for både hårstyling
+							og avanceret hudpleje, sikrer vi dig en oplevelse i
+							særklasse, hvor kvalitet og dit velvære altid er i
+							fokus.
 						</p>
 						<div className={styles.features}>
 							{features.map((feature, index) => (
 								<div key={index} className={styles.feature}>
-									<span className={styles.featureIcon}>
-										{feature.icon}
-									</span>
-									<span className={styles.featureText}>
-										{feature.text}
-									</span>
+									<div className={styles.featureIconWrapper}>
+										<span className={styles.featureIcon}>
+											{feature.icon}
+										</span>
+									</div>
+									<div className={styles.featureTextWrapper}>
+										<span className={styles.featureText}>
+											{feature.text}
+										</span>
+										<span className={styles.featureLabel}>
+											{feature.label}
+										</span>
+									</div>
 								</div>
 							))}
 						</div>
 					</div>
 
-					<div className={styles.salonImageWrapper}>
-						<Image
-							src="/images/misc/AyabilA.jpg"
-							alt="AyabilA salon interior"
-							width={640}
-							height={520}
-							className={styles.salonImage}
-						/>
+					<div className={styles.imageGrid}>
+						{cardNumbers.map((num) => (
+							<div key={num} className={styles.imageCard}>
+								<Image
+									src="/images/logos/logo.png"
+									alt={`Card ${num}`}
+									fill
+									className={styles.cardImage}
+								/>
+							</div>
+						))}
 					</div>
+				</div>
+
+				<div className={styles.teamHeader}>
+					<h2 className={styles.teamTitle}>Mød Teamet</h2>
+					<p className={styles.teamSubtitle}>
+						De professionelle hænder bag AyaBilA
+					</p>
 				</div>
 
 				<div className={styles.desktopProfiles}>
