@@ -9,5 +9,11 @@ export const metadata: Metadata = {
 }
 
 export default function FrisorPage() {
-	return <ServicesLayout data={frisorServices} theme="blue" />
+	return (
+		<ServicesLayout
+			data={frisorServices}
+			theme="blue"
+			categoriesInitiallyOpen={false}
+		/>
+	)
 }

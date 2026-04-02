@@ -9,5 +9,11 @@ export const metadata: Metadata = {
 }
 
 export default function KosmetologPage() {
-	return <ServicesLayout data={kosmetologServices} theme="pink" />
+	return (
+		<ServicesLayout
+			data={kosmetologServices}
+			theme="pink"
+			categoriesInitiallyOpen={false}
+		/>
+	)
 }

@@ -5,9 +5,14 @@ import styles from "./servicesLayout.module.scss"
 interface ServicesLayoutProps {
 	data: ServicePage
 	theme?: "blue" | "pink"
+	categoriesInitiallyOpen?: boolean
 }
 
-export const ServicesLayout = ({ data, theme = "blue" }: ServicesLayoutProps) => {
+export const ServicesLayout = ({
+	data,
+	theme = "blue",
+	categoriesInitiallyOpen = true,
+}: ServicesLayoutProps) => {
 	return (
 		<div className={`${styles.servicesLayout} ${styles[`theme-${theme}`]}`}>
 			<div className={styles.container}>
@@ -22,6 +27,7 @@ export const ServicesLayout = ({ data, theme = "blue" }: ServicesLayoutProps) =>
 							key={category.id}
 							category={category}
 							theme={theme}
+							initialOpen={categoriesInitiallyOpen}
 						/>
 					))}
 				</div>
