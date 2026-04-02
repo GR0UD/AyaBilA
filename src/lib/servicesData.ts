@@ -29,7 +29,8 @@ export const kosmetologServices: ServicePage = {
 		{
 			id: "facial-treatments",
 			title: "Ansigtsbehandlinger",
-			subtitle: "(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
+			subtitle:
+				"(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
 			services: [
 				{
 					id: "facial-massage",
@@ -69,22 +70,6 @@ export const kosmetologServices: ServicePage = {
 					],
 				},
 				{
-					id: "head-to-toe",
-					title: "Top til Tå",
-					price: "275 DKK",
-					duration: "60 minutter",
-					description:
-						"Tag en time ud af kalenderen og forkæl dig selv med en luksuriøs kombination af hele tre behandlinger.",
-				},
-				{
-					id: "teenage-clear",
-					title: "Teenage Clear Skin",
-					price: "295 DKK",
-					duration: "60 minutter",
-					description:
-						"En målrettet ansigtsbehandling til ung hud med tendens til urenheder.",
-				},
-				{
 					id: "fruit-acid",
 					title: "Frugtsyrebehandling",
 					price: "315 DKK",
@@ -92,91 +77,21 @@ export const kosmetologServices: ServicePage = {
 					description:
 						"En effektiv behandling med fokus på at forfine hudens struktur, give ny glød og mindske urenheder.",
 				},
-				{
-					id: "luxury-facial",
-					title: "Luksus ansigtsbehandling",
-					price: "335 DKK",
-					duration: "90 minutter",
-					description:
-						"En dejlig velværebehandling til huden med normale behov og udfordringer.",
-				},
-				{
-					id: "face-feet",
-					title: "Face & Feet",
-					price: "335 DKK",
-					duration: "90 minutter",
-					description:
-						"Forkæl dig selv med en kombination af ansigtsbehandling og paraffinbehandling til fødderne.",
-				},
-				{
-					id: "healthy-glow",
-					title: "Healthy Glow Treatment",
-					price: "375 DKK",
-					duration: "90 minutter",
-					description:
-						"Clean-beauty, sund hud, velvære og en fantastisk udstråling er nøgleordene i denne behandling.",
-				},
-				{
-					id: "gentleman-facial",
-					title: "Gentleman Facial Treatment",
-					price: "375 DKK",
-					duration: "90 minutter",
-					description:
-						"En målrettet ansigtsbehandling særligt tilpasset mænds hud.",
-				},
-				{
-					id: "deluxe-facial",
-					title: "Deluxe ansigtsbehandling",
-					price: "385 DKK",
-					duration: "90 minutter",
-					description:
-						"Målrettet behandling, som skræddersys til hudens behov.",
-				},
-				{
-					id: "supreme-facial",
-					title: "Supreme ansigtsbehandling",
-					price: "495 DKK",
-					duration: "90 minutter",
-					description:
-						"Antiage behandling eller beroligende & genopbyggende - skræddersydd til dine behov.",
-				},
-				{
-					id: "splash-facial",
-					title: "Splash ansigtsbehandling",
-					price: "535 DKK",
-					duration: "75 minutter",
-					description:
-						"En fugtgivende ampulbehandling, hvor huden forkæles med 3 eksklusive Babor ampuller.",
-				},
-				{
-					id: "supreme-plus",
-					title: "Supreme+ ansigtsbehandling",
-					price: "595 DKK",
-					duration: "90 minutter",
-					description:
-						"Ultimativ anti-age behandling, hvor resultatet er i fokus.",
-				},
-				{
-					id: "heaven-signature",
-					title: "Den 7. himmel Signaturbehandling",
-					price: "795 DKK",
-					duration: "180 minutter",
-					description:
-						"Kom i den 7. himmel med vores eksklusive signaturbehandling.",
-				},
 			],
 		},
 		{
 			id: "brows-lashes",
 			title: "Bryn og vipper",
-			subtitle: "(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
+			subtitle:
+				"(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
 			services: [
 				{
 					id: "brow-shaping",
 					title: "Retning af bryn",
 					price: "75 DKK",
 					duration: "15 minutter",
-					description: "Dine bryn formes og rettes til med enten voks eller pincet.",
+					description:
+						"Dine bryn formes og rettes til med enten voks eller pincet.",
 				},
 				{
 					id: "brow-tint",
@@ -233,28 +148,12 @@ export const kosmetologServices: ServicePage = {
 					],
 				},
 				{
-					id: "lash-lift-care",
-					title: "Lash lift inkl. afslutende pleje",
-					price: "365 DKK",
-					duration: "60 minutter",
-					description:
-						"Med et Lash Lift får du et mere dramatisk løft af vipperne.",
-				},
-				{
 					id: "korean-lash-lift",
 					title: "Korean Lash lift",
 					price: "375 DKK",
 					duration: "60 minutter",
 					description:
 						"Korean Lash Lift er den nye generation af vippebehandlinger.",
-				},
-				{
-					id: "browse-lash-package",
-					title: "Bryn og vippepakken",
-					price: "395 DKK",
-					duration: "75 minutter",
-					description:
-						"En samlet bryn og vippebehandling med fokus på et naturligt og velplejet resultat.",
 				},
 				{
 					id: "lift-package",
@@ -266,241 +165,12 @@ export const kosmetologServices: ServicePage = {
 				},
 			],
 		},
-		{
-			id: "hands-feet",
-			title: "Hænder og fødder",
-			subtitle: "(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
-			services: [
-				{
-					id: "paraffin",
-					title: "Paraffin behandling hænder eller fødder",
-					price: "95 DKK",
-					duration: "30 minutter",
-					description:
-						"En paraffinbehandling er en effektiv og luksuriøs behandling, der plejer huden i dybden.",
-				},
-				{
-					id: "gel-removal",
-					title: "Fjernelse af Gelpolish",
-					price: "125 DKK",
-					duration: "30 minutter",
-					description: "Skånsom aftagning af gelpolish med plejende olie.",
-				},
-				{
-					id: "kids-manicure",
-					title: "Børnemanicure inkl. Gelpolish eller almindelig lak",
-					price: "225 DKK",
-					duration: "60 minutter",
-					description:
-						"En børnemanicure med mulighed for Gelpolish eller almindelig lak.",
-				},
-				{
-					id: "manicure",
-					title: "Manicure",
-					price: "245 DKK",
-					duration: "60 minutter",
-					description: "Professionel neglepleje med fil, push og cremepleje.",
-				},
-				{
-					id: "pedicure",
-					title: "Pedicure",
-					price: "245 DKK",
-					duration: "60 minutter",
-					description: "Professionel fodpleje med fil, push og cremepleje.",
-				},
-				{
-					id: "gelpolish-full",
-					title: "Gelpolish helfarve (hænder eller fødder)",
-					price: "245 DKK",
-					duration: "60 minutter",
-					description: "Gelpolish i helfarve med MAKEAR produkter.",
-				},
-				{
-					id: "gelpolish-french",
-					title: "Gelpolish med fransk lak (hænder eller fødder)",
-					price: "325 DKK",
-					duration: "90 minutter",
-					description: "Klassisk fransk lakering med Gelpolish.",
-				},
-				{
-					id: "spa-manicure",
-					title: "Spa Manicure",
-					price: "345 DKK",
-					duration: "90 minutter",
-					description:
-						"Behandlingen indeholder håndbad, peeling, maske og afslappende massage.",
-				},
-				{
-					id: "spa-pedicure",
-					title: "Spa Pedicure",
-					price: "345 DKK",
-					duration: "90 minutter",
-					description:
-						"Fodbad, peeling, maske og afslappende fodmassage.",
-				},
-				{
-					id: "manicure-pedicure",
-					title: "Manicure & Pedicure inkl. Gelpolish helfarve",
-					price: "595 DKK",
-					duration: "150 minutter",
-					description:
-						"Komplet manicure og pedicure med Gelpolish helfarve på både hænder og fødder.",
-				},
-			],
-		},
-		{
-			id: "makeup",
-			title: "Makeup",
-			subtitle: "(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
-			services: [
-				{
-					id: "natural-makeup",
-					title: "Naturlig dag makeup",
-					price: "175 DKK",
-					duration: "45 minutter",
-					description:
-						"En let og naturlig makeup, der fremhæver dine bedste træk.",
-				},
-				{
-					id: "evening-makeup",
-					title: "Aftenmakeup",
-					price: "200 DKK",
-					duration: "60 minutter",
-					description: "Smuk og festlig aftenmakeup til dine specielle stunder.",
-				},
-				{
-					id: "makeup-lesson",
-					title: "Individuel makeup vejledning",
-					price: "350 DKK",
-					duration: "90 minutter",
-					description:
-						"Få personlig vejledning i, hvordan du lægger en makeup, der passer til dig.",
-				},
-				{
-					id: "bridal-makeup",
-					title: "Brudemakeup",
-					price: "375 DKK",
-					duration: "60 minutter",
-					description:
-						"Smuk og holdbar brudemakeup til din store dag - eller konfirmation og galla.",
-				},
-				{
-					id: "big-day-package",
-					title: "Den store dag – Stylingpakke inkl. prøve",
-					price: "1295 DKK",
-					duration: "210 minutter",
-					description:
-						"Komplet forkælelsespakke med prøveopsætning og fuldt makeup på dagen.",
-				},
-			],
-		},
-		{
-			id: "massage",
-			title: "Massage",
-			subtitle: "(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
-			services: [
-				{
-					id: "facial-massage-m",
-					title: "Ansigtsmassage inkl rens og creme",
-					price: "145 DKK",
-					duration: "30 minutter",
-					description:
-						"En afslappende ansigtsmassage med rensning og cremepleje.",
-				},
-				{
-					id: "foot-massage",
-					title: "Fodmassage",
-					price: "145 DKK",
-					duration: "20 minutter",
-					description:
-						"En afstressende fodmassage der løsner spændinger og forbedrer blodcirkulationen.",
-				},
-				{
-					id: "hand-massage",
-					title: "Hånd- & underarmsmassage",
-					price: "145 DKK",
-					duration: "20 minutter",
-					description:
-						"En afslappende massage af hænder og underarme.",
-				},
-				{
-					id: "neck-massage",
-					title: "Nakke- og hovedbundsmassage",
-					price: "145 DKK",
-					duration: "20 minutter",
-					description:
-						"En afslappende massage der løsner spændinger og stimulerer blodcirkulationen.",
-				},
-				{
-					id: "back-massage",
-					title: "Rygmassage",
-					price: "155 DKK",
-					duration: "30 minutter",
-					description:
-						"En fokuseret massage af ryg, nakke og skuldre.",
-				},
-				{
-					id: "wellness-massage",
-					title: "Wellness kropsmassage",
-					price: "275 DKK",
-					duration: "60 minutter",
-					description:
-						"En afslappende helkropsmassage der fylder krop og sind med fornyet energi.",
-				},
-				{
-					id: "hotstone-back",
-					title: "Hotstone rygmassage",
-					price: "295 DKK",
-					duration: "45 minutter",
-					description:
-						"En dybdegående og afslappende rygmassage med varme lavasten.",
-				},
-				{
-					id: "slim-cellulite",
-					title: "Slanke- og cellulitebehandling",
-					price: "325 DKK",
-					duration: "60 minutter",
-					description:
-						"En målrettet kropsbehandling til dig, der ønsker at mindske cellulite.",
-				},
-				{
-					id: "wellness-peeling",
-					title: "Wellness peelingmassage",
-					price: "350 DKK",
-					duration: "60 minutter",
-					description:
-						"Saltpeeling efterfulgt af afslappende 25 minutters massage.",
-				},
-				{
-					id: "hotstone-body",
-					title: "Hotstone kropsmassage",
-					price: "395 DKK",
-					duration: "75 minutter",
-					description:
-						"En luksuriøs helkropsmassage med varme lavasten.",
-				},
-				{
-					id: "wellness-peeling-deluxe",
-					title: "Wellness Peelingmassage Deluxe",
-					price: "475 DKK",
-					duration: "90 minutter",
-					description:
-						"En lækker kropsbehandling med fokus på velvære og balance.",
-				},
-				{
-					id: "signature-spa",
-					title: "Den 7. himmel Signaturbehandling",
-					price: "795 DKK",
-					duration: "180 minutter",
-					description:
-						"Kom i den 7. himmel med vores eksklusive signaturbehandling.",
-				},
-			],
-		},
+
 		{
 			id: "waxing",
 			title: "Voksbehandlinger",
-			subtitle: "(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
+			subtitle:
+				"(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
 			services: [
 				{
 					id: "face-waxing",
@@ -644,7 +314,8 @@ export const kosmetologServices: ServicePage = {
 		{
 			id: "microneedling",
 			title: "Microneedling (Skinpen)",
-			subtitle: "(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
+			subtitle:
+				"(varighed inkl. ca. 10-15 min. forberedelse og afslutning)",
 			services: [
 				{
 					id: "microneedling-face",
@@ -699,8 +370,7 @@ export const frisorServices: ServicePage = {
 					title: "Barbering (Shaving & Beard Trim)",
 					price: "149,00 kr.",
 					duration: "20 minutter",
-					description:
-						"Barbering & grooming af erfarne frisører.",
+					description: "Barbering & grooming af erfarne frisører.",
 				},
 				{
 					id: "mens-cut-barbering",
