@@ -20,6 +20,29 @@ export const metadata: Metadata = {
 	icons: {
 		icon: "/images/logos/logo.png",
 	},
+	openGraph: {
+		title: "AyabilA - Frisør & Kosmetolog",
+		description:
+			"Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger.",
+		siteName: "AyabilA",
+		images: [
+			{
+				url: "/images/logos/logo.png",
+				width: 800,
+				height: 600,
+				alt: "AyabilA Logo",
+			},
+		],
+		locale: "da_DK",
+		type: "website",
+	},
+	twitter: {
+		card: "summary_large_image",
+		title: "AyabilA - Frisør & Kosmetolog",
+		description:
+			"Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger.",
+		images: ["/images/logos/logo.png"],
+	},
 }
 
 export default function RootLayout({
