@@ -16,7 +16,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
 	title: "AyabilA - Frisør & Kosmetolog",
 	description:
-		"Eksklusiv herre- og damefrisør i hjertet af København. Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger.",
+		"Eksklusiv herre- og damefrisør i hjertet af Kolding. Professionel frisør og kosmetolog – Din stil vores passion.",
 	icons: {
 		icon: "/images/logos/logo.png",
 	},
