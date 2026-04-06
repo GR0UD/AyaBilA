@@ -65,7 +65,7 @@ export const AboutSection = () => {
 						{cardNumbers.map((num) => (
 							<div key={num} className={styles.imageCard}>
 								<Image
-									src="/images/logos/logo.png"
+									src={`/images/klip/klip-${num}.avif`}
 									alt={`Card ${num}`}
 									fill
 									className={styles.cardImage}
@@ -73,13 +73,6 @@ export const AboutSection = () => {
 							</div>
 						))}
 					</div>
-				</div>
-
-				<div className={styles.teamHeader}>
-					<h2 className={styles.teamTitle}>Mød Teamet</h2>
-					<p className={styles.teamSubtitle}>
-						De professionelle hænder bag AyaBilA
-					</p>
 				</div>
 
 				<div className={styles.desktopProfiles}>
@@ -100,24 +93,26 @@ export const AboutSection = () => {
 								/>
 							</div>
 							<div className={styles.profileContent}>
-								<h3
-									className={`${styles.profileName} ${
-										person.id === "aya"
-											? styles.ayaName
-											: styles.bilalName
-									}`}
-								>
-									{person.name}
-								</h3>
-								<p
-									className={`${styles.profileRole} ${
-										person.id === "aya"
-											? styles.ayaRole
-											: styles.bilalRole
-									}`}
-								>
-									{person.role}
-								</p>
+								<div className={styles.nameWrapper}>
+									<h3
+										className={`${styles.profileName} ${
+											person.id === "aya"
+												? styles.ayaName
+												: styles.bilalName
+										}`}
+									>
+										{person.name}
+									</h3>
+									<span
+										className={`${styles.profileRole} ${
+											person.id === "aya"
+												? styles.ayaRole
+												: styles.bilalRole
+										}`}
+									>
+										{person.role}
+									</span>
+								</div>
 								<p className={styles.profileStory}>
 									{person.story}
 								</p>

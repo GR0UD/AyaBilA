@@ -26,7 +26,7 @@
 .checkIcon {
 	width: 14px;
 	height: 14px;
-	color: #16a34a;
+	color: $color-success;
 	margin-left: auto;
 	flex-shrink: 0;
 }
@@ -54,7 +54,7 @@
 	color: $color-dark;
 	transition: all 0.2s ease;
 	font-weight: 500;
-	font-size: 14px;
+	font-size: $font-size-14;
 
 	&:hover {
 		background-color: transparent;
@@ -75,12 +75,12 @@
 .languageText {
 	font-weight: 600;
 	white-space: nowrap;
-	font-size: 14px;
+	font-size: $font-size-14;
 }
 
 .languageLabel {
 	font-weight: 600;
-	font-size: 14px;
+	font-size: $font-size-14;
 }
 
 .dropdown {
@@ -131,9 +131,9 @@
 	border-radius: 8px;
 	cursor: pointer;
 	transition: background-color 0.15s ease;
-	font-size: 14px;
+	font-size: $font-size-14;
 	font-weight: 500;
-	color: #1a1a2e;
+	color: $color-dark;
 	text-align: left;
 
 	&:hover {

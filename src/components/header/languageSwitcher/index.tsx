@@ -19,13 +19,6 @@ const FLAG_CODES: Record<Language, string> = {
 	de: "de",
 }
 
-const LANGUAGE_LABELS: Record<Language, string> = {
-	da: "DK",
-	en: "EN",
-	ar: "AR",
-	de: "DE",
-}
-
 const ChevronIcon: FC<{ isOpen: boolean }> = ({ isOpen }) => (
 	<svg
 		className={`${styles.chevron} ${isOpen ? styles.flipped : ""}`}
@@ -114,8 +107,6 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 		return () =>
 			document.removeEventListener("mousedown", handleClickOutside)
 	}, [isOpen])
-
-	const currentLang = LANGUAGE_CONFIG.find((l) => l.code === language)
 
 	if (variant === "mobile") {
 		return (

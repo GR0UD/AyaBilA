@@ -10,8 +10,8 @@
 	background: linear-gradient(
 		135deg,
 		$color-white 0%,
-		#f0f7fa 40%,
-		#fef5f8 60%,
+		rgba($color-blue, 0.08) 40%,
+		rgba($color-pink, 0.05) 60%,
 		$color-white 100%
 	);
 	background-size: 200% 200%;
@@ -112,7 +112,7 @@
 	letter-spacing: 0.05em;
 	background-color: rgba($color-gold, 0.15);
 	padding: 0.5rem 1rem;
-	border-radius: 20px;
+	border-radius: $border-radius;
 }
 
 .titleBlue {

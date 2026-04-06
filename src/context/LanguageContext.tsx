@@ -1,6 +1,12 @@
 "use client"
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react"
+import React, {
+	createContext,
+	useContext,
+	useState,
+	useLayoutEffect,
+	ReactNode,
+} from "react"
 import { translations, Language } from "@/lib/translations"
 
 type TranslationType = typeof translations.da
@@ -13,7 +19,7 @@ interface LanguageContextType {
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(
-	undefined
+	undefined,
 )
 
 interface LanguageProviderProps {
@@ -21,17 +27,20 @@ interface LanguageProviderProps {
 }
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-	const [language, setLanguage] = useState<Language>("da") // Default to Danish
+	const [language, setLanguage] = useState<Language>(() => {
+		if (typeof window === "undefined") return "da"
+		const savedLanguage = localStorage.getItem(
+			"language",
+		) as Language | null
+		const isValidLanguage =
+			savedLanguage && ["da", "en", "ar", "de"].includes(savedLanguage)
+		return isValidLanguage ? (savedLanguage as Language) : "da"
+	})
 	const [isLoaded, setIsLoaded] = useState(false)
 
-	// Load language preference from localStorage on mount, default to Danish
-	useEffect(() => {
-		const savedLanguage = localStorage.getItem("language") as Language | null
-		const isValidLanguage = savedLanguage && ["da", "en", "ar", "de"].includes(savedLanguage)
-		if (isValidLanguage) {
-			setLanguage(savedLanguage as Language)
-		}
-		// If no saved language, remains "da" (Danish)
+	// Set isLoaded after hydration to prevent hydration mismatches
+	useLayoutEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setIsLoaded(true)
 	}, [])
 
@@ -50,7 +59,9 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 	}
 
 	return (
-		<LanguageContext.Provider value={{ language, setLanguage: handleSetLanguage, t, isRTL }}>
+		<LanguageContext.Provider
+			value={{ language, setLanguage: handleSetLanguage, t, isRTL }}
+		>
 			{children}
 		</LanguageContext.Provider>
 	)

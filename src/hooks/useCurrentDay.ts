@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useLayoutEffect, useState } from "react"
 
 /**
  * Hook to get the current day of the week on the client side.
@@ -8,7 +8,8 @@ import { useEffect, useState } from "react"
 export const useCurrentDay = (): number | null => {
 	const [currentDay, setCurrentDay] = useState<number | null>(null)
 
-	useEffect(() => {
+	useLayoutEffect(() => {
+		// eslint-disable-next-line react-hooks/set-state-in-effect
 		setCurrentDay(new Date().getDay())
 	}, [])
 

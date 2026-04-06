@@ -86,7 +86,12 @@ export const ABOUT_PEOPLE: AboutPerson[] = [
 				label: "Facebook",
 			},
 		],
-		certificates: [],
+		certificates: [
+			{
+				src: "/images/certificates/certificate3.png",
+				alt: "Decaar Academy Certificate",
+			},
+		],
 	},
 ]
 

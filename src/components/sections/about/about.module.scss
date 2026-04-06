@@ -135,11 +135,7 @@
 	min-width: 420px;
 
 	@media (max-width: 900px) {
-		min-width: auto;
-		width: 100%;
-		grid-template-columns: 1fr;
-		grid-template-rows: auto;
-		gap: 1.5rem;
+		display: none;
 	}
 }
 
@@ -169,6 +165,10 @@
 		grid-row: 3;
 		aspect-ratio: 1.2;
 
+		.cardImage {
+			object-position: top;
+		}
+
 		@media (max-width: 900px) {
 			grid-column: 1;
 			grid-row: auto;
@@ -182,6 +182,10 @@
 		grid-row: 1;
 		aspect-ratio: 1.2;
 
+		.cardImage {
+			object-position: top;
+		}
+
 		@media (max-width: 900px) {
 			display: none;
 		}
@@ -191,6 +195,10 @@
 		grid-column: 2;
 		grid-row: 2 / 4;
 		aspect-ratio: 1;
+
+		.cardImage {
+			object-position: center;
+		}
 
 		@media (max-width: 900px) {
 			display: none;
@@ -202,11 +210,6 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-}
-
-.teamHeader {
-	text-align: center;
-	margin-bottom: 3rem;
 }
 
 .teamTitle {
@@ -241,7 +244,6 @@
 
 .profileRow {
 	display: flex;
-	align-items: center;
 	gap: 2.5rem;
 
 	&.reverse {
@@ -250,10 +252,11 @@
 }
 
 .profileImageWrap {
-	flex: 0 0 360px;
-	width: 360px;
-	height: 360px;
-	max-width: 360px;
+	flex: 0 0 420px;
+	width: 420px;
+	height: 420px;
+	max-width: 420px;
+	max-height: 420px;
 	border-radius: 16px;
 	overflow: hidden;
 	box-shadow: $shadow-md;
@@ -270,13 +273,22 @@
 .profileContent {
 	flex: 1 1 0;
 	min-width: 0;
+	padding-top: 2rem;
+}
+
+.nameWrapper {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin-bottom: 0.8rem;
+	flex-wrap: wrap;
 }
 
 .profileName {
 	color: $color-navy;
 	@include util.fontSize($font-size-32);
 	font-weight: 700;
-	margin: 0 0 0.4rem 0;
+	margin: 0;
 }
 
 .ayaName {
@@ -288,18 +300,24 @@
 }
 
 .profileRole {
-	color: $color-gray;
-	@include util.fontSize($font-size-16);
-	font-weight: 700;
-	margin: 0 0 0.8rem 0;
+	@include util.fontSize($font-size-13);
+	font-weight: 600;
+	margin: 0;
+	display: inline-block;
+	padding: 0.3rem 0.8rem;
+	border-radius: $border-radius;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
 }
 
 .ayaRole {
 	color: $color-pink;
+	background-color: rgba($color-pink, 0.15);
 }
 
 .bilalRole {
 	color: $color-blue;
+	background-color: rgba($color-blue, 0.15);
 }
 
 .profileStory {

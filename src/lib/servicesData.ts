@@ -23,8 +23,7 @@ export interface ServicePage {
 // Kosmetolog Services
 export const kosmetologServices: ServicePage = {
 	title: "Kosmetolog",
-	description:
-		"Professionelle skønhedsbehandlinger leveret af uddannede kosmetologer. Alt fra ansigtsbehandlinger til massage og permanent hårudsmykning.",
+	description: "Din skønhed er vores passion🩷",
 	categories: [
 		{
 			id: "facial-treatments",
@@ -341,8 +340,7 @@ export const kosmetologServices: ServicePage = {
 // Frisør Services
 export const frisorServices: ServicePage = {
 	title: "Frisør",
-	description:
-		"Professionelle frisørbehandlinger og barbering leveret af erfarne frisører. Alt fra klip til farvebehandlinger og hårkure.",
+	description: "Din stil er vores passion😎",
 	categories: [
 		{
 			id: "mens-services",
