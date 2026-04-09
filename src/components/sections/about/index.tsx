@@ -1,7 +1,6 @@
 import Image from "next/image"
 import styles from "./about.module.scss"
 import { ABOUT_PEOPLE } from "./data"
-import { FacebookIcon, InstagramIcon } from "./socialIcons"
 import { Flipper } from "./flipper"
 
 export const AboutSection = () => {
@@ -116,28 +115,6 @@ export const AboutSection = () => {
 								<p className={styles.profileStory}>
 									{person.story}
 								</p>
-								<div className={styles.socials}>
-									{person.socialLinks.map((link) => (
-										<a
-											key={link.platform}
-											href={link.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											className={`${styles.socialLink} ${
-												person.id === "aya"
-													? styles.ayaSocial
-													: styles.bilalSocial
-											}`}
-											aria-label={link.label}
-										>
-											{link.platform === "instagram" ? (
-												<InstagramIcon />
-											) : (
-												<FacebookIcon />
-											)}
-										</a>
-									))}
-								</div>
 								{person.certificates.length > 0 && (
 									<div className={styles.certificatesRow}>
 										{person.certificates.map(

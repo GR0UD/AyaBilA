@@ -327,42 +327,6 @@
 	margin: 0;
 }
 
-.socials {
-	display: flex;
-	gap: 0.75rem;
-	align-items: center;
-	margin-top: 1rem;
-}
-
-.socialLink {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 34px;
-	height: 34px;
-	border-radius: 50%;
-	color: $color-white;
-	transition: all $transition-fast;
-
-	&.ayaSocial {
-		background-color: $color-pink;
-
-		&:hover {
-			background-color: $color-pink-dark;
-			transform: scale(1.08);
-		}
-	}
-
-	&.bilalSocial {
-		background-color: $color-blue;
-
-		&:hover {
-			background-color: $color-blue-dark;
-			transform: scale(1.08);
-		}
-	}
-}
-
 .certificatesRow {
 	display: flex;
 	gap: 0.75rem;

@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Image from "next/image"
 import { ABOUT_PERSON_BY_ID, type PersonId } from "../data"
-import { FacebookIcon, InstagramIcon } from "../socialIcons"
 import styles from "./flipper.module.scss"
 
 export const Flipper = () => {
@@ -74,28 +73,6 @@ export const Flipper = () => {
 						>
 							{selectedProfile.name}
 						</h3>
-						<div className={styles.socials}>
-							{selectedProfile.socialLinks.map((link) => (
-								<a
-									key={link.platform}
-									href={link.url}
-									target="_blank"
-									rel="noopener noreferrer"
-									className={`${styles.socialLink} ${
-										selectedPerson === "aya"
-											? styles.ayaSocial
-											: styles.bilalSocial
-									}`}
-									aria-label={link.label}
-								>
-									{link.platform === "instagram" ? (
-										<InstagramIcon />
-									) : (
-										<FacebookIcon />
-									)}
-								</a>
-							))}
-						</div>
 					</div>
 					<p className={styles.storyText}>{selectedProfile.story}</p>
 					{selectedProfile.certificates.length > 0 && (
