@@ -25,7 +25,7 @@ export const ServicesSection = () => {
 					>
 						<div className={styles.cardImageWrapper}>
 							<Image
-								src="/images/team/bilal.jpg"
+								src="/images/team/bilal-frisor.avif"
 								alt="Hair Salon"
 								fill
 								className={styles.cardImage}
@@ -51,7 +51,7 @@ export const ServicesSection = () => {
 					>
 						<div className={styles.cardImageWrapper}>
 							<Image
-								src="/images/team/aya.jpg"
+								src="/images/team/aya-kosmetolog.avif"
 								alt="Beauty Services"
 								fill
 								className={styles.cardImage}
