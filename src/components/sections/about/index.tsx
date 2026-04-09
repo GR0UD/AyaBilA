@@ -34,7 +34,7 @@ export const AboutSection = () => {
 						</h2>
 						<p className={styles.text}>
 							Hos AyaBilA forener vi det bedste fra to verdener.
-							Med over 10 års erfaring inden for både hårstyling
+							Med over 5-10 års erfaring inden for både hårstyling
 							og avanceret hudpleje, sikrer vi dig en oplevelse i
 							særklasse, hvor kvalitet og dit velvære altid er i
 							fokus.
