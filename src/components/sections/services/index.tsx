@@ -12,8 +12,8 @@ export const ServicesSection = () => {
 				<header className={styles.header}>
 					<h2 className={styles.title}>Vores services</h2>
 					<p className={styles.subtitle}>
-						Klassiske og eksklusive behandlinger med passion til
-						herrer, damer og børn.
+						Eksklusive behandlinger med passion til herrer, damer og
+						børn.
 					</p>
 				</header>
 
