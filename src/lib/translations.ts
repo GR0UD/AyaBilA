@@ -42,7 +42,7 @@ export const translations = {
 		services: {
 			title: "Vores services",
 			subtitle:
-				"Klassiske og eksklusive behandlinger med passion, til herrer, damer og børn.",
+				"Klassiske og eksklusive behandlinger med passion til herrer, damer og børn.",
 			barberTitle: "Herre Barber",
 			barberDescription:
 				"Herreklip, barbering, VIP-behandlinger og mere – af erfarne barbers med øje for detaljen.",

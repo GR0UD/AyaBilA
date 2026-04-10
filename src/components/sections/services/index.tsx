@@ -12,9 +12,8 @@ export const ServicesSection = () => {
 				<header className={styles.header}>
 					<h2 className={styles.title}>Vores services</h2>
 					<p className={styles.subtitle}>
-						Fra klassiske klipninger til eksklusive behandlinger –
-						vi tilbyder et bredt udvalg af services til både herrer,
-						damer og børn
+						Klassiske og eksklusive behandlinger med passion til
+						herrer, damer og børn.
 					</p>
 				</header>
 
