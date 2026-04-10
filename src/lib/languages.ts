@@ -1,4 +1,4 @@
-import { Language } from "@/lib/translations"
+export type Language = "da" | "en" | "ar" | "de"
 
 export const LANGUAGE_CONFIG: {
 	code: Language

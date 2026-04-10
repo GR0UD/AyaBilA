@@ -1,4 +1,4 @@
-import type { Language } from "@/lib/translations"
+import type { Language } from "@/lib/languages"
 
 export type { Language }
 

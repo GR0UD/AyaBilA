@@ -3,12 +3,10 @@
 import Image from "next/image"
 import { DaySchedule } from "./daySchedule"
 import { useLanguage } from "@/context/LanguageContext"
-import { translations } from "@/lib/translations"
 import styles from "./footer.module.scss"
 
 export const Footer = () => {
 	const { language } = useLanguage()
-	const t = translations[language]
 	const footerEmail = "kontakt@ayabila.dk"
 	const footerPhone = "+45 60 60 99 27"
 	const footerAddress = "Kongebrogade 29, 6000 Kolding"
@@ -78,7 +76,7 @@ export const Footer = () => {
 						<div className={styles.businessInfo}>
 							<p className={styles.businessName}>AyabilA</p>
 							<p className={styles.businessName}>
-								{t.footer.tagline}
+								Frisør & Kosmetolog
 							</p>
 							<p className={styles.cvr}>CVR-nr 45102459</p>
 						</div>
@@ -135,7 +133,9 @@ export const Footer = () => {
 			</div>
 
 			<div className={styles.bottom}>
-				<p className={styles.copyright}>{t.footer.copyright}</p>
+				<p className={styles.copyright}>
+					© 2024 AyabilA. All rights reserved.
+				</p>
 			</div>
 		</footer>
 	)

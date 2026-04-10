@@ -3,7 +3,7 @@
 import { type FC, useState, useRef, useCallback, useEffect } from "react"
 import { MdLanguage } from "react-icons/md"
 import { useLanguage } from "@/context/LanguageContext"
-import type { Language } from "@/lib/translations"
+import type { Language } from "@/lib/languages"
 import { LANGUAGE_CONFIG } from "@/lib/languages"
 import styles from "./languageSwitcher.module.scss"
 import "flag-icons/css/flag-icons.min.css"
@@ -72,18 +72,29 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 
 			// Trigger page translation via translation-widget
 			if (typeof window !== "undefined" && window.translate) {
+				// Set a timeout to reset isTranslating after 10 seconds in case callback fails
+				const timeout = setTimeout(() => {
+					console.warn(
+						"Translation timeout: resetting translation state after 10s",
+					)
+					setIsTranslating(false)
+				}, 10000)
+
 				window.translate(
 					lang,
 					(res) => {
+						clearTimeout(timeout)
 						console.log(`Page translated to ${lang}:`, res)
 						setIsTranslating(false)
 					},
 					(err) => {
+						clearTimeout(timeout)
 						console.error(`Translation error for ${lang}:`, err)
 						setIsTranslating(false)
 					},
 				)
 			} else {
+				console.warn("Translation widget not available")
 				setIsTranslating(false)
 			}
 		},

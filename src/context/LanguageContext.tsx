@@ -7,14 +7,11 @@ import React, {
 	useLayoutEffect,
 	ReactNode,
 } from "react"
-import { translations, Language } from "@/lib/translations"
-
-type TranslationType = typeof translations.da
+import type { Language } from "@/lib/languages"
 
 interface LanguageContextType {
 	language: Language
 	setLanguage: (lang: Language) => void
-	t: TranslationType
 	isRTL: boolean
 }
 
@@ -50,7 +47,6 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 		localStorage.setItem("language", lang)
 	}
 
-	const t = translations[language]
 	const isRTL = language === "ar"
 
 	// Don't render children until language is loaded to prevent hydration mismatches
@@ -60,7 +56,7 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 
 	return (
 		<LanguageContext.Provider
-			value={{ language, setLanguage: handleSetLanguage, t, isRTL }}
+			value={{ language, setLanguage: handleSetLanguage, isRTL }}
 		>
 			{children}
 		</LanguageContext.Provider>
