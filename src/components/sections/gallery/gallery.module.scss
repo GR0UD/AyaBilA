@@ -1,0 +1,260 @@
+.gallery {
+	padding: 80px 0;
+	background-color: #f8f9fa;
+	border-top: 1px solid #e8e8ec;
+	border-bottom: 1px solid #e8e8ec;
+
+	@media (max-width: 768px) {
+		padding: 60px 0;
+	}
+
+	@media (max-width: 480px) {
+		padding: 40px 0;
+	}
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 20px;
+
+	@media (max-width: 768px) {
+		padding: 0 16px;
+	}
+
+	@media (max-width: 480px) {
+		padding: 0 12px;
+	}
+}
+
+.header {
+	text-align: center;
+	margin-bottom: 60px;
+
+	@media (max-width: 768px) {
+		margin-bottom: 40px;
+	}
+
+	@media (max-width: 480px) {
+		margin-bottom: 30px;
+	}
+}
+
+.title {
+	font-size: 48px;
+	font-weight: 700;
+	margin-bottom: 16px;
+	color: #1a1a1a;
+	letter-spacing: -0.5px;
+
+	@media (max-width: 768px) {
+		font-size: 36px;
+	}
+
+	@media (max-width: 480px) {
+		font-size: 28px;
+		margin-bottom: 12px;
+	}
+}
+
+.subtitle {
+	font-size: 18px;
+	color: #666;
+	max-width: 600px;
+	margin: 0 auto;
+
+	@media (max-width: 768px) {
+		font-size: 16px;
+	}
+
+	@media (max-width: 480px) {
+		font-size: 14px;
+	}
+}
+
+.filters {
+	display: flex;
+	gap: 12px;
+	justify-content: center;
+	margin-top: 32px;
+	flex-wrap: wrap;
+
+	@media (max-width: 768px) {
+		margin-top: 24px;
+		gap: 10px;
+	}
+
+	@media (max-width: 480px) {
+		margin-top: 20px;
+		gap: 8px;
+	}
+}
+
+.filterBtn {
+	padding: 12px 28px;
+	border: 2px solid #e8e8ec;
+	border-radius: 28px;
+	background: #ffffff;
+	color: #666;
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	cursor: pointer;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	position: relative;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: -100%;
+		width: 100%;
+		height: 100%;
+		background: #d4a853;
+		transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		z-index: -1;
+	}
+
+	&:hover {
+		border-color: #d4a853;
+		color: #d4a853;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(212, 168, 83, 0.2);
+	}
+
+	&.active {
+		background: #d4a853;
+		color: #ffffff;
+		border-color: #d4a853;
+		box-shadow: 0 8px 20px rgba(212, 168, 83, 0.3);
+
+		&::before {
+			left: 0;
+		}
+	}
+
+	@media (max-width: 768px) {
+		padding: 10px 22px;
+		font-size: 12px;
+	}
+
+	@media (max-width: 480px) {
+		padding: 9px 18px;
+		font-size: 11px;
+		letter-spacing: 0.5px;
+	}
+}
+
+.grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 28px;
+	padding: 60px 12px;
+	margin: 0 -12px;
+
+	@media (max-width: 1024px) {
+		gap: 24px;
+	}
+
+	@media (max-width: 768px) {
+		gap: 20px;
+	}
+
+	@media (max-width: 480px) {
+		gap: 16px;
+		padding: 8px;
+		margin: -8px;
+	}
+}
+
+.gridItem {
+	position: relative;
+	flex: 0 0 calc(33.333% - 24px);
+	max-width: calc(33.333% - 24px);
+	min-width: 280px;
+
+	// Default spacing to create the staggered effect
+	// Applies when there are 3 items on a row
+	&:nth-child(3n + 1) {
+		margin-top: -3rem;
+	}
+
+	&:nth-child(3n + 2) {
+		// Middle image - no extra margin
+	}
+
+	&:nth-child(3n + 3) {
+		margin-top: 3rem;
+	}
+
+	// Animation on load
+	animation: fadeInUp 0.6s ease-out backwards;
+
+	@media (max-width: 1024px) {
+		flex: 0 0 calc(50% - 12px);
+		max-width: calc(50% - 12px);
+		min-width: 250px;
+		// Reset 3-column spacing
+		margin-top: 0;
+
+		&:nth-child(n) {
+			margin-top: 0;
+		}
+
+		// Apply 2-column staggering
+		&:nth-child(odd) {
+			margin-top: -2rem;
+		}
+		&:nth-child(even) {
+			margin-top: 2rem;
+		}
+	}
+
+	@media (max-width: 768px) {
+		flex: 0 0 calc(50% - 8px);
+		min-width: 220px;
+	}
+
+	@media (max-width: 480px) {
+		flex: 0 0 calc(80% - 4px);
+		min-width: 180px;
+
+		// Disable all staggering on mobile
+		&:nth-child(n) {
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+	}
+
+	&:nth-child(1) {
+		animation-delay: 0s;
+	}
+
+	&:nth-child(2) {
+		animation-delay: 0.1s;
+	}
+
+	&:nth-child(3) {
+		animation-delay: 0.2s;
+	}
+
+	&:nth-child(4) {
+		animation-delay: 0.3s;
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

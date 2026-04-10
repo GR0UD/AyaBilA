@@ -37,7 +37,7 @@ export const HeroSection = () => {
 							variant="secondary"
 							onClick={() => scrollToSection("services")}
 						>
-							Se vores services
+							Se vores behandlinger
 						</Button>
 					</div>
 				</div>

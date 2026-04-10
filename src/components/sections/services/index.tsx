@@ -10,7 +10,7 @@ export const ServicesSection = () => {
 		<section id="services" className={styles.services}>
 			<div className={styles.container}>
 				<header className={styles.header}>
-					<h2 className={styles.title}>Vores services</h2>
+					<h2 className={styles.title}>Vores behandlinger</h2>
 					<p className={styles.subtitle}>
 						Eksklusive behandlinger med passion til herrer, damer og
 						børn.
@@ -33,13 +33,16 @@ export const ServicesSection = () => {
 						</div>
 						<div className={styles.cardContent}>
 							<FaScissors className={styles.cardIcon} />
-							<h3 className={styles.cardTitle}>Herre Barber</h3>
+							<h3 className={styles.cardTitle}>
+								Professionel frisør
+							</h3>
 							<p className={styles.cardDescription}>
-								Herreklip, barbering, VIP-behandlinger og mere –
-								af erfarne barbers med øje for detaljen
+								Herreklip og dameklip, barbering,
+								VIP-behandlinger og mere – af erfarne frisører
+								med øje for detaljen
 							</p>
 							<span className={styles.cardCta}>
-								Se herre-behandlinger →
+								Se frisør-behandlinger →
 							</span>
 						</div>
 					</a>
