@@ -18,9 +18,14 @@ export const HeroSection = () => {
 				<div className={styles.content}>
 					<div className={styles.tag}>I hjertet af Kolding</div>
 					<h1 className={styles.title}>
-						<span className={styles.titleBlue}>Frisør</span> & <span className={styles.titlePink}>Kosmetolog</span> i ét
+						<span className={styles.titleBlue}>Frisør</span> &{" "}
+						<span className={styles.titlePink}>Kosmetolog</span> i
+						ét
 					</h1>
-					<p className={styles.subtitle}>Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger til både herrer og damer</p>
+					<p className={styles.subtitle}>
+						Professionel frisør & Kosmetolog - Vi skaber gode
+						oplevelser til både mænd og kvinder.
+					</p>
 					<div className={styles.actions}>
 						<Button
 							href="https://ayabila.onlinebooq.dk/"
