@@ -23,8 +23,7 @@ export const HeroSection = () => {
 						ét
 					</h1>
 					<p className={styles.subtitle}>
-						Professionel frisør & Kosmetolog - Vi skaber gode
-						oplevelser til både mænd og kvinder.
+						Vi skaber gode oplevelser til både mænd og kvinder.
 					</p>
 					<div className={styles.actions}>
 						<Button
