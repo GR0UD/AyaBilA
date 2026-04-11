@@ -119,9 +119,9 @@ export const GallerySection = () => {
 					))}
 				</div>
 
-				<div className={styles.grid}>
+				<div className={styles.galleryWrapper}>
 					{filteredItems.map((item) => (
-						<div key={item.id} className={styles.gridItem}>
+						<div key={item.id} className={styles.galleryItem}>
 							<BeforeAfterSlider
 								beforeImage={item.before}
 								afterImage={item.after}
