@@ -1,5 +1,6 @@
 "use client"
 
+import { SectionHeader } from "@/components/SectionHeader"
 import Image from "next/image"
 import styles from "./reviews.module.scss"
 
@@ -32,13 +33,10 @@ export function ReviewsSection() {
 	return (
 		<section id="reviews" className={styles.reviews}>
 			<div className={styles.container}>
-				<header className={styles.header}>
-					<h2 className={styles.title}>Se hvad vores kunder siger</h2>
-					<p className={styles.subtitle}>
-						Hjælp os med at vokse ved at dele din oplevelse med os!
-						💚
-					</p>
-				</header>
+				<SectionHeader
+					title="Kundeanmeldelser"
+					subtitle="Hjælp os med at vokse ved at dele din oplevelse med os! 💚"
+				/>
 
 				<div className={styles.ctaSection}>
 					<div className={styles.ctaLeft}>

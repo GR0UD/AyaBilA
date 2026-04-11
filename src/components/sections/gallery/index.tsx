@@ -1,87 +1,87 @@
 "use client"
 
 import { useState } from "react"
-import { BeforeAfterSlider } from "./BeforeAfterSlider"
+import { SectionHeader } from "@/components/SectionHeader"
+import { BeforeAfterSlider } from "./beforeAfterslider/BeforeAfterSlider"
 import styles from "./gallery.module.scss"
 
 type Category = "herrefrison" | "damefrison" | "kosmetolog"
 
 // Gallery items with before/after images
-// Using placeholder images - replace with real ones later
 const GALLERY_ITEMS = [
-	// Herre Frisør
+	// Herrefrisurer
 	{
 		id: 1,
 		category: "herrefrison" as const,
-		before: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=500&fit=crop",
-		after: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop",
-		alt: "Transformation 1",
+		before: "/images/team/bilal-frisor.avif",
+		after: "/images/team/bilal.jpg",
+		alt: "Herreklip før og efter",
 	},
 	{
 		id: 2,
 		category: "herrefrison" as const,
-		before: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop",
-		after: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=500&fit=crop",
-		alt: "Transformation 2",
+		before: "/images/team/bilal.jpg",
+		after: "/images/team/bilal-frisor.avif",
+		alt: "Herreklip før og efter",
 	},
 	{
 		id: 3,
 		category: "herrefrison" as const,
-		before: "https://images.unsplash.com/photo-1500402448245-d49e3b0ba28d?w=500&h=500&fit=crop",
-		after: "https://images.unsplash.com/photo-1494761681033-6461ffad8d80?w=500&h=500&fit=crop",
-		alt: "Transformation 3",
+		before: "/images/team/bilal-frisor.avif",
+		after: "/images/team/bilal.jpg",
+		alt: "Herreklip før og efter",
 	},
 
-	// Dame Frisør
+	// Damefrisurer
 	{
 		id: 4,
 		category: "damefrison" as const,
-		before: "https://images.unsplash.com/photo-1500402448245-d49e3b0ba28d?w=500&h=500&fit=crop",
-		after: "https://images.unsplash.com/photo-1494761681033-6461ffad8d80?w=500&h=500&fit=crop",
-		alt: "Transformation 4",
+		before: "/images/team/aya-kosmetolog.avif",
+		after: "/images/team/aya.jpg",
+		alt: "Dameklip før og efter",
 	},
 	{
 		id: 5,
 		category: "damefrison" as const,
-		before: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=500&fit=crop",
-		after: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=500&fit=crop",
-		alt: "Transformation 5",
+		before: "/images/team/aya.jpg",
+		after: "/images/team/aya-kosmetolog.avif",
+		alt: "Dameklip før og efter",
 	},
 	{
 		id: 6,
 		category: "damefrison" as const,
-		before: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=500&fit=crop",
-		after: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop",
-		alt: "Transformation 6",
+		before: "/images/team/aya-kosmetolog.avif",
+		after: "/images/team/aya.jpg",
+		alt: "Dameklip før og efter",
 	},
 
 	// Kosmetolog
 	{
 		id: 7,
 		category: "kosmetolog" as const,
-		before: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&h=500&fit=crop",
-		after: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&h=500&fit=crop",
-		alt: "Transformation 7",
+		before: "/images/team/aya.jpg",
+		after: "/images/team/aya-kosmetolog.avif",
+		alt: "Kosmetolog behandling før og efter",
 	},
 	{
 		id: 8,
 		category: "kosmetolog" as const,
-		before: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&h=500&fit=crop",
-		after: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=500&fit=crop",
-		alt: "Transformation 8",
+		before: "/images/team/aya-kosmetolog.avif",
+		after: "/images/team/aya.jpg",
+		alt: "Kosmetolog behandling før og efter",
 	},
 	{
 		id: 9,
 		category: "kosmetolog" as const,
-		before: "https://images.unsplash.com/photo-1500402448245-d49e3b0ba28d?w=500&h=500&fit=crop",
-		after: "https://images.unsplash.com/photo-1494761681033-6461ffad8d80?w=500&h=500&fit=crop",
-		alt: "Transformation 9",
+		before: "/images/team/aya.jpg",
+		after: "/images/team/aya-kosmetolog.avif",
+		alt: "Kosmetolog behandling før og efter",
 	},
 ]
 
 const FILTER_OPTIONS = [
-	{ id: "herrefrison", label: "Herre Frisør" },
-	{ id: "damefrison", label: "Dame Frisør" },
+	{ id: "herrefrison", label: "Herrefrisurer" },
+	{ id: "damefrison", label: "Damefrisurer" },
 	{ id: "kosmetolog", label: "Kosmetolog" },
 ] as const
 
@@ -96,30 +96,28 @@ export const GallerySection = () => {
 	return (
 		<section id="gallery" className={styles.gallery}>
 			<div className={styles.container}>
-				<header className={styles.header}>
-					<h2 className={styles.title}>Galleri</h2>
-					<p className={styles.subtitle}>
-						Se vores før og efter resultater
-					</p>
+				<SectionHeader
+					title="Galleri"
+					subtitle="Se vores før og efter resultater"
+				/>
 
-					<div className={styles.filters}>
-						{FILTER_OPTIONS.map((option) => (
-							<button
-								key={option.id}
-								className={`${styles.filterBtn} ${
-									selectedCategory === option.id
-										? styles.active
-										: ""
-								}`}
-								onClick={() =>
-									setSelectedCategory(option.id as Category)
-								}
-							>
-								{option.label}
-							</button>
-						))}
-					</div>
-				</header>
+				<div className={styles.filters}>
+					{FILTER_OPTIONS.map((option) => (
+						<button
+							key={option.id}
+							className={`${styles.filterBtn} ${
+								selectedCategory === option.id
+									? styles.active
+									: ""
+							}`}
+							onClick={() =>
+								setSelectedCategory(option.id as Category)
+							}
+						>
+							{option.label}
+						</button>
+					))}
+				</div>
 
 				<div className={styles.grid}>
 					{filteredItems.map((item) => (

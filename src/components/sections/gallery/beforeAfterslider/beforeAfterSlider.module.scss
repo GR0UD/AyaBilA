@@ -1,3 +1,5 @@
+@use "@/styles/base/variables" as *;
+
 .container {
 	position: relative;
 	width: 100%;
@@ -28,10 +30,10 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: #000;
+	background: $color-black;
 	opacity: 0;
 	z-index: 1;
-	transition: opacity 0.3s ease;
+	transition: opacity $transition-normal;
 	pointer-events: none;
 }
 
@@ -112,7 +114,7 @@
 	z-index: 8;
 	transform: translateX(-50%);
 	pointer-events: none;
-	opacity: 0;
+	opacity: 1;
 	transition: opacity 0.3s ease;
 
 	&.lineVisible {
@@ -133,7 +135,7 @@
 	cursor: col-resize;
 	z-index: 10;
 	transform: translateX(-50%);
-	opacity: 0;
+	opacity: 1;
 	transition: opacity 0.3s ease;
 
 	.container.hovered &,

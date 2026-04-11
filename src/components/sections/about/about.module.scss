@@ -58,7 +58,7 @@
 	color: $color-navy;
 	@include util.fontSize($font-size-44);
 	font-weight: 700;
-	margin-bottom: 1.5rem;
+	margin-bottom: 1rem;
 	line-height: 1.2;
 
 	@media (max-width: 768px) {
@@ -66,10 +66,10 @@
 	}
 }
 
-.text {
+.subtitle {
 	color: $color-gray;
 	@include util.fontSize($font-size-16);
-	line-height: 1.8;
+	line-height: 1.7;
 	margin-bottom: 2rem;
 }
 
@@ -141,7 +141,7 @@
 
 .imageCard {
 	position: relative;
-	border-radius: 16px;
+	border-radius: $border-radius-lg;
 	overflow: hidden;
 	background-color: $color-white;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -257,7 +257,7 @@
 	height: 420px;
 	max-width: 420px;
 	max-height: 420px;
-	border-radius: 16px;
+	border-radius: $border-radius-lg;
 	overflow: hidden;
 	box-shadow: $shadow-md;
 	background-color: $color-white;

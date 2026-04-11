@@ -15,31 +15,6 @@
 	@include util.maxWidth;
 }
 
-.header {
-	text-align: center;
-	margin-bottom: 3rem;
-}
-
-.title {
-	color: $color-navy;
-	@include util.fontSize($font-size-44);
-	font-weight: 700;
-	margin-bottom: 1rem;
-	line-height: 1.2;
-
-	@media (max-width: 768px) {
-		@include util.fontSize($font-size-32);
-	}
-}
-
-.subtitle {
-	color: $color-gray;
-	@include util.fontSize($font-size-16);
-	max-width: 600px;
-	margin: 0 auto;
-	line-height: 1.7;
-}
-
 .grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;

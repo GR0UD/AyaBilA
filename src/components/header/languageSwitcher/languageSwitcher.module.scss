@@ -12,7 +12,7 @@
 .chevron {
 	width: 10px;
 	height: 10px;
-	transition: transform 0.2s ease;
+	transition: transform $transition-fast;
 
 	&.flipped {
 		transform: rotate(180deg);

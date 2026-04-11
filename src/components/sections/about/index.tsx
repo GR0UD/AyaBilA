@@ -26,19 +26,21 @@ export const AboutSection = () => {
 			<div className={styles.container}>
 				<div className={styles.topRow}>
 					<div className={styles.content}>
-						<span className={styles.badge}>
-							VELKOMMEN TIL AYABILA
-						</span>
-						<h2 className={styles.title}>
-							Passion for skønhed og håndværk
-						</h2>
-						<p className={styles.text}>
-							Hos AyaBilA forener vi det bedste fra to verdener.
-							Med over 5-10 års erfaring inden for både hårstyling
-							og avanceret hudpleje, sikrer vi dig en oplevelse i
-							særklasse, hvor kvalitet og dit velvære altid er i
-							fokus.
-						</p>
+						<header>
+							<span className={styles.badge}>
+								VELKOMMEN TIL AYABILA
+							</span>
+							<h2 className={styles.title}>
+								Passion for skønhed og håndværk
+							</h2>
+							<p className={styles.subtitle}>
+								Hos AyaBilA forener vi det bedste fra to
+								verdener. Med over 5-10 års erfaring inden for
+								både hårstyling og avanceret hudpleje, sikrer vi
+								dig en oplevelse i særklasse, hvor kvalitet og
+								dit velvære altid er i fokus.
+							</p>
+						</header>
 						<div className={styles.features}>
 							{features.map((feature, index) => (
 								<div key={index} className={styles.feature}>
@@ -67,6 +69,7 @@ export const AboutSection = () => {
 									src={`/images/klip/klip-${num}.avif`}
 									alt={`Card ${num}`}
 									fill
+									sizes="(max-width: 768px) 100vw, 50vw"
 									className={styles.cardImage}
 								/>
 							</div>

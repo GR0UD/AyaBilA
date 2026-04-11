@@ -9,7 +9,6 @@ import { MobileNav } from "./mobileNav"
 import styles from "./header.module.scss"
 
 const NAV_LINKS = [
-	{ id: "hero", label: "Hjem" },
 	{ id: "about", label: "Om os" },
 	{ id: "services", label: "Behandlinger" },
 	{ id: "gallery", label: "Galleri" },

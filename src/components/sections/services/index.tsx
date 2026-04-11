@@ -3,19 +3,17 @@
 import Image from "next/image"
 import { FaScissors } from "react-icons/fa6"
 import { MdSpa } from "react-icons/md"
+import { SectionHeader } from "@/components/SectionHeader"
 import styles from "./services.module.scss"
 
 export const ServicesSection = () => {
 	return (
 		<section id="services" className={styles.services}>
 			<div className={styles.container}>
-				<header className={styles.header}>
-					<h2 className={styles.title}>Vores behandlinger</h2>
-					<p className={styles.subtitle}>
-						Eksklusive behandlinger med passion til herrer, damer og
-						børn.
-					</p>
-				</header>
+				<SectionHeader
+					title="Vores behandlinger"
+					subtitle="Eksklusive behandlinger med passion til herrer, damer og børn."
+				/>
 
 				<div className={styles.grid}>
 					<a
@@ -27,6 +25,7 @@ export const ServicesSection = () => {
 								src="/images/team/bilal-frisor.avif"
 								alt="Hair Salon"
 								fill
+								sizes="(max-width: 768px) 100vw, 50vw"
 								className={styles.cardImage}
 							/>
 							<div className={styles.cardOverlay} />
@@ -56,6 +55,7 @@ export const ServicesSection = () => {
 								src="/images/team/aya-kosmetolog.avif"
 								alt="Beauty Services"
 								fill
+								sizes="(max-width: 768px) 100vw, 50vw"
 								className={styles.cardImage}
 							/>
 							<div className={styles.cardOverlay} />

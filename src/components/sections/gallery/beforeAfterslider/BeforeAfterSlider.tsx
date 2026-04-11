@@ -83,7 +83,10 @@ export const BeforeAfterSlider: FC<BeforeAfterSliderProps> = ({
 			<div className={styles.overlay} />
 
 			{/* Before Image */}
-			<div className={styles.imageWrapper}>
+			<div
+				className={styles.imageWrapper}
+				style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
+			>
 				<Image
 					src={beforeImage}
 					alt={`${alt} - Before`}

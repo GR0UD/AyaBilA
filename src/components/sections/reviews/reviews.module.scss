@@ -12,31 +12,6 @@
 	@include util.maxWidth;
 }
 
-.header {
-	text-align: center;
-	margin-bottom: 3rem;
-}
-
-.title {
-	color: $color-navy;
-	@include util.fontSize($font-size-44);
-	font-weight: 700;
-	margin-bottom: 1rem;
-	line-height: 1.2;
-
-	@media (max-width: 768px) {
-		@include util.fontSize($font-size-32);
-	}
-}
-
-.subtitle {
-	color: $color-gray;
-	@include util.fontSize($font-size-16);
-	max-width: 600px;
-	margin: 0 auto;
-	line-height: 1.7;
-}
-
 .ratingBadge {
 	display: none;
 }
@@ -167,7 +142,7 @@
 	svg {
 		width: 14px;
 		height: 14px;
-		fill: #fcbf02;
+		fill: $color-gold;
 	}
 }
 
@@ -254,7 +229,7 @@
 	align-items: center;
 	gap: 0.5rem;
 	padding: 0.75rem 1.5rem;
-	background: #4285f4;
+	background: $color-google-blue;
 	border: none;
 	border-radius: 8px;
 	color: $color-white;
@@ -269,7 +244,7 @@
 	}
 
 	&:hover {
-		background: #357ae8;
-		box-shadow: 0 4px 12px rgba(#4285f4, 0.4);
+		background: $color-google-blue-hover;
+		box-shadow: 0 4px 12px rgba($color-google-blue, 0.4);
 	}
 }
