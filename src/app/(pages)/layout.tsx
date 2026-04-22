@@ -13,7 +13,10 @@ const poppins = Poppins({
 	display: "swap",
 })
 
+const metadataBaseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ayabila.dk"
+
 export const metadata: Metadata = {
+	metadataBase: new URL(metadataBaseUrl),
 	title: "AyabilA - Frisør & Kosmetolog",
 	description:
 		"Eksklusiv herre- og damefrisør i hjertet af Kolding. Professionel frisør og kosmetolog – Din stil vores passion.",

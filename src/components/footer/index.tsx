@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { DaySchedule } from "./daySchedule"
+import { MarkLogo } from "./MarkLogo"
 import { useLanguage } from "@/context/LanguageContext"
 import styles from "./footer.module.scss"
 
@@ -134,8 +135,9 @@ export const Footer = () => {
 
 			<div className={styles.bottom}>
 				<p className={styles.copyright}>
-					© 2024 AyabilA. All rights reserved.
+					© 2024 AyabilA. Alle rettigheder forbeholdes.
 				</p>
+				<MarkLogo />
 			</div>
 		</footer>
 	)

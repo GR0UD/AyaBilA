@@ -94,7 +94,7 @@ export const BeforeAfterSlider: FC<BeforeAfterSliderProps> = ({
 					className={styles.image}
 					sizes="(max-width: 1023px) 92vw, 33vw"
 				/>
-				<span className={styles.beforeLabel}>Before</span>
+				<span className={styles.beforeLabel}>Før</span>
 			</div>
 
 			{/* After Image */}
@@ -109,7 +109,7 @@ export const BeforeAfterSlider: FC<BeforeAfterSliderProps> = ({
 					className={styles.image}
 					sizes="(max-width: 1023px) 92vw, 33vw"
 				/>
-				<span className={styles.afterLabel}>After</span>
+				<span className={styles.afterLabel}>Efter</span>
 			</div>
 
 			{/* Slider Line */}

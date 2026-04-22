@@ -1,0 +1,36 @@
+@use "@/styles/base/util";
+@use "@/styles/base/variables" as *;
+
+.credit {
+	position: absolute;
+	left: 1.5rem;
+	top: 50%;
+	transform: translateY(-50%);
+	text-decoration: none;
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: filter $transition-fast;
+
+	&:hover .creditLogo {
+		filter: invert(1) brightness(1.3);
+		transform: scale(1.3) rotate(15deg);
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+	}
+}
+
+.creditLogo {
+	width: 20px;
+	height: 20px;
+	transition:
+		filter $transition-fast,
+		transform $transition-fast;
+	filter: invert(1);
+}

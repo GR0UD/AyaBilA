@@ -1,0 +1,9 @@
+⚠ Port 3000 is in use by process 16372, using available port 3001 instead.
+⨯ Another next dev server is already running.
+
+- Local:        http://localhost:3000
+- PID:          16372
+- Dir:          C:\Users\marks\Workspace\AyaBilA
+- Log:          .next\dev\logs\next-development.log
+
+Run taskkill /PID 16372 /F to stop it.
