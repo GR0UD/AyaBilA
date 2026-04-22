@@ -75,6 +75,14 @@
 		color: $color-gray;
 		@include util.fontSize($font-size-13);
 		margin: 0;
+		text-decoration: none;
+		transition: color $transition-fast;
+
+		&:hover,
+		&:focus-visible {
+			color: $color-gold;
+			text-decoration: underline;
+		}
 	}
 }
 

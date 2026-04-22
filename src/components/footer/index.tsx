@@ -11,6 +11,8 @@ export const Footer = () => {
 	const footerEmail = "kontakt@ayabila.dk"
 	const footerPhone = "+45 60 60 99 27"
 	const footerAddress = "Kongebrogade 29, 6000 Kolding"
+	const footerCvrLink =
+		"https://www.proff.dk/firma/ayabila-fris%C3%B8r-kosmetolog/kolding/frisering-og-annen-sk%C3%B8nhedspleje/0QUPA3I10NF"
 
 	return (
 		<footer id="footer" className={styles.footer}>
@@ -79,7 +81,15 @@ export const Footer = () => {
 							<p className={styles.businessName}>
 								Frisør & Kosmetolog
 							</p>
-							<p className={styles.cvr}>CVR-nr 45102459</p>
+							<a
+								href={footerCvrLink}
+								target="_blank"
+								rel="noopener noreferrer"
+								className={styles.cvr}
+								aria-label="Se CVR-oplysninger pa Proff"
+							>
+								CVR-nr 45102459
+							</a>
 						</div>
 						<div className={styles.contactInfo}>
 							<a
