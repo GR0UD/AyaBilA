@@ -1,7 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import { ServiceCategory } from "@/lib/servicesData"
+import { getThemeClass } from "@/lib/themeClass"
+import { useTheme } from "@/hooks/useTheme"
+import { useToggle } from "@/hooks/useToggle"
 import { ServiceItem } from "../serviceItem"
 import styles from "./serviceCategory.module.scss"
 
@@ -16,14 +18,12 @@ export const ServiceCategoryComponent = ({
 	theme = "blue",
 	initialOpen = true,
 }: ServiceCategoryProps) => {
-	const [isOpen, setIsOpen] = useState(initialOpen)
+	const resolvedTheme = useTheme(theme)
+	const { isOpen, toggle } = useToggle(initialOpen)
 
 	return (
 		<div className={styles.category}>
-			<button
-				className={styles.categoryHeader}
-				onClick={() => setIsOpen(!isOpen)}
-			>
+			<button className={styles.categoryHeader} onClick={toggle}>
 				<div className={styles.categoryTitle}>
 					<h3>{category.title}</h3>
 					{category.subtitle && (
@@ -33,9 +33,7 @@ export const ServiceCategoryComponent = ({
 					)}
 				</div>
 				<div
-					className={`${styles.categoryToggle} ${styles[`theme-${theme}`]} ${
-						isOpen ? styles.open : ""
-					}`}
+					className={`${styles.categoryToggle} ${getThemeClass(styles, resolvedTheme)} ${isOpen ? styles.open : ""}`}
 				>
 					<svg
 						width="24"

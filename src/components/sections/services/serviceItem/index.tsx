@@ -1,7 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import { Service } from "@/lib/servicesData"
+import { getThemeClass } from "@/lib/themeClass"
+import { useTheme } from "@/hooks/useTheme"
+import { useToggle } from "@/hooks/useToggle"
 import styles from "./serviceItem.module.scss"
 
 interface ServiceItemProps {
@@ -10,14 +12,12 @@ interface ServiceItemProps {
 }
 
 export const ServiceItem = ({ service, theme = "blue" }: ServiceItemProps) => {
-	const [isOpen, setIsOpen] = useState(false)
+	const resolvedTheme = useTheme(theme)
+	const { isOpen, toggle } = useToggle(false)
 
 	return (
 		<div className={styles.serviceItem}>
-			<button
-				className={styles.itemHeader}
-				onClick={() => setIsOpen(!isOpen)}
-			>
+			<button className={styles.itemHeader} onClick={toggle}>
 				<div className={styles.itemTop}>
 					<div className={styles.itemTitle}>
 						<h4>{service.title}</h4>
@@ -28,8 +28,14 @@ export const ServiceItem = ({ service, theme = "blue" }: ServiceItemProps) => {
 						)}
 					</div>
 					<div className={styles.itemRight}>
-					<span className={`${styles.price} ${styles[`price-${theme}`]}`}>{service.price}</span>
-						<div className={`${styles.toggleBtn} ${styles[`theme-${theme}`]} ${isOpen ? styles.open : ""}`}>
+						<span
+							className={`${styles.price} ${getThemeClass(styles, resolvedTheme, "price")}`}
+						>
+							{service.price}
+						</span>
+						<div
+							className={`${styles.toggleBtn} ${getThemeClass(styles, resolvedTheme)} ${isOpen ? styles.open : ""}`}
+						>
 							<svg
 								width="24"
 								height="24"

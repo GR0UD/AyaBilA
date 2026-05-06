@@ -1,8 +1,9 @@
 "use client"
 
-import Image from "next/image"
+import { AppImage } from "@/components/image"
 import { FaScissors } from "react-icons/fa6"
 import { MdSpa } from "react-icons/md"
+import { Card } from "@/components/card"
 import { SectionContainer } from "@/components/layouts/SectionContainer"
 import { SectionHeader } from "@/components/SectionHeader"
 import styles from "./services.module.scss"
@@ -16,12 +17,12 @@ export const ServicesSection = () => {
 			/>
 
 			<div className={styles.grid}>
-				<a
+				<Card
 					href="/frisor"
 					className={`${styles.card} ${styles.cardBlue}`}
 				>
 					<div className={styles.cardImageWrapper}>
-						<Image
+						<AppImage
 							src="/images/team/bilal-frisor.avif"
 							alt="Hair Salon"
 							fill
@@ -43,14 +44,14 @@ export const ServicesSection = () => {
 							Se frisør-behandlinger →
 						</span>
 					</div>
-				</a>
+				</Card>
 
-				<a
+				<Card
 					href="/kosmetolog"
 					className={`${styles.card} ${styles.cardPink}`}
 				>
 					<div className={styles.cardImageWrapper}>
-						<Image
+						<AppImage
 							src="/images/team/aya-kosmetolog.avif"
 							alt="Beauty Services"
 							fill
@@ -70,7 +71,7 @@ export const ServicesSection = () => {
 							Se dame-behandlinger →
 						</span>
 					</div>
-				</a>
+				</Card>
 			</div>
 		</SectionContainer>
 	)

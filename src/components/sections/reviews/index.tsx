@@ -1,8 +1,9 @@
 "use client"
 
+import { Card } from "@/components/card"
+import { AppImage } from "@/components/image"
 import { SectionContainer } from "@/components/layouts/SectionContainer"
 import { SectionHeader } from "@/components/SectionHeader"
-import Image from "next/image"
 import styles from "./reviews.module.scss"
 
 const reviews = [
@@ -41,7 +42,7 @@ export function ReviewsSection() {
 			<div className={styles.ctaSection}>
 				<div className={styles.ctaLeft}>
 					<div className={styles.googleBadge}>
-						<Image
+						<AppImage
 							src="/images/misc/google.webp"
 							alt="Google"
 							width={120}
@@ -92,7 +93,7 @@ export function ReviewsSection() {
 
 			<div className={styles.reviewsGrid}>
 				{reviews.map((review, index) => (
-					<div key={index} className={styles.reviewCard}>
+					<Card key={index} className={styles.reviewCard}>
 						<div className={styles.reviewHeader}>
 							<div className={styles.avatar}>
 								{review.initials}
@@ -126,7 +127,7 @@ export function ReviewsSection() {
 							</div>
 						</div>
 						<p className={styles.reviewText}>{review.text}</p>
-					</div>
+					</Card>
 				))}
 			</div>
 		</SectionContainer>

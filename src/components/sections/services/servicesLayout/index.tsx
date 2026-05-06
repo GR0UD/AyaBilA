@@ -1,4 +1,5 @@
 import { ServicePage } from "@/lib/servicesData"
+import { getThemeClass } from "@/lib/themeClass"
 import { ServiceCategoryComponent } from "../serviceCategory"
 import styles from "./servicesLayout.module.scss"
 
@@ -14,10 +15,14 @@ export const ServicesLayout = ({
 	categoriesInitiallyOpen = true,
 }: ServicesLayoutProps) => {
 	return (
-		<div className={`${styles.servicesLayout} ${styles[`theme-${theme}`]}`}>
+		<div
+			className={`${styles.servicesLayout} ${getThemeClass(styles, theme)}`}
+		>
 			<div className={styles.container}>
 				<div className={styles.header}>
-					<h1 className={styles[`title-${theme}`]}>{data.title}</h1>
+					<h1 className={getThemeClass(styles, theme, "title")}>
+						{data.title}
+					</h1>
 					<p>{data.description}</p>
 				</div>
 

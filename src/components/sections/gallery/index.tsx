@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { Card } from "@/components/card"
 import { SectionContainer } from "@/components/layouts/SectionContainer"
 import { SectionHeader } from "@/components/SectionHeader"
 import { BeforeAfterSlider } from "./beforeAfterslider/BeforeAfterSlider"
@@ -95,13 +96,13 @@ export const GallerySection = () => {
 
 			<div className={styles.galleryWrapper}>
 				{filteredItems.map((item) => (
-					<div key={item.id} className={styles.galleryItem}>
+					<Card key={item.id} className={styles.galleryItem}>
 						<BeforeAfterSlider
 							beforeImage={item.before}
 							afterImage={item.after}
 							alt={item.alt}
 						/>
-					</div>
+					</Card>
 				))}
 			</div>
 		</SectionContainer>

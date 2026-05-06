@@ -2,10 +2,11 @@
 
 import { type FC, useState, useEffect, useCallback } from "react"
 import { usePathname, useRouter } from "next/navigation"
-import Image from "next/image"
+import { AppImage } from "@/components/image"
 import { Button } from "@/components/button"
 import { LanguageSwitcher } from "./languageSwitcher"
 import { MobileNav } from "./mobileNav"
+import { useMobile } from "@/hooks/useMobile"
 import styles from "./header.module.scss"
 
 const NAV_LINKS = [
@@ -20,12 +21,19 @@ export type NavLink = (typeof NAV_LINKS)[number]
 export const Header: FC = () => {
 	const pathname = usePathname()
 	const router = useRouter()
+	const isMobile = useMobile(900)
 	const [isScrolled, setIsScrolled] = useState(false)
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
 	// Check if we're on frisor or kosmetolog pages
 	const isServicesPage =
 		pathname.includes("/frisor") || pathname.includes("/kosmetolog")
+
+	useEffect(() => {
+		if (!isMobile && isMobileMenuOpen) {
+			setIsMobileMenuOpen(false)
+		}
+	}, [isMobile, isMobileMenuOpen])
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -64,7 +72,7 @@ export const Header: FC = () => {
 		>
 			<div className={styles.container}>
 				<div className={styles.logo} onClick={handleLogoClick}>
-					<Image
+					<AppImage
 						src="/images/logos/logo.png"
 						alt="AyabilA"
 						width={110}
