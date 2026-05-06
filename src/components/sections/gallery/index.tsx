@@ -5,33 +5,10 @@ import { SectionHeader } from "@/components/SectionHeader"
 import { BeforeAfterSlider } from "./beforeAfterslider/BeforeAfterSlider"
 import styles from "./gallery.module.scss"
 
-type Category = "herrefrison" | "damefrison" | "kosmetolog"
+type Category = "damefrison" | "kosmetolog"
 
 // Gallery items with before/after images
 const GALLERY_ITEMS = [
-	// Herrefrisurer
-	{
-		id: 1,
-		category: "herrefrison" as const,
-		before: "/images/team/bilal-frisor.avif",
-		after: "/images/team/bilal.jpg",
-		alt: "Herreklip før og efter",
-	},
-	{
-		id: 2,
-		category: "herrefrison" as const,
-		before: "/images/team/bilal.jpg",
-		after: "/images/team/bilal-frisor.avif",
-		alt: "Herreklip før og efter",
-	},
-	{
-		id: 3,
-		category: "herrefrison" as const,
-		before: "/images/team/bilal-frisor.avif",
-		after: "/images/team/bilal.jpg",
-		alt: "Herreklip før og efter",
-	},
-
 	// Damefrisurer
 	{
 		id: 4,
@@ -80,14 +57,13 @@ const GALLERY_ITEMS = [
 ]
 
 const FILTER_OPTIONS = [
-	{ id: "herrefrison", label: "Herrefrisurer" },
 	{ id: "damefrison", label: "Damefrisurer" },
 	{ id: "kosmetolog", label: "Kosmetolog" },
 ] as const
 
 export const GallerySection = () => {
 	const [selectedCategory, setSelectedCategory] =
-		useState<Category>("herrefrison")
+		useState<Category>("damefrison")
 
 	const filteredItems = GALLERY_ITEMS.filter(
 		(item) => item.category === selectedCategory,
