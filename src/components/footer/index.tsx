@@ -145,7 +145,8 @@ export const Footer = () => {
 
 			<div className={styles.bottom}>
 				<p className={styles.copyright}>
-					© 2024 AyabilA. Alle rettigheder forbeholdes.
+					© {new Date().getFullYear()} AyabilA. Alle rettigheder
+					forbeholdes.
 				</p>
 				<MarkLogo />
 			</div>
