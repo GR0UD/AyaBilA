@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server"
 import { DEFAULT_LOCALE, isLocale } from "@/lib/seo"
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
 	const firstSegment = request.nextUrl.pathname.split("/").filter(Boolean)[0]
 	const locale = isLocale(firstSegment) ? firstSegment : DEFAULT_LOCALE
 
