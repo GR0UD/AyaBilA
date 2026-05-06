@@ -19,7 +19,7 @@ export const TRANSLATION_SEEDS: Record<string, Record<string, string>> = {
 		"DK/EN": "DK/EN",
 		"Book nu": "Book now",
 		"I hjertet af Kolding": "In the heart of Kolding",
-		"Frisør": "Hairdresser",
+		Frisør: "Hairdresser",
 		'<h1 class="hero-module-scss-module__o9l5Aa__title"><span class="hero-module-scss-module__o9l5Aa__titleBlue">Frisør</span> &amp;<!-- --> <span class="hero-module-scss-module__o9l5Aa__titlePink">Kosmetolog</span> i ét</h1>':
 			'<h1 class="hero-module-scss-module__o9l5Aa__title"><span class="hero-module-scss-module__o9l5Aa__titleBlue">Hairdresser</span> &amp;<!-- --> <span class="hero-module-scss-module__o9l5Aa__titlePink">Beautician</span> in one</h1>',
 		"Vi skaber gode oplevelser til både mænd og kvinder.":
@@ -33,7 +33,7 @@ export const TRANSLATION_SEEDS: Record<string, Record<string, string>> = {
 		Galleri: "Galerie",
 		Kontakt: "Kontakt",
 		"Book nu": "Buchen Sie jetzt",
-		"DK/EN": "DK/EN",
+		"DK/EN": "DK/DE",
 		"I hjertet af Kolding": "Im Herzen von Kolding",
 		"Vi skaber gode oplevelser til både mænd og kvinder.":
 			"Wir schaffen gute Erlebnisse für sowohl Männer als auch Frauen.",
@@ -52,7 +52,7 @@ export const TRANSLATION_SEEDS: Record<string, Record<string, string>> = {
 		Galleri: "غاليري",
 		Kontakt: "اتصال",
 		"Book nu": "احجز الآن",
-		"DK/EN": "DK/EN",
+		"DK/EN": "DK/AR",
 		"I hjertet af Kolding": "في قلب Kolding",
 		Hairdresser: "حلاق / مصفف شعر",
 		'<h1 class="hero-module-scss-module__o9l5Aa__title" data-translated-lang="en" data-original-text="&lt;h1 class=&quot;hero-module-scss-module__o9l5Aa__title&quot;&gt;&lt;span class=&quot;hero-module-scss-module__o9l5Aa__titleBlue&quot;&gt;Frisør&lt;/span&gt; &amp;amp;&lt;!-- --&gt; &lt;span class=&quot;hero-module-scss-module__o9l5Aa__titlePink&quot;&gt;Kosmetolog&lt;/span&gt; i ét&lt;/h1&gt;"><span class="hero-module-scss-module__o9l5Aa__titleBlue">Hairdresser</span> &amp;<!-- --> <span class="hero-module-scss-module__o9l5Aa__titlePink">Beautician</span> in one</h1>':
