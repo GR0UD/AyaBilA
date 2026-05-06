@@ -7,6 +7,12 @@ html {
 	scroll-behavior: smooth;
 }
 
+/* Text selection */
+::selection {
+	background: $color-blue;
+	color: $color-white;
+}
+
 /* Respect user's motion preferences */
 @media (prefers-reduced-motion: reduce) {
 	html {

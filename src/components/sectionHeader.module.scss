@@ -4,6 +4,32 @@
 .header {
 	text-align: center;
 	margin-bottom: 3rem;
+
+	&.left {
+		text-align: left;
+	}
+
+	&.left .subtitle {
+		margin-bottom: 2rem;
+	}
+
+	&.center .subtitle {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+}
+
+.badge {
+	display: inline-block;
+	background: linear-gradient(135deg, $color-pink 0%, $color-blue 100%);
+	color: $color-white;
+	@include util.fontSize($font-size-12);
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	padding: 0.5rem 1rem;
+	border-radius: $border-radius;
+	margin-bottom: 1rem;
 }
 
 .title {
@@ -21,7 +47,5 @@
 .subtitle {
 	color: $color-gray;
 	@include util.fontSize($font-size-16);
-	max-width: 600px;
-	margin: 0 auto;
 	line-height: 1.7;
 }

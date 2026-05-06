@@ -4,10 +4,11 @@ import React, {
 	createContext,
 	useContext,
 	useState,
-	useLayoutEffect,
+	useEffect,
 	ReactNode,
 } from "react"
 import type { Language } from "@/lib/languages"
+import { usePageRefreshOnReturn } from "@/hooks/usePageRefreshOnReturn"
 
 interface LanguageContextType {
 	language: Language
@@ -24,35 +25,35 @@ interface LanguageProviderProps {
 }
 
 export function LanguageProvider({ children }: LanguageProviderProps) {
-	const [language, setLanguage] = useState<Language>(() => {
-		if (typeof window === "undefined") return "da"
+	const [language, setLanguage] = useState<Language>("da")
+
+	// Refresh page when returning from other sites
+	usePageRefreshOnReturn()
+
+	// Hydrate language from localStorage after client mounts
+	useEffect(() => {
 		const savedLanguage = localStorage.getItem(
 			"language",
 		) as Language | null
 		const isValidLanguage =
 			savedLanguage && ["da", "en", "ar", "de"].includes(savedLanguage)
-		return isValidLanguage ? (savedLanguage as Language) : "da"
-	})
-	const [isLoaded, setIsLoaded] = useState(false)
-
-	// Set isLoaded after hydration to prevent hydration mismatches
-	useLayoutEffect(() => {
-		// eslint-disable-next-line react-hooks/set-state-in-effect
-		setIsLoaded(true)
-	}, [])
+		const languageToUse = isValidLanguage
+			? (savedLanguage as Language)
+			: "da"
+		if (languageToUse !== language) {
+			setLanguage(languageToUse)
+		}
+	}, [language])
 
 	// Save language preference to localStorage when it changes
 	const handleSetLanguage = (lang: Language) => {
 		setLanguage(lang)
-		localStorage.setItem("language", lang)
+		if (typeof window !== "undefined") {
+			localStorage.setItem("language", lang)
+		}
 	}
 
 	const isRTL = language === "ar"
-
-	// Don't render children until language is loaded to prevent hydration mismatches
-	if (!isLoaded) {
-		return null
-	}
 
 	return (
 		<LanguageContext.Provider

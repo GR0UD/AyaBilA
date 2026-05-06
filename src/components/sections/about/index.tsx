@@ -1,4 +1,8 @@
+"use client"
+
 import Image from "next/image"
+import { SectionContainer } from "@/components/layouts/SectionContainer"
+import { SectionHeader } from "@/components/SectionHeader"
 import styles from "./about.module.scss"
 import { ABOUT_PEOPLE } from "./data"
 import { Flipper } from "./flipper"
@@ -22,25 +26,16 @@ export const AboutSection = () => {
 	const cardNumbers = [1, 2, 3, 4]
 
 	return (
-		<section id="about" className={styles.about}>
-			<div className={styles.container}>
+		<SectionContainer id="about" className={styles.about}>
+			<div className={styles.wrapper}>
 				<div className={styles.topRow}>
 					<div className={styles.content}>
-						<header>
-							<span className={styles.badge}>
-								VELKOMMEN TIL AYABILA
-							</span>
-							<h2 className={styles.title}>
-								Passion for skønhed og håndværk
-							</h2>
-							<p className={styles.subtitle}>
-								Hos AyaBilA forener vi det bedste fra to
-								verdener. Med over 5-10 års erfaring inden for
-								både hårstyling og avanceret hudpleje, sikrer vi
-								dig en oplevelse i særklasse, hvor kvalitet og
-								dit velvære altid er i fokus.
-							</p>
-						</header>
+						<SectionHeader
+							badge="VELKOMMEN TIL AYABILA"
+							title="Passion for skønhed og håndværk"
+							subtitle="Hos AyaBilA forener vi det bedste fra to verdener. Med over 5-10 års erfaring inden for både hårstyling og avanceret hudpleje, sikrer vi dig en oplevelse i særklasse, hvor kvalitet og dit velvære altid er i fokus."
+							align="left"
+						/>
 						<div className={styles.features}>
 							{features.map((feature, index) => (
 								<div key={index} className={styles.feature}>
@@ -145,6 +140,6 @@ export const AboutSection = () => {
 					<Flipper />
 				</div>
 			</div>
-		</section>
+		</SectionContainer>
 	)
 }

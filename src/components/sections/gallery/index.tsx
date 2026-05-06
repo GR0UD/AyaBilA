@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { SectionContainer } from "@/components/layouts/SectionContainer"
 import { SectionHeader } from "@/components/SectionHeader"
 import { BeforeAfterSlider } from "./beforeAfterslider/BeforeAfterSlider"
 import styles from "./gallery.module.scss"
@@ -70,43 +71,39 @@ export const GallerySection = () => {
 	)
 
 	return (
-		<section id="gallery" className={styles.gallery}>
-			<div className={styles.container}>
-				<SectionHeader
-					title="Galleri"
-					subtitle="Se vores før og efter resultater"
-				/>
+		<SectionContainer id="gallery" className={styles.gallery}>
+			<SectionHeader
+				title="Galleri"
+				subtitle="Se vores før og efter resultater"
+			/>
 
-				<div className={styles.filters}>
-					{FILTER_OPTIONS.map((option) => (
-						<button
-							key={option.id}
-							className={`${styles.filterBtn} ${
-								selectedCategory === option.id
-									? styles.active
-									: ""
-							}`}
-							onClick={() =>
-								setSelectedCategory(option.id as Category)
-							}
-						>
-							{option.label}
-						</button>
-					))}
-				</div>
-
-				<div className={styles.galleryWrapper}>
-					{filteredItems.map((item) => (
-						<div key={item.id} className={styles.galleryItem}>
-							<BeforeAfterSlider
-								beforeImage={item.before}
-								afterImage={item.after}
-								alt={item.alt}
-							/>
-						</div>
-					))}
-				</div>
+			<div className={styles.filters}>
+				{FILTER_OPTIONS.map((option) => (
+					<button
+						key={option.id}
+						className={`${styles.filterBtn} ${
+							selectedCategory === option.id ? styles.active : ""
+						}`}
+						onClick={() =>
+							setSelectedCategory(option.id as Category)
+						}
+					>
+						{option.label}
+					</button>
+				))}
 			</div>
-		</section>
+
+			<div className={styles.galleryWrapper}>
+				{filteredItems.map((item) => (
+					<div key={item.id} className={styles.galleryItem}>
+						<BeforeAfterSlider
+							beforeImage={item.before}
+							afterImage={item.after}
+							alt={item.alt}
+						/>
+					</div>
+				))}
+			</div>
+		</SectionContainer>
 	)
 }

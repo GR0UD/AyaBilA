@@ -1,0 +1,14 @@
+@use "@/styles/base/util";
+
+.section {
+	padding: 6rem 0;
+	scroll-margin-top: 10rem;
+
+	@media (max-width: 900px) {
+		scroll-margin-top: 4rem;
+	}
+}
+
+.container {
+	@include util.maxWidth;
+}

@@ -35,6 +35,10 @@ export const Header: FC = () => {
 				setIsMobileMenuOpen(false)
 			}
 		}
+
+		// Check initial scroll position on mount
+		setIsScrolled(window.scrollY > 50)
+
 		window.addEventListener("scroll", handleScroll)
 		return () => window.removeEventListener("scroll", handleScroll)
 	}, [isMobileMenuOpen])

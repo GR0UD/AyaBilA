@@ -2,17 +2,11 @@
 @use "@/styles/base/variables" as *;
 
 .about {
-	padding: 6rem 0;
-	scroll-margin-top: 10rem;
 	background-color: $color-light-gray;
 	overflow-x: hidden;
-	@media (max-width: 900px) {
-		scroll-margin-top: 4rem;
-	}
 }
 
-.container {
-	@include util.maxWidth;
+.wrapper {
 	display: flex;
 	flex-direction: column;
 	gap: 4rem;
@@ -39,38 +33,6 @@
 	flex: 1 1 auto;
 	min-width: 0;
 	max-width: 700px;
-}
-
-.badge {
-	display: inline-block;
-	background: linear-gradient(135deg, $color-pink 0%, $color-blue 100%);
-	color: $color-white;
-	@include util.fontSize($font-size-12);
-	font-weight: 700;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	padding: 0.5rem 1rem;
-	border-radius: $border-radius;
-	margin-bottom: 1rem;
-}
-
-.title {
-	color: $color-navy;
-	@include util.fontSize($font-size-44);
-	font-weight: 700;
-	margin-bottom: 1rem;
-	line-height: 1.2;
-
-	@media (max-width: 768px) {
-		@include util.fontSize($font-size-32);
-	}
-}
-
-.subtitle {
-	color: $color-gray;
-	@include util.fontSize($font-size-16);
-	line-height: 1.7;
-	margin-bottom: 2rem;
 }
 
 .features {
