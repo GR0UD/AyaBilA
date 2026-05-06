@@ -1,16 +1,28 @@
 import type { Metadata } from "next"
 import { frisorServices } from "@/lib/servicesData"
 import { ServicesLayout } from "@/components/sections/services/servicesLayout"
+import { LOCALE_TO_OG } from "@/lib/seo"
 
 export const metadata: Metadata = {
 	title: "Frisør - AyaBilA",
 	description:
 		"Professionelle frisørbehandlinger og barbering leveret af erfarne frisører i Kolding.",
+	keywords: [
+		"frisør Kolding",
+		"herrefrisør Kolding",
+		"barber Kolding",
+		"hairdresser Kolding",
+		"Friseur Kolding",
+		"AyabilA",
+	],
+	alternates: {
+		canonical: "/frisor",
+	},
 	openGraph: {
 		title: "Frisør - AyaBilA",
 		description:
 			"Professionelle frisørbehandlinger og barbering leveret af erfarne frisører.",
-		url: "https://ayabila.dk/frisor",
+		url: "/frisor",
 		siteName: "AyaBilA",
 		images: [
 			{
@@ -20,7 +32,7 @@ export const metadata: Metadata = {
 				alt: "AyaBilA Frisør",
 			},
 		],
-		locale: "da_DK",
+		locale: LOCALE_TO_OG.da,
 		type: "website",
 	},
 	twitter: {

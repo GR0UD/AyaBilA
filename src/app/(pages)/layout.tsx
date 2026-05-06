@@ -4,6 +4,13 @@ import { LanguageProvider } from "@/context/LanguageContext"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import TranslationWidget from "@/components/TranslationWidget"
+import {
+	BUSINESS,
+	DEFAULT_LOCALE,
+	SITE_URL,
+	getLocaleDir,
+	isLocale,
+} from "@/lib/seo"
 
 import "@/styles/main.scss"
 
@@ -13,50 +20,63 @@ const poppins = Poppins({
 	display: "swap",
 })
 
-const metadataBaseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ayabila.dk"
-
 export const metadata: Metadata = {
-	metadataBase: new URL(metadataBaseUrl),
-	title: "AyabilA - Frisør & Kosmetolog",
-	description:
-		"Eksklusiv herre- og damefrisør i hjertet af Kolding. Professionel frisør og kosmetolog – Din stil vores passion.",
+	metadataBase: new URL(SITE_URL),
+	applicationName: BUSINESS.name,
+	creator: BUSINESS.name,
+	publisher: BUSINESS.name,
 	icons: {
 		icon: "/images/logos/logo.png",
 	},
-	openGraph: {
-		title: "AyabilA - Frisør & Kosmetolog",
-		description:
-			"Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger.",
-		siteName: "AyabilA",
-		images: [
-			{
-				url: "/images/logos/logo.png",
-				width: 800,
-				height: 600,
-				alt: "AyabilA Logo",
-			},
-		],
-		locale: "da_DK",
-		type: "website",
+}
+
+const localBusinessJsonLd = {
+	"@context": "https://schema.org",
+	"@type": ["HairSalon", "BeautySalon"],
+	name: BUSINESS.name,
+	legalName: BUSINESS.legalName,
+	url: SITE_URL,
+	telephone: BUSINESS.phone,
+	image: `${SITE_URL}/images/logos/logo.png`,
+	address: {
+		"@type": "PostalAddress",
+		streetAddress: BUSINESS.address.street,
+		postalCode: BUSINESS.address.postalCode,
+		addressLocality: BUSINESS.address.city,
+		addressCountry: BUSINESS.address.country,
 	},
-	twitter: {
-		card: "summary_large_image",
-		title: "AyabilA - Frisør & Kosmetolog",
-		description:
-			"Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger.",
-		images: ["/images/logos/logo.png"],
+	areaServed: {
+		"@type": "AdministrativeArea",
+		name: "Kolding",
 	},
 }
 
-export default function RootLayout({
-	children,
-}: Readonly<{
+type RootLayoutProps = Readonly<{
 	children: React.ReactNode
-}>) {
+	params?: { locale?: string }
+}>
+
+export default function RootLayout({ children, params }: RootLayoutProps) {
+	const locale = isLocale(params?.locale) ? params?.locale : DEFAULT_LOCALE
+	const dir = getLocaleDir(locale)
+
 	return (
-		<html lang="da" className={poppins.className} suppressHydrationWarning>
+		<html
+			lang={locale}
+			dir={dir}
+			className={poppins.className}
+			suppressHydrationWarning
+		>
+			<head>
+				<script
+					type="application/ld+json"
+					dangerouslySetInnerHTML={{
+						__html: JSON.stringify(localBusinessJsonLd),
+					}}
+				/>
+			</head>
 			<body>
-				<LanguageProvider>
+				<LanguageProvider initialLanguage={locale}>
 					<Header />
 					<main>{children}</main>
 					<Footer />

@@ -1,16 +1,28 @@
 import type { Metadata } from "next"
 import { kosmetologServices } from "@/lib/servicesData"
 import { ServicesLayout } from "@/components/sections/services/servicesLayout"
+import { LOCALE_TO_OG } from "@/lib/seo"
 
 export const metadata: Metadata = {
 	title: "Kosmetolog - AyaBilA",
 	description:
 		"Professionelle skønhedsbehandlinger leveret af uddannede kosmetologer i Kolding.",
+	keywords: [
+		"kosmetolog Kolding",
+		"skønhedsbehandlinger Kolding",
+		"beauty salon Kolding",
+		"cosmetologist Kolding",
+		"Kosmetiker Kolding",
+		"AyabilA",
+	],
+	alternates: {
+		canonical: "/kosmetolog",
+	},
 	openGraph: {
 		title: "Kosmetolog - AyaBilA",
 		description:
 			"Professionelle skønhedsbehandlinger leveret af uddannede kosmetologer.",
-		url: "https://ayabila.dk/kosmetolog",
+		url: "/kosmetolog",
 		siteName: "AyaBilA",
 		images: [
 			{
@@ -20,7 +32,7 @@ export const metadata: Metadata = {
 				alt: "AyaBilA Kosmetolog",
 			},
 		],
-		locale: "da_DK",
+		locale: LOCALE_TO_OG.da,
 		type: "website",
 	},
 	twitter: {

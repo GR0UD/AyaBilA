@@ -1,19 +1,21 @@
 import type { Metadata } from "next"
-import { HeroSection } from "@/components/sections/hero"
-import { AboutSection } from "@/components/sections/about"
-import { ServicesSection } from "@/components/sections/services"
-import { GallerySection } from "@/components/sections/gallery"
-import { ReviewsSection } from "@/components/sections/reviews"
+import { HomeSections } from "@/components/sections/home"
+import { LOCALE_META, LOCALE_TO_OG, getLocaleAlternates } from "@/lib/seo"
+
+const { title, description, keywords } = LOCALE_META.da
 
 export const metadata: Metadata = {
-	title: "AyaBilA - Frisør & Kosmetolog",
-	description:
-		"Eksklusiv herre- og damefrisør i hjertet af Kolding. Professionel frisør og kosmetolog – Din stil vores passion.",
+	title,
+	description,
+	keywords,
+	alternates: {
+		canonical: "/",
+		languages: getLocaleAlternates(),
+	},
 	openGraph: {
-		title: "AyaBilA - Frisør & Kosmetolog",
-		description:
-			"Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger.",
-		url: "https://ayabila.dk",
+		title,
+		description,
+		url: "/",
 		siteName: "AyaBilA",
 		images: [
 			{
@@ -23,26 +25,17 @@ export const metadata: Metadata = {
 				alt: "AyaBilA Logo",
 			},
 		],
-		locale: "da_DK",
+		locale: LOCALE_TO_OG.da,
 		type: "website",
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "AyaBilA - Frisør & Kosmetolog",
-		description:
-			"Professionel frisør og kosmetolog – vi skaber stilfulde looks og forkælende behandlinger.",
+		title,
+		description,
 		images: ["/images/logos/logo.png"],
 	},
 }
 
 export default function Home() {
-	return (
-		<>
-			<HeroSection />
-			<AboutSection />
-			<ServicesSection />
-			<GallerySection />
-			<ReviewsSection />
-		</>
-	)
+	return <HomeSections />
 }

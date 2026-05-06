@@ -22,10 +22,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 
 interface LanguageProviderProps {
 	children: ReactNode
+	initialLanguage?: Language
 }
 
-export function LanguageProvider({ children }: LanguageProviderProps) {
-	const [language, setLanguage] = useState<Language>("da")
+export function LanguageProvider({
+	children,
+	initialLanguage = "da",
+}: LanguageProviderProps) {
+	const [language, setLanguage] = useState<Language>(initialLanguage)
 
 	// Refresh page when returning from other sites
 	usePageRefreshOnReturn()
@@ -39,11 +43,11 @@ export function LanguageProvider({ children }: LanguageProviderProps) {
 			savedLanguage && ["da", "en", "ar", "de"].includes(savedLanguage)
 		const languageToUse = isValidLanguage
 			? (savedLanguage as Language)
-			: "da"
+			: initialLanguage
 		if (languageToUse !== language) {
 			setLanguage(languageToUse)
 		}
-	}, [language])
+	}, [initialLanguage, language])
 
 	// Save language preference to localStorage when it changes
 	const handleSetLanguage = (lang: Language) => {
