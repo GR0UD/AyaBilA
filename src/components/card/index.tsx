@@ -32,7 +32,7 @@ export function Card(props: LinkCardProps | DivCardProps) {
 		.join(" ")
 
 	if ("href" in props) {
-		const { href, target, rel } = props
+		const { href, target, rel } = props as LinkCardProps
 		const safeRel =
 			target === "_blank" && !rel ? "noopener noreferrer" : rel
 		return (

@@ -7,7 +7,7 @@ const { title, description, keywords } = LOCALE_META.da
 export const metadata: Metadata = {
 	title,
 	description,
-	keywords,
+	keywords: [...keywords],
 	alternates: {
 		canonical: "/",
 		languages: getLocaleAlternates(),

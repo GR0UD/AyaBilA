@@ -34,3 +34,12 @@ body {
 	color: $color-dark;
 	line-height: 1.6;
 }
+
+main {
+	transition: opacity 0.2s ease;
+}
+
+body.translating main {
+	opacity: 0.55;
+	pointer-events: none;
+}

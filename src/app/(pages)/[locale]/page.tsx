@@ -17,7 +17,9 @@ type PageProps = {
 export const dynamicParams = false
 
 export function generateStaticParams() {
-	return LOCALES.map((locale) => ({ locale }))
+	return LOCALES.filter((locale) => locale !== DEFAULT_LOCALE).map(
+		(locale) => ({ locale }),
+	)
 }
 
 export function generateMetadata({ params }: PageProps): Metadata {
@@ -28,7 +30,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
 	return {
 		title,
 		description,
-		keywords,
+		keywords: [...keywords],
 		alternates: {
 			canonical: path,
 			languages: getLocaleAlternates(),

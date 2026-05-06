@@ -54,49 +54,116 @@ export const LanguageSwitcher: FC<LanguageSwitcherProps> = ({
 	const [isOpen, setIsOpen] = useState(false)
 	const [isTranslating, setIsTranslating] = useState(false)
 	const containerRef = useRef<HTMLDivElement>(null)
+	// Tracks any scheduled background translate so it can be cancelled before a
+	// new user-initiated translate starts, avoiding "already in progress" errors.
+	const bgHandleRef = useRef<number | null>(null)
+	const bgTargetLangRef = useRef<Language | null>(null)
 
 	const handleLanguageChange = useCallback(
-		(lang: Language) => {
-			// Don't translate if already in that language
-			if (lang === language) {
+		async (lang: Language) => {
+			if (lang === language || isTranslating) {
 				setIsOpen(false)
 				return
 			}
 
-			// Prevent concurrent translations
-			if (isTranslating) return
+			// Cancel any pending background translate before taking the widget lock.
+			if (bgHandleRef.current !== null) {
+				if (typeof cancelIdleCallback !== "undefined") {
+					cancelIdleCallback(bgHandleRef.current)
+				} else {
+					clearTimeout(bgHandleRef.current)
+				}
+				bgHandleRef.current = null
+				bgTargetLangRef.current = null
+			}
 
 			setLanguage(lang)
 			setIsOpen(false)
 			setIsTranslating(true)
+			document.body.classList.add("translating")
 
-			// Trigger page translation via translation-widget
-			if (typeof window !== "undefined" && window.translate) {
-				// Set a timeout to reset isTranslating after 10 seconds in case callback fails
-				const timeout = setTimeout(() => {
-					console.warn(
-						"Translation timeout: resetting translation state after 10s",
-					)
-					setIsTranslating(false)
-				}, 10000)
+			if (!window.translate) {
+				document.body.classList.remove("translating")
+				setIsTranslating(false)
+				return
+			}
 
-				window.translate(
-					lang,
-					(res) => {
-						clearTimeout(timeout)
-						console.log(`Page translated to ${lang}:`, res)
-						setIsTranslating(false)
-					},
-					(err) => {
-						clearTimeout(timeout)
-						console.error(`Translation error for ${lang}:`, err)
-						setIsTranslating(false)
-					},
-				)
-			} else {
-				console.warn("Translation widget not available")
+			// Add notranslate class to sections entirely below the viewport so the
+			// widget skips them on the first pass — the widget respects .notranslate
+			// via closest(), so all descendant text nodes are skipped too.
+			const offScreen: Element[] = []
+			document.querySelectorAll("section, footer").forEach((el) => {
+				if (el.getBoundingClientRect().top > window.innerHeight + 50) {
+					el.classList.add("notranslate")
+					offScreen.push(el)
+				}
+			})
+
+			// Yield two animation frames so the fade CSS paints before any
+			// synchronous DOM work (critical for cached translations which update
+			// all text nodes in one tight loop).
+			await new Promise<void>((resolve) =>
+				requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+			)
+
+			const cleanup = () => {
+				offScreen.forEach((el) => el.classList.remove("notranslate"))
+				document.body.classList.remove("translating")
 				setIsTranslating(false)
 			}
+
+			const finish = () => {
+				cleanup()
+
+				// Translate off-screen sections silently in the background.
+				// Already-translated visible nodes are skipped by the widget's cache,
+				// so only the newly exposed sections do any real work.
+				if (offScreen.length > 0) {
+					const targetLang = lang
+					bgTargetLangRef.current = targetLang
+
+					const run = () => {
+						bgHandleRef.current = null
+						// Skip if user has since switched to a different language.
+						if (bgTargetLangRef.current !== targetLang) return
+						window.translate?.(targetLang, () => {}, () => {})
+					}
+
+					bgHandleRef.current =
+						typeof requestIdleCallback !== "undefined"
+							? requestIdleCallback(run)
+							: window.setTimeout(run, 800)
+				}
+			}
+
+			// Safety release if the callback never fires (network stall etc.)
+			const safetyTimer = setTimeout(cleanup, 10_000)
+
+			// If a background translate happens to be actively running when we reach
+			// this point, the widget hard-rejects us. Retry a few times until it frees.
+			const doTranslate = (attempt = 0) => {
+				window.translate!(
+					lang,
+					() => {
+						clearTimeout(safetyTimer)
+						finish()
+					},
+					(err) => {
+						const busy =
+							err instanceof Error &&
+							err.message.includes("already in progress")
+						if (busy && attempt < 4) {
+							setTimeout(() => doTranslate(attempt + 1), 150)
+						} else {
+							clearTimeout(safetyTimer)
+							if (!busy) console.error(`Translation error for ${lang}:`, err)
+							finish()
+						}
+					},
+				)
+			}
+
+			doTranslate()
 		},
 		[language, setLanguage, isTranslating],
 	)

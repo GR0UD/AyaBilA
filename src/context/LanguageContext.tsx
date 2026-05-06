@@ -8,6 +8,7 @@ import React, {
 	ReactNode,
 } from "react"
 import type { Language } from "@/lib/languages"
+import { LOCALES } from "@/lib/seo"
 import { usePageRefreshOnReturn } from "@/hooks/usePageRefreshOnReturn"
 
 interface LanguageContextType {
@@ -36,18 +37,10 @@ export function LanguageProvider({
 
 	// Hydrate language from localStorage after client mounts
 	useEffect(() => {
-		const savedLanguage = localStorage.getItem(
-			"language",
-		) as Language | null
-		const isValidLanguage =
-			savedLanguage && ["da", "en", "ar", "de"].includes(savedLanguage)
-		const languageToUse = isValidLanguage
-			? (savedLanguage as Language)
-			: initialLanguage
-		if (languageToUse !== language) {
-			setLanguage(languageToUse)
-		}
-	}, [initialLanguage, language])
+		const saved = localStorage.getItem("language") as Language | null
+		const valid = saved && (LOCALES as readonly string[]).includes(saved)
+		setLanguage(valid ? (saved as Language) : initialLanguage)
+	}, [initialLanguage])
 
 	// Save language preference to localStorage when it changes
 	const handleSetLanguage = (lang: Language) => {

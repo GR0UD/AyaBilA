@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
+import { headers } from "next/headers"
 import { LanguageProvider } from "@/context/LanguageContext"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -53,11 +54,12 @@ const localBusinessJsonLd = {
 
 type RootLayoutProps = Readonly<{
 	children: React.ReactNode
-	params?: { locale?: string }
 }>
 
-export default function RootLayout({ children, params }: RootLayoutProps) {
-	const locale = isLocale(params?.locale) ? params?.locale : DEFAULT_LOCALE
+export default async function RootLayout({ children }: RootLayoutProps) {
+	const headersList = await headers()
+	const localeHeader = headersList.get("x-locale") ?? undefined
+	const locale = isLocale(localeHeader) ? localeHeader : DEFAULT_LOCALE
 	const dir = getLocaleDir(locale)
 
 	return (
