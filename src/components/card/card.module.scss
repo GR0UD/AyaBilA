@@ -1,0 +1,51 @@
+@use "@/styles/base/variables" as *;
+
+.card {
+	display: block;
+	color: inherit;
+	text-decoration: none;
+	border-radius: $border-radius;
+}
+
+.plain {
+	background: transparent;
+	border: 1px solid transparent;
+}
+
+.outlined {
+	background: $color-white;
+	border: 1px solid $color-border;
+}
+
+.filled {
+	background: $color-light-gray;
+	border: 1px solid transparent;
+}
+
+.pad-none {
+	padding: 0;
+}
+
+.pad-sm {
+	padding: 1rem;
+}
+
+.pad-md {
+	padding: 1.5rem;
+}
+
+.pad-lg {
+	padding: 2rem;
+}
+
+.clickable {
+	cursor: pointer;
+	transition:
+		box-shadow $transition-fast,
+		transform $transition-fast;
+}
+
+.clickable:focus-visible {
+	outline: 2px solid $color-blue;
+	outline-offset: 3px;
+}
